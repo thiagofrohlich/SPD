@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="br.com.spd"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="spd-client"/>
+			<item value="spd-domain"/>
+			<item value="spd-model"/>
+			<item value="spd-parent"/>
+			<item value="spd-services"/>
+			<item value="spd-web"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>
