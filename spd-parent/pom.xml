@@ -8,6 +8,10 @@
  <properties>
 	    <primefaces.version>5.2</primefaces.version>
 	    <primefaces.theme>1.0.10</primefaces.theme>
+	    <jsf.version>2.2</jsf.version>
+	    <servletapi.version>2.5</servletapi.version>
+		<servletjsp.version>2.1</servletjsp.version>
+		<servlet.version>1.2</servlet.version>
 	    <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 	    <java-compiler.version>1.7</java-compiler.version>
 		<maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
@@ -35,6 +39,36 @@
 		    <artifactId>all-themes</artifactId>  
 		    <version>${primefaces.theme}</version>  
 		</dependency>
+		
+		<!-- JSF 2 -->
+			<dependency>
+				<groupId>com.sun.faces</groupId>
+				<artifactId>jsf-api</artifactId>
+				<version>${jsf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.faces</groupId>
+				<artifactId>jsf-impl</artifactId>
+				<version>${jsf.version}</version>
+			</dependency>
+	 
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${servlet.version}</version>
+			</dependency>
+	 
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servletapi.version}</version>
+			</dependency>
+	 
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>${servletjsp.version}</version>
+			</dependency>
 		  
 	</dependencies>
 </dependencyManagement>
