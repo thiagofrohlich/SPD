@@ -4,17 +4,23 @@
   <artifactId>spd-web</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <parent>
+  	<groupId>br.com.spd</groupId>
+  	<artifactId>spd-parent</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<relativePath>../spd-parent</relativePath>
+  </parent>  
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			
+		</plugins>
+	</build>
 </project>
