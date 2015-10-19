@@ -16,6 +16,14 @@
 	    <java-compiler.version>1.7</java-compiler.version>
 		<maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
 		<maven-jar-plugin.version>2.5</maven-jar-plugin.version>
+		<spring.version>4.1.1.RELEASE</spring.version>
+		<spring-data-jpa.version>1.5.0.RELEASE</spring-data-jpa.version>
+		<hibernate.version>4.2.8.Final</hibernate.version>
+		<hibernate-jpa.version>1.0.1.Final</hibernate-jpa.version>
+		<hibernate-commons-annotation.version>4.0.4.Final</hibernate-commons-annotation.version>
+		<hibernate-validator.version>5.1.0.Final</hibernate-validator.version>
+		<postgresql.version>9.1-901.jdbc4</postgresql.version>
+		<junit.version>4.11</junit.version>
  </properties>
  
  <modules>
