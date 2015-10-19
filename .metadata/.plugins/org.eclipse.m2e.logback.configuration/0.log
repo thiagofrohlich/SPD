@@ -554,3 +554,211 @@
 2015-10-14 21:42:21,101 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\main\resources
 2015-10-14 21:42:21,102 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2015-10-14 21:42:21,103 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\test\resources
+2015-10-19 20:26:26,592 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/org/primefaces/primefaces/5.2/primefaces-5.2.pom
+2015-10-19 20:26:27,917 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-client:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-client\pom.xml.
+2015-10-19 20:26:28,347 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/primefaces/primefaces/5.2/primefaces-5.2.pom
+2015-10-19 20:26:28,919 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/primefaces/primefaces/5.2/primefaces-5.2.pom
+2015-10-19 20:26:29,538 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+2015-10-19 20:26:29,845 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+2015-10-19 20:26:30,088 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+2015-10-19 20:26:30,775 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repository.primefaces.org/org/primefaces/themes/all-themes/1.0.10/all-themes-1.0.10.pom
+2015-10-19 20:26:31,480 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/org/primefaces/themes/all-themes/1.0.10/all-themes-1.0.10.pom
+2015-10-19 20:26:31,745 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repository.primefaces.org/org/primefaces/themes/themes-project/1.0.10/themes-project-1.0.10.pom
+2015-10-19 20:26:32,029 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/org/primefaces/themes/themes-project/1.0.10/themes-project-1.0.10.pom
+2015-10-19 20:26:32,301 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-api/2.2/jsf-api-2.2.pom
+2015-10-19 20:26:32,438 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-api/2.2/jsf-api-2.2.pom
+2015-10-19 20:26:34,291 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-impl/2.2/jsf-impl-2.2.pom
+2015-10-19 20:26:35,121 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-impl/2.2/jsf-impl-2.2.pom
+2015-10-19 20:26:35,732 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/javax/servlet/jstl/1.2/jstl-1.2.pom
+2015-10-19 20:26:36,359 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.pom
+2015-10-19 20:26:36,513 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.pom
+2015-10-19 20:26:37,114 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/javax/servlet/servlet-api/2.5/servlet-api-2.5.pom
+2015-10-19 20:26:37,510 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.pom
+2015-10-19 20:26:37,703 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.pom
+2015-10-19 20:26:38,191 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.pom
+2015-10-19 20:26:38,330 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.pom
+2015-10-19 20:26:38,476 [Worker-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.pom
+2015-10-19 20:26:39,523 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:26:39,524 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\main\resources
+2015-10-19 20:26:39,526 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:26:39,527 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\test\resources
+2015-10-19 20:26:39,530 [Worker-0] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of spd-client
+2015-10-19 20:26:39,530 [Worker-0] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for spd-client
+2015-10-19 20:26:39,536 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:26:40,428 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.5/maven-jar-plugin-2.5.pom
+2015-10-19 20:26:40,579 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.5/maven-jar-plugin-2.5.pom
+2015-10-19 20:26:40,806 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom
+2015-10-19 20:26:40,945 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom
+2015-10-19 20:26:41,108 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.5/maven-jar-plugin-2.5.jar
+2015-10-19 20:26:41,376 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.5/maven-jar-plugin-2.5.jar
+2015-10-19 20:26:41,429 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:26:41,430 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\main\resources
+2015-10-19 20:26:41,431 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:26:41,431 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\test\resources
+2015-10-19 20:26:51,870 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-domain:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\pom.xml.
+2015-10-19 20:26:51,952 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:26:51,952 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\main\resources
+2015-10-19 20:26:51,953 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:26:51,954 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\test\resources
+2015-10-19 20:26:52,024 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-model:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-model\pom.xml.
+2015-10-19 20:26:52,095 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:26:52,096 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\main\resources
+2015-10-19 20:26:52,097 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:26:52,098 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\test\resources
+2015-10-19 20:26:52,170 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: br.com.spd:spd-parent:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-parent\pom.xml.
+2015-10-19 20:26:52,668 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-client:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-client\pom.xml.
+2015-10-19 20:26:53,016 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-domain:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\pom.xml.
+2015-10-19 20:26:53,061 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-model:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-model\pom.xml.
+2015-10-19 20:26:53,977 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/org/primefaces/primefaces/5.2/primefaces-5.2.jar
+2015-10-19 20:26:54,449 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repository.primefaces.org/org/primefaces/themes/all-themes/1.0.10/all-themes-1.0.10.jar
+2015-10-19 20:26:59,940 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/org/primefaces/themes/all-themes/1.0.10/all-themes-1.0.10.jar
+2015-10-19 20:27:00,178 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-api/2.2/jsf-api-2.2.jar
+2015-10-19 20:27:00,641 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-impl/2.2/jsf-impl-2.2.jar
+2015-10-19 20:27:01,108 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/javax/servlet/jstl/1.2/jstl-1.2.jar
+2015-10-19 20:27:01,573 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
+2015-10-19 20:27:02,049 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar
+2015-10-19 20:27:02,293 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/primefaces/primefaces/5.2/primefaces-5.2.jar
+2015-10-19 20:27:04,042 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/primefaces/primefaces/5.2/primefaces-5.2.jar
+2015-10-19 20:27:04,193 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-api/2.2/jsf-api-2.2.jar
+2015-10-19 20:27:05,006 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-impl/2.2/jsf-impl-2.2.jar
+2015-10-19 20:27:05,648 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar
+2015-10-19 20:27:06,727 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar
+2015-10-19 20:27:06,876 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
+2015-10-19 20:27:07,063 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
+2015-10-19 20:27:07,213 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar
+2015-10-19 20:27:07,395 [Worker-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar
+2015-10-19 20:27:09,169 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,181 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\main\resources
+2015-10-19 20:27:09,183 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,184 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\test\resources
+2015-10-19 20:27:09,203 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,204 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\main\resources
+2015-10-19 20:27:09,205 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,206 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\test\resources
+2015-10-19 20:27:09,218 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,218 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\main\resources
+2015-10-19 20:27:09,219 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,220 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\test\resources
+2015-10-19 20:27:09,287 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-services:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-services\pom.xml.
+2015-10-19 20:27:09,374 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,375 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\main\resources
+2015-10-19 20:27:09,376 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,376 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\test\resources
+2015-10-19 20:27:09,452 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-web:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-web\pom.xml.
+2015-10-19 20:27:09,546 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,547 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\main\resources
+2015-10-19 20:27:09,548 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:27:09,548 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\test\resources
+2015-10-19 20:27:09,548 [Worker-3] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of spd-web
+2015-10-19 20:27:09,549 [Worker-3] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for spd-web
+2015-10-19 20:27:09,552 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:44,691 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: br.com.spd:spd-parent:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-parent\pom.xml.
+2015-10-19 20:28:45,174 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-domain:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\pom.xml.
+2015-10-19 20:28:45,455 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-client:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-client\pom.xml.
+2015-10-19 20:28:45,947 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-api/2.1/jsf-api-2.1.pom
+2015-10-19 20:28:46,616 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-api/2.1/jsf-api-2.1.pom
+2015-10-19 20:28:47,088 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-impl/2.1/jsf-impl-2.1.pom
+2015-10-19 20:28:47,735 [Worker-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-impl/2.1/jsf-impl-2.1.pom
+2015-10-19 20:28:47,796 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-model:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-model\pom.xml.
+2015-10-19 20:28:47,844 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-services:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-services\pom.xml.
+2015-10-19 20:28:47,880 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-web:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-web\pom.xml.
+2015-10-19 20:28:48,900 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:48,901 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\main\resources
+2015-10-19 20:28:48,902 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:48,903 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\test\resources
+2015-10-19 20:28:48,914 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:48,917 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\main\resources
+2015-10-19 20:28:48,918 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:48,919 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\test\resources
+2015-10-19 20:28:50,057 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:50,059 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\main\resources
+2015-10-19 20:28:50,060 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:50,061 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\test\resources
+2015-10-19 20:28:50,087 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:50,089 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\main\resources
+2015-10-19 20:28:50,090 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:50,091 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\test\resources
+2015-10-19 20:28:50,103 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:50,106 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\main\resources
+2015-10-19 20:28:50,107 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:28:50,107 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\test\resources
+2015-10-19 20:28:58,016 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: br.com.spd:spd-parent:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-parent\pom.xml.
+2015-10-19 20:28:58,503 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-services:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-services\pom.xml.
+2015-10-19 20:28:58,542 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-domain:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\pom.xml.
+2015-10-19 20:28:58,790 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-client:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-client\pom.xml.
+2015-10-19 20:28:59,284 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-api/2.1.11/jsf-api-2.1.11.pom
+2015-10-19 20:28:59,919 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/sun/faces/jsf-api/2.1.11/jsf-api-2.1.11.pom
+2015-10-19 20:29:00,072 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-api/2.1.11/jsf-api-2.1.11.pom
+2015-10-19 20:29:00,552 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-impl/2.1.11/jsf-impl-2.1.11.pom
+2015-10-19 20:29:00,706 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/sun/faces/jsf-impl/2.1.11/jsf-impl-2.1.11.pom
+2015-10-19 20:29:00,859 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-impl/2.1.11/jsf-impl-2.1.11.pom
+2015-10-19 20:29:01,360 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-api/2.1.11/jsf-api-2.1.11.jar
+2015-10-19 20:29:01,851 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repository.primefaces.org/com/sun/faces/jsf-impl/2.1.11/jsf-impl-2.1.11.jar
+2015-10-19 20:29:02,011 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/sun/faces/jsf-api/2.1.11/jsf-api-2.1.11.jar
+2015-10-19 20:29:03,075 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-api/2.1.11/jsf-api-2.1.11.jar
+2015-10-19 20:29:03,248 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/sun/faces/jsf-impl/2.1.11/jsf-impl-2.1.11.jar
+2015-10-19 20:29:04,135 [Worker-9] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/faces/jsf-impl/2.1.11/jsf-impl-2.1.11.jar
+2015-10-19 20:29:04,297 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-web:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-web\pom.xml.
+2015-10-19 20:29:04,346 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.spd:spd-model:0.0.1-SNAPSHOT @ C:\Users\Thiago\Documents\GitHub\SPD\spd-model\pom.xml.
+2015-10-19 20:29:05,778 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:05,779 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\main\resources
+2015-10-19 20:29:05,780 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:05,782 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\test\resources
+2015-10-19 20:29:05,849 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:05,852 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\main\resources
+2015-10-19 20:29:05,856 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:05,860 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\test\resources
+2015-10-19 20:29:07,180 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:07,182 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\main\resources
+2015-10-19 20:29:07,184 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:07,186 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\test\resources
+2015-10-19 20:29:07,209 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:07,209 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\main\resources
+2015-10-19 20:29:07,210 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:07,217 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\test\resources
+2015-10-19 20:29:07,233 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:07,234 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\main\resources
+2015-10-19 20:29:07,235 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:29:07,236 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\test\resources
+2015-10-19 20:30:06,898 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:06,899 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\main\resources
+2015-10-19 20:30:06,900 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:06,901 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\test\resources
+2015-10-19 20:30:07,305 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:07,305 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\main\resources
+2015-10-19 20:30:07,306 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:07,307 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\test\resources
+2015-10-19 20:30:07,310 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:07,310 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\main\resources
+2015-10-19 20:30:07,312 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:07,312 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\test\resources
+2015-10-19 20:30:07,328 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:07,328 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\main\resources
+2015-10-19 20:30:07,329 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:07,329 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\test\resources
+2015-10-19 20:30:07,345 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:07,345 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\main\resources
+2015-10-19 20:30:07,346 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:07,347 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\test\resources
+2015-10-19 20:30:48,413 [Worker-11] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for spd-client
+2015-10-19 20:30:48,453 [Worker-11] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for spd-web
+2015-10-19 20:30:49,198 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,199 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\main\resources
+2015-10-19 20:30:49,201 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,201 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-client\src\test\resources
+2015-10-19 20:30:49,591 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,592 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\main\resources
+2015-10-19 20:30:49,593 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,593 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-domain\src\test\resources
+2015-10-19 20:30:49,601 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,601 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\main\resources
+2015-10-19 20:30:49,602 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,602 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-model\src\test\resources
+2015-10-19 20:30:49,614 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,615 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\main\resources
+2015-10-19 20:30:49,615 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,616 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-services\src\test\resources
+2015-10-19 20:30:49,626 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,627 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\main\resources
+2015-10-19 20:30:49,628 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-10-19 20:30:49,628 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Thiago\Documents\GitHub\SPD\spd-web\src\test\resources

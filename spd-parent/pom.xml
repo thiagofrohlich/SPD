@@ -8,7 +8,7 @@
  <properties>
 	    <primefaces.version>5.2</primefaces.version>
 	    <primefaces.theme>1.0.10</primefaces.theme>
-	    <jsf.version>2.2</jsf.version>
+	    <jsf.version>2.1.11</jsf.version>
 	    <servletapi.version>2.5</servletapi.version>
 		<servletjsp.version>2.1</servletjsp.version>
 		<servlet.version>1.2</servlet.version>
