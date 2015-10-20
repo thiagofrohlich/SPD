@@ -13,7 +13,7 @@ import java.util.Date;
 @NamedQuery(name="Ocorrencia.findAll", query="SELECT o FROM Ocorrencia o")
 public class Ocorrencia implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private Integer idocorrencia;
+	private Long idocorrencia;
 	private Date data;
 	private String descricao;
 	private String tipo;
@@ -24,11 +24,11 @@ public class Ocorrencia implements Serializable {
 
 
 	@Id
-	public Integer getIdocorrencia() {
+	public Long getIdocorrencia() {
 		return this.idocorrencia;
 	}
 
-	public void setIdocorrencia(Integer idocorrencia) {
+	public void setIdocorrencia(Long idocorrencia) {
 		this.idocorrencia = idocorrencia;
 	}
 

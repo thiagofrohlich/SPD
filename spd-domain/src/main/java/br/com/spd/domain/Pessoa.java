@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NamedQuery(name="Pessoa.findAll", query="SELECT p FROM Pessoa p")
 public class Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private Integer codpessoa;
+	private Long codpessoa;
 	private String celular;
 	private String cpf;
 	private String escolaridade;
@@ -30,11 +30,11 @@ public class Pessoa implements Serializable {
 
 
 	@Id
-	public Integer getCodpessoa() {
+	public Long getCodpessoa() {
 		return this.codpessoa;
 	}
 
-	public void setCodpessoa(Integer codpessoa) {
+	public void setCodpessoa(Long codpessoa) {
 		this.codpessoa = codpessoa;
 	}
 
