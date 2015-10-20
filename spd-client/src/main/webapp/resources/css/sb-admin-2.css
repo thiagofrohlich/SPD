@@ -352,3 +352,15 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+.centralize{
+	clear: both !important;
+	margin: auto !important;
+}
+
+.noborder tbody tr td{border: none !important;}
+.noborder tbody tr {border: none !important;}
+
+.labelForm {text-align: right;}
+
+.labelFixed {text-align: right; width: 250px;}
