@@ -1,15 +1,7 @@
-package br.com.spd.domain;
+package br.com.spd.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
-
-/**
- * The persistent class for the pessoa database table.
- * 
- */
-@Entity
-@NamedQuery(name="Pessoa.findAll", query="SELECT p FROM Pessoa p")
 public class Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long codpessoa;
@@ -29,7 +21,6 @@ public class Pessoa implements Serializable {
 	}
 
 
-	@Id
 	public Long getCodpessoa() {
 		return this.codpessoa;
 	}
@@ -128,10 +119,6 @@ public class Pessoa implements Serializable {
 		this.telefone = telefone;
 	}
 
-
-	//bi-directional many-to-one association to Aluno
-	@ManyToOne
-	@JoinColumn(name="codaluno")
 	public Aluno getAluno() {
 		return this.aluno;
 	}

@@ -1,16 +1,9 @@
-package br.com.spd.domain;
+package br.com.spd.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 
 
-/**
- * The persistent class for the ocorrencia database table.
- * 
- */
-@Entity
-@NamedQuery(name="Ocorrencia.findAll", query="SELECT o FROM Ocorrencia o")
 public class Ocorrencia implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long idocorrencia;
@@ -23,7 +16,6 @@ public class Ocorrencia implements Serializable {
 	}
 
 
-	@Id
 	public Long getIdocorrencia() {
 		return this.idocorrencia;
 	}
@@ -33,7 +25,6 @@ public class Ocorrencia implements Serializable {
 	}
 
 
-	@Temporal(TemporalType.DATE)
 	public Date getData() {
 		return this.data;
 	}
@@ -60,10 +51,6 @@ public class Ocorrencia implements Serializable {
 		this.tipo = tipo;
 	}
 
-
-	//bi-directional many-to-one association to Aluno
-	@ManyToOne
-	@JoinColumn(name="matricula")
 	public Aluno getAluno() {
 		return this.aluno;
 	}
