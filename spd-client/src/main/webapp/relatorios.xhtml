@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/template.xhtml">
+	
+		<ui:define name="body">
+			<div class="row">
+				<div class="col-lg-12">
+                    <h3 class="page-header">#{msg.relatorios}</h3>
+                </div>
+	        	<div class="col-lg-12">
+	        	
+					<div class="col-lg-2">
+						<p:commandButton value="#{msg.alunoSala}" onclick="PF('sala').show();"/>
+					</div>
+					<div class="col-lg-2">
+						<p:commandButton value="#{msg.avaliacaoSala}" onclick="PF('sala').show();"/>
+					</div>
+					<div class="col-lg-2">
+						<p:commandButton value="#{msg.avaliacaoAluno}" onclick="PF('aluno').show();"/>
+					</div>
+					<div class="col-lg-2">
+						<p:commandButton value="#{msg.avaliacaoOcorrencia}" onclick="PF('aluno').show();"/>
+					</div>
+					
+					<p:dialog id="aluno" closable="true" widgetVar="aluno">
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label class="control-label">#{msg.aluno}</label>
+								<p:inputText />
+								<p:commandButton value="#{msg.gerar}" />
+							</div>
+						</div>
+					</p:dialog>
+					
+					<p:dialog id="sala" closable="true" widgetVar="sala">
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label class="control-label">#{msg.sala}</label>
+								<p:inputText />
+								<p:commandButton value="#{msg.gerar}" />
+							</div>
+						</div>
+					</p:dialog>
+				</div>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</html>
