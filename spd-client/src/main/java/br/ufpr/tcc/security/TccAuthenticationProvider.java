@@ -3,28 +3,32 @@ package br.ufpr.tcc.security;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.management.relation.Role;
-import javax.naming.AuthenticationException;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.stereotype.Component;
 
 
 @Component
 public class TccAuthenticationProvider  implements AuthenticationProvider{
 	
-	private UsuarioServiceHandlerImpl usuarioService = new UsuarioServiceHandlerImpl();
+//	private UsuarioServiceHandlerImpl usuarioService = new UsuarioServiceHandlerImpl();
 
 	
 	@Override
-	public Authentication authenticate(Authentication authentication)
-			throws AuthenticationException {
+	public Authentication authenticate(Authentication authentication) {
 		String login = (String) authentication.getName();
 		String password = (String) authentication.getCredentials();
-		
-		if(usuarioService.canLogin(login, password)){
+		Collection<GrantedAuthority> authorities = new ArrayList<>();
+		authorities.add(new Role("USUARIO"));
+		return new UsernamePasswordAuthenticationToken(login, password, authorities);
+		/*if(usuarioService.canLogin(login, password)){
 			Collection<GrantedAuthority> authorities = getAuthorities("USUARIO");
 			return new UsernamePasswordAuthenticationToken(login, password, authorities);
 		}else{
 			throw new BadCredentialsException("Usuário não encontrado.");
-		}
+		}*/
 	}
 
 	private Collection<GrantedAuthority> getAuthorities(String acesso) {
@@ -56,8 +60,4 @@ public class TccAuthenticationProvider  implements AuthenticationProvider{
 	}
 
 }
-	package br.ufpr.tcc.security;
 
-public class TccAuthenticationProvider {
-
-}
