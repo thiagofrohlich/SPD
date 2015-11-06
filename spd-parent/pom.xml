@@ -59,6 +59,13 @@
  
  <dependencyManagement>
 	 <dependencies>
+	 
+	 <dependency>
+		        <groupId>br.ufpr</groupId>
+		        <artifactId>spd-model</artifactId>
+		        <version>${tcc-ufpr.version}</version>
+		    </dependency>	    	
+	 
 	 <dependency>
 			  <groupId>org.springframework</groupId>
 			  <artifactId>spring-core</artifactId>
