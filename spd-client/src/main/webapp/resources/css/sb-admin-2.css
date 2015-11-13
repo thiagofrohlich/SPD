@@ -364,3 +364,5 @@ table.dataTable thead .sorting:after {
 .labelForm {text-align: right;}
 
 .labelFixed {text-align: right; width: 250px;}
+
+.formError{border-color: red !important;}

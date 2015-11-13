@@ -18,13 +18,25 @@
                     <h3 class="page-header">#{msg.cadastro}</h3>
                 </div>
                 <h:form id="cadastro">
-					<p:panelGrid  styleClass="noborder centralize">
+                	<div class="col-lg-12">
+                		<p:panelGrid  styleClass="noborder centralize">
+                			<p:row>
+								<p:column styleClass="labelFixed">
+									<h:outputText value="#{msg.aluno}" />
+								</p:column>
+								<p:column>
+									<p:inputText value="#{alunoBean.nome}" /> <p:commandButton value="#{msg.pesquisar}" action="#{alunoBean.buscaAluno()}" ajax="true" update=":cadastro:formCadastro" />
+								</p:column>
+							</p:row>
+                		</p:panelGrid>
+                	</div>
+					<p:panelGrid  styleClass="noborder centralize" id="formCadastro">
 						<p:row>
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.ano_letivo}" />
 							</p:column>
 							<p:column>
-								<p:calendar locale="pt_BR" mask="true" showButtonPanel="false"  value="#{alunoBean.aluno.anoletivo}"
+								<p:calendar locale="pt_BR" mask="true" showButtonPanel="false"  value="#{alunoBean.aluno.anoletivo}" id="anoLetivo"
 													pattern="dd/MM/yyyy" styleClass="inputDate" />
 							</p:column>
 	
@@ -32,40 +44,24 @@
 								<h:outputText value="#{msg.primeira_matricula}" />
 							</p:column>
 							<p:column>
-								<p:calendar locale="pt_BR" mask="true" showButtonPanel="false" value="#{alunoBean.aluno.anoinicio}"
+								<p:calendar locale="pt_BR" mask="true" showButtonPanel="false" value="#{alunoBean.aluno.anoinicio}" id="anoMatricula"
 													pattern="dd/MM/yyyy" styleClass="inputDate" />
 							</p:column>
 						</p:row>
 						
 						<p:row>
 							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.nome}" />
+								<h:outputText value="#{msg.nome}"  />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.nome}" />
+								<p:inputText value="#{alunoBean.aluno.nome}" id="nomeAluno"/>
 							</p:column>
 	
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.dataNasc}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.datanasc}"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.cidade}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.cidade}"/>
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.estado}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.estado}"/>
+								<p:inputText value="#{alunoBean.aluno.datanasc}" id="datanasc"/>
 							</p:column>
 						</p:row>
 						
@@ -74,14 +70,14 @@
 								<h:outputText value="#{msg.modalidade}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.modalidade}"/>
+								<p:inputText value="#{alunoBean.aluno.modalidade}" id="modalidade"/>
 							</p:column>
 	
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.periodo}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.periodo}"/>
+								<p:inputText value="#{alunoBean.aluno.periodo}" id="periodo"/>
 							</p:column>
 						</p:row>
 						
@@ -90,14 +86,14 @@
 								<h:outputText value="#{msg.nivel}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.nivel}"/>
+								<p:inputText value="#{alunoBean.aluno.nivel}" id="nivel"/>
 							</p:column>
 	
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.horario}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.horario}"/>
+								<p:inputText value="#{alunoBean.aluno.horario}" id="horario"/>
 							</p:column>
 						</p:row>
 						
@@ -106,7 +102,7 @@
 								<h:outputText value="#{msg.valor}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.valor}"/>
+								<p:inputText value="#{alunoBean.aluno.valor}" id="valor"/>
 							</p:column>
 						</p:row>
 						
@@ -122,14 +118,14 @@
 								<h:outputText value="#{msg.intervCirurgicas}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.cirurgias}"/>
+								<p:inputText value="#{alunoBean.aluno.cirurgias}" id="cirurgias"/>
 							</p:column>
 	
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.possuiAlergia}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.alergia}"/>
+								<p:inputText value="#{alunoBean.aluno.alergia}" id="alergia"/>
 							</p:column>
 						</p:row>
 						
@@ -138,14 +134,14 @@
 								<h:outputText value="#{msg.restAlimentar}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.restalimentar}"/>
+								<p:inputText value="#{alunoBean.aluno.restalimentar}" id="restALimentar"/>
 							</p:column>
 	
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.temperamento}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.temperamento}"/>
+								<p:inputText value="#{alunoBean.aluno.temperamento}" id="temperamento"/>
 							</p:column>
 						</p:row>
 						
@@ -160,14 +156,30 @@
 								<h:outputText value="#{msg.responsavel}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.pessoa.nome}"/>
+								<p:inputText value="#{alunoBean.responsavel1.nome}" id="nomeResponsavel"/>
 							</p:column>
 	
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.parentesco}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.pessoa.parentesco}"/>
+								<p:inputText value="#{alunoBean.responsavel1.parentesco}" id="parentesco"/>
+							</p:column>
+						</p:row>
+						
+						<p:row>
+							<p:column styleClass="labelForm">
+								<h:outputText value="#{msg.responsavel}" />
+							</p:column>
+							<p:column>
+								<p:inputText value="#{alunoBean.responsavel2.nome}" id="nomeResponsavel2"/>
+							</p:column>
+	
+							<p:column styleClass="labelForm">
+								<h:outputText value="#{msg.parentesco}" />
+							</p:column>
+							<p:column>
+								<p:inputText value="#{alunoBean.responsavel2.parentesco}" id="parentesco2"/>
 							</p:column>
 						</p:row>
 						
@@ -176,14 +188,14 @@
 								<h:outputText value="#{msg.casoEmergencia}" />
 							</p:column>
 							<p:column>
-								<p:inputText value=""/>
+								<p:inputText />
 							</p:column>
 	
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.sitPais}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.sitpais}"/>
+								<p:inputText value="#{alunoBean.aluno.sitpais}" id="sitPais"/>
 							</p:column>
 						</p:row>
 						
@@ -198,14 +210,14 @@
 								<h:outputText value="#{msg.nome}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.pai.nome}"/>
+								<p:inputText value="#{alunoBean.pai.nome}" id="nomePai"/>
 							</p:column>
 						
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.rg}" />
 							</p:column>
 							<p:column>
-								<p:inputMask mask="9.999.999-9" value="#{alunoBean.pai.rg}" />
+								<p:inputMask mask="9.999.999-9" value="#{alunoBean.pai.rg}" id="rgPai"/>
 							</p:column>
 						</p:row>
 						
@@ -214,14 +226,14 @@
 								<h:outputText value="#{msg.cpf}" />
 							</p:column>
 							<p:column>
-								<p:inputMask mask="999.999.999-99" value="#{alunoBean.pai.cpf}"/>
+								<p:inputMask mask="999.999.999-99" value="#{alunoBean.pai.cpf}" id="cpfPai"/>
 							</p:column>
 						
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.escolaridade}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.pai.escolaridade}"/>
+								<p:inputText value="#{alunoBean.pai.escolaridade}" id="escolaridadePai"/>
 							</p:column>
 						</p:row>
 						
@@ -230,14 +242,14 @@
 								<h:outputText value="#{msg.profissao}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.pai.profissao}"/>
+								<p:inputText value="#{alunoBean.pai.profissao}" id="profPai"/>
 							</p:column>
 					
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.localTrabalho}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.pai.localtrabalho}"/>
+								<p:inputText value="#{alunoBean.pai.localtrabalho}" id="jobPai"/>
 							</p:column>
 						</p:row>
 						
@@ -246,7 +258,7 @@
 								<h:outputText value="#{msg.telComercial}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.pai.telefone}"/>
+								<p:inputText value="#{alunoBean.pai.telefone}" id="comPai"/>
 							</p:column>
 						
 							<p:column styleClass="labelForm">
@@ -268,14 +280,14 @@
 								<h:outputText value="#{msg.nome}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.mae.nome}"/>
+								<p:inputText value="#{alunoBean.mae.nome}" id="nomeMae"/>
 							</p:column>
 					
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.rg}" />
 							</p:column>
 							<p:column>
-								<p:inputMask mask="9.999.999-9" value="#{alunoBean.mae.rg}"/>
+								<p:inputMask mask="9.999.999-9" value="#{alunoBean.mae.rg}" id="rgMae"/>
 							</p:column>
 						</p:row>
 						
@@ -284,14 +296,14 @@
 								<h:outputText value="#{msg.cpf}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.mae.cpf}"/>
+								<p:inputMask mask="999.999.999-99" value="#{alunoBean.mae.cpf}" id="cpfMae"/>
 							</p:column>
 					
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.escolaridade}" />
 							</p:column>
 							<p:column>
-								<p:inputMask mask="999.999.999-99" value="#{alunoBean.mae.escolaridade}"/>
+								<p:inputText value="#{alunoBean.mae.escolaridade}" id="escolaridadeMae"/>
 							</p:column>
 						</p:row>
 						
@@ -300,14 +312,14 @@
 								<h:outputText value="#{msg.profissao}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.mae.profissao}"/>
+								<p:inputText value="#{alunoBean.mae.profissao}" id="profMae"/>
 							</p:column>
 					
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.localTrabalho}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.mae.localtrabalho}"/>
+								<p:inputText value="#{alunoBean.mae.localtrabalho}" id="jobMae"/>
 							</p:column>
 						</p:row>
 						
@@ -316,7 +328,7 @@
 								<h:outputText value="#{msg.telComercial}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.mae.telefone}"/>
+								<p:inputText value="#{alunoBean.mae.telefone}" id="comMae"/>
 							</p:column>
 					
 							<p:column styleClass="labelForm">
@@ -335,21 +347,32 @@
 						
 						<p:row>
 							<p:column styleClass="labelForm">
+								<h:outputText value="#{msg.cep}" />
+							</p:column>
+							<p:column>
+								<p:inputMask mask="99.999-999" value="#{alunoBean.aluno.cep}" id="cep">
+									<p:ajax event="valueChange" listener="#{alunoBean.buscaCEP()}"   process="@this" 
+											/>
+								</p:inputMask>
+							</p:column>
+							
+							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.rua}" />
 							</p:column>
 							<p:column>
 								<p:inputText value="#{alunoBean.aluno.rua}" id="rua"/>
 							</p:column>
 					
+						</p:row>
+						
+						<p:row>
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.numero}" />
 							</p:column>
 							<p:column>
 								<p:inputText value="#{alunoBean.aluno.numero}" id="numero"/>
 							</p:column>
-						</p:row>
-						
-						<p:row>
+
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.bairro}" />
 							</p:column>
@@ -357,12 +380,6 @@
 								<p:inputText value="#{alunoBean.aluno.bairro}" id="bairro"/>
 							</p:column>
 						
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.cep}" />
-							</p:column>
-							<p:column>
-								<p:inputMask mask="99.999-999" value="#{alunoBean.aluno.cep}" id="cep"/>
-							</p:column>
 						</p:row>
 						
 						<p:row>
@@ -370,9 +387,8 @@
 								<h:outputText value="#{msg.cidade}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.cep}" id="cep">
-									<p:ajax event="valueChange" listener="#{alunoBean.buscaCEP()}"   process="@this" 
-											/>
+								<p:inputText value="#{alunoBean.aluno.cep}" id="cidade">
+									
 								</p:inputText>
 							</p:column>
 						
@@ -389,14 +405,14 @@
 								<h:outputText value="#{msg.telRes}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.telefone}"/>
+								<p:inputText value="#{alunoBean.aluno.telefone}" id="tel"/>
 							</p:column>
 						
 							<p:column styleClass="labelForm">
 								<h:outputText value="#{msg.email}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.email}"/>
+								<p:inputText value="#{alunoBean.aluno.email}" id="email"/>
 							</p:column>
 						</p:row>
 						
@@ -405,7 +421,7 @@
 								<h:outputText value="#{msg.religiao}" />
 							</p:column>
 							<p:column>
-								<p:inputText value="#{alunoBean.aluno.religiao}"/>
+								<p:inputText value="#{alunoBean.aluno.religiao}" id="religiao"/>
 							</p:column>
 						</p:row>
 						
@@ -416,7 +432,7 @@
 							</p:column>
 							
 							<p:column>
-								<p:commandButton value="#{msg.salvar}" />
+								<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" />
 							</p:column>
 						</p:row>
 						
@@ -426,7 +442,211 @@
 			</div>
 			</div>
 		</ui:define>
-		
+		<ui:define name="script">
+			<script type="text/javascript">
+			$(document).ready(function() {
+
+				var msg = '';
+				
+				$('#cadastro\\:saveButton').click(function() {
+					if($('#cadastro\\:anoLetivo').val() == ""){
+						$('#cadastro\\:anoLetivo').addClass('formError');
+						msg = msg + '#{msg.anoLetivoError}'+'\n';
+					} 
+
+					if($('#cadastro\\:anoMatricula').val() == ""){
+						$('#cadastro\\:anoMatricula').addClass('formError');
+						msg = msg + '#{msg.anoMatriculaError}'+'\n';
+					} 
+
+					if($('#cadastro\\:nomeAluno').val() == ""){
+						$('#cadastro\\:nomeAluno').addClass('formError');
+						msg = msg + '#{msg.nomeAlunoError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:datanasc').val() == ""){
+						$('#cadastro\\:datanasc').addClass('formError');
+						msg = msg + '#{msg.datanascError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:cidade').val() == ""){
+						$('#cadastro\\:cidade').addClass('formError');
+						msg = msg + '#{msg.cidadeError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:estado').val() == ""){
+						$('#cadastro\\:estado').addClass('formError');
+						msg = msg + '#{msg.estadoError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:modalidade').val() == ""){
+						$('#cadastro\\:modalidade').addClass('formError');
+						msg = msg + '#{msg.modalidadeError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:periodo').val() == ""){
+						$('#cadastro\\:periodo').addClass('formError');
+						msg = msg + '#{msg.periodoError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:nivel').val() == ""){
+						$('#cadastro\\:nivel').addClass('formError');
+						msg = msg + '#{msg.nivelError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:horario').val() == ""){
+						$('#cadastro\\:horario').addClass('formError');
+						msg = msg + '#{msg.horarioError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:valor').val() == "0.0"){
+						$('#cadastro\\:valor').addClass('formError');
+						msg = msg + '#{msg.valorError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:cirurgias').val() == ""){
+						$('#cadastro\\:cirurgias').addClass('formError');
+						msg = msg + '#{msg.cirurgiasError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:alergia').val() == ""){
+						$('#cadastro\\:alergia').addClass('formError');
+						msg = msg + '#{msg.alergiaError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:restAlimentar').val() == ""){
+						$('#cadastro\\:restAlimentar').addClass('formError');
+						msg = msg + '#{msg.restAlimentarError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:temperamento').val() == ""){
+						$('#cadastro\\:temperamento').addClass('formError');
+						msg = msg + '#{msg.temperamentoError}'+'\n';
+					} 
+					
+										
+					if($('#cadastro\\:sitPais').val() == ""){
+						$('#cadastro\\:sitPais').addClass('formError');
+						msg = msg + '#{msg.sitPaisError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:nomePai').val() == ""){
+						$('#cadastro\\:nomePai').addClass('formError');
+						msg = msg + '#{msg.nomePaiError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:rgPai').val() == ""){
+						$('#cadastro\\:rgPai').addClass('formError');
+						msg = msg + '#{msg.rgPaiError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:cpfPai').val() == ""){
+						$('#cadastro\\:cpfPai').addClass('formError');
+						msg = msg + '#{msg.cpfPaiError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:escolaridadePai').val() == ""){
+						$('#cadastro\\:escolaridadePai').addClass('formError');
+						msg = msg + '#{msg.escolaridadePaiError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:profPai').val() == ""){
+						$('#cadastro\\:profPai').addClass('formError');
+						msg = msg + '#{msg.profPaiError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:jobPai').val() == ""){
+						$('#cadastro\\:jobPai').addClass('formError');
+						msg = msg + '#{msg.jobPaiError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:comPai').val() == ""){
+						$('#cadastro\\:comPai').addClass('formError');
+						msg = msg + '#{msg.comPaiError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:nomeMae').val() == ""){
+						$('#cadastro\\:nomeMae').addClass('formError');
+						msg = msg + '#{msg.nomeMaeError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:rgMae').val() == ""){
+						$('#cadastro\\:rgMae').addClass('formError');
+						msg = msg + '#{msg.rgMaeError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:cpfMae').val() == ""){
+						$('#cadastro\\:cpfMae').addClass('formError');
+						msg = msg + '#{msg.cpfMaeError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:escolaridadeMae').val() == ""){
+						$('#cadastro\\:escolaridadeMae').addClass('formError');
+						msg = msg + '#{msg.escolaridadeMaeError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:profMae').val() == ""){
+						$('#cadastro\\:profMae').addClass('formError');
+						msg = msg + '#{msg.profMaeError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:jobMae').val() == ""){
+						$('#cadastro\\:jobMae').addClass('formError');
+						msg = msg + '#{msg.jobMaeError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:comMae').val() == ""){
+						$('#cadastro\\:comMae').addClass('formError');
+						msg = msg + '#{msg.comMaeError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:cep').val() == ""){
+						$('#cadastro\\:cep').addClass('formError');
+						msg = msg + '#{msg.cepError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:rua').val() == ""){
+						$('#cadastro\\:rua').addClass('formError');
+						msg = msg + '#{msg.ruaError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:numero').val() == ""){
+						$('#cadastro\\:numero').addClass('formError');
+						msg = msg + '#{msg.numeroError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:bairro').val() == ""){
+						$('#cadastro\\:bairro').addClass('formError');
+						msg = msg + '#{msg.bairroError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:tel').val() == ""){
+						$('#cadastro\\:tel').addClass('formError');
+						msg = msg + '#{msg.telError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:email').val() == ""){
+						$('#cadastro\\:email').addClass('formError');
+						msg = msg + '#{msg.emailError}'+'\n';
+					} 
+					
+					if($('#cadastro\\:religiao').val() == ""){
+						$('#cadastro\\:religiao').addClass('formError');
+						msg = msg + '#{msg.religiaoError}'+'\n';
+					} 
+					
+					if(msg == ''){
+						return true;
+					}else{
+						alert(msg);
+						return false;
+					}
+				});
+			});
+				
+			
+			</script>
+		</ui:define>
 	</ui:composition>
 	
 </html>

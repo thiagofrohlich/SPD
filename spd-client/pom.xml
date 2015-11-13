@@ -13,7 +13,7 @@
   <dependencies>
   	
   	 <dependency>
-	        <groupId>br.ufpr</groupId>
+	        <groupId>br.com.spd</groupId>
 	        <artifactId>spd-model</artifactId>
 	    </dependency>
   

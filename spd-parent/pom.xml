@@ -61,7 +61,7 @@
 	 <dependencies>
 	 
 	 <dependency>
-		        <groupId>br.ufpr</groupId>
+		        <groupId>br.com.spd</groupId>
 		        <artifactId>spd-model</artifactId>
 		        <version>${tcc-ufpr.version}</version>
 		    </dependency>	    	
@@ -427,7 +427,7 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin.version}</version>
 					<configuration>
-						<skipTests>${skipTests}</skipTests>
+						<skipTests>true</skipTests>
 					</configuration>
 				</plugin>
       
