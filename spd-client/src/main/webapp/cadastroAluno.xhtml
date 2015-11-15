@@ -25,7 +25,8 @@
 									<h:outputText value="#{msg.aluno}" />
 								</p:column>
 								<p:column>
-									<p:inputText value="#{alunoBean.nome}" /> <p:commandButton value="#{msg.pesquisar}" action="#{alunoBean.buscaAluno()}" ajax="true" update=":cadastro:formCadastro" />
+									<p:inputText value="#{alunoBean.nome}" /> <p:commandButton value="#{msg.pesquisar}" action="#{alunoBean.buscaAluno()}" 
+												onsuccess="PF('aluno').show();"	ajax="true" update=":cadastro:formCadastro" />
 								</p:column>
 							</p:row>
                 		</p:panelGrid>
@@ -437,6 +438,29 @@
 						</p:row>
 						
 					</p:panelGrid>
+					
+					<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
+						
+						<p:dataTable value="#{alunoBean.listAluno}" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{alunoBean.alunoSelecionado}" selectionMode="single"
+									 paginator="true" paginatorPosition="bottom" rows="10">
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="#{msg.nome}" />
+								</f:facet>
+								<h:outputText value="#{lstALuno.nome}"/>
+							</p:column>
+							
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="#{msg.matricula}" />
+								</f:facet>
+								<h:outputText value="#{lstALuno.matricula}"/>
+							</p:column>
+							
+						</p:dataTable>						
+						<p:commandButton value="#{msg.ok}" action="#{alunoBean.selecionaAluno()}" ajax="true" update="@form" />
+						
+					</p:dialog>
 				</h:form>
 			</div>
 			</div>

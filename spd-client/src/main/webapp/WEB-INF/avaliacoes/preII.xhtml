@@ -5,27 +5,28 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 	
-	<p:panelGrid styleClass="centralize noborder">
-	<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.liguaOralEscrita}</h4>
-					</p:column>
-					
-				</p:row>
-				
+	
+	<p:tabView>
+		<p:tab title="#{msg.liguaOralEscrita}">
+			<p:panelGrid styleClass="centralize noborder">
 				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.brincaPoema}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingBrinca}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.organizaHist}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingOrganiza}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -34,14 +35,19 @@
 						<h:outputText value="#{msg.ouveTextos}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingOuve}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.fazTentativas}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingTentativaLeitura}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -50,14 +56,19 @@
 						<h:outputText value="#{msg.relacionaLetras}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingRelacionaLetras}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.escrevePalavras}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingEscreve}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -66,14 +77,19 @@
 						<h:outputText value="#{msg.percebeNecessidade}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingEspacamento}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.percebeDalado}" />
+						<h:outputText value="#{msg.percebeFalado}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingDesenho}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -82,14 +98,19 @@
 						<h:outputText value="#{msg.encontraNivelPre}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingPreSilabico}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.encontraNivelSilabico}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingSilabico}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -98,29 +119,34 @@
 						<h:outputText value="#{msg.encontraNivelAlfabetico}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.lingAlfabetico}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.matematica}</h4>
-					</p:column>
-				</p:row>
-				
+			</p:panelGrid>
+		</p:tab>
+		
+		<p:tab title="#{msg.matematica}">
+			<p:panelGrid styleClass="centralize noborder">
 				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.aplicaCOntagemOral}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.matRealizaContagem}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.representaEscrita}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.matQuantidade}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -129,30 +155,40 @@
 						<h:outputText value="#{msg.representaEstrategias}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.matDesenho}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.reconSimbolosMat}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.matSimbolo}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
 				<p:row>
 					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.compreenteDiv}" />
+						<h:outputText value="#{msg.compreendeDiv}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.matTempo}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.compreendeConcepts}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.matDecimais}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -161,30 +197,34 @@
 						<h:outputText value="#{msg.realizaCont}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.matContagem}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.naturezaSociedade}</h4>
-					</p:column>
-					
-				</p:row>
-				
+			</p:panelGrid>
+		</p:tab>
+		
+		<p:tab title="#{msg.naturezaSociedade}">
+			<p:panelGrid styleClass="centralize noborder">
 				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.compreendeDifAmbiente}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.natAmbientes}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.percebeVariacoes}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.natTemperatura}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -193,14 +233,19 @@
 						<h:outputText value="#{msg.percebeInfluencia}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.natInfluencia}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.conheceRecNaturais}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.natRecursos}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -209,14 +254,19 @@
 						<h:outputText value="#{msg.levantaHip}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.natHipoteses}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.aprendeMusicas}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.natMusicas}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -225,29 +275,34 @@
 						<h:outputText value="#{msg.identificaComunic}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.natComunicacao}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.artes}</h4>
-					</p:column>
-				</p:row>
-				
+			</p:panelGrid>
+		</p:tab>
+		
+		<p:tab title="#{msg.artes}">
+			<p:panelGrid styleClass="centralize noborder">
 				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.exploraProced}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.artExplora}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.criaPlasticas}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.artCria}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -256,45 +311,55 @@
 						<h:outputText value="#{msg.partSitu}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.artParticipa}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.aspectEmo}</h4>
-					</p:column>
-				</p:row>
-				
+			</p:panelGrid>
+		</p:tab>
+		
+		<p:tab title="#{msg.aspectEmo}">
+			<p:panelGrid styleClass="centralize noborder">
 				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.relaProfe}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.socRelaciona}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.expressaGrafic}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.socExpressa}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
 				<p:row>
 					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.usilizaRacio}" />
+						<h:outputText value="#{msg.utilizaRacio}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.socRaciocinio}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.demonstraInt}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.socInteresse}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -303,14 +368,19 @@
 						<h:outputText value="#{msg.sabeAdmin}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.socFrustracao}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-				
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.orientaEspaco}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.socOrienta}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -319,14 +389,19 @@
 						<h:outputText value="#{msg.brincaRepre}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.socBrinca}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
-					
+				</p:row>
+				<p:row>
 					<p:column styleClass="labelFixed">
 						<h:outputText value="#{msg.possuiIni}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.socIniciativa}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 				
@@ -335,8 +410,12 @@
 						<h:outputText value="#{msg.cuidaMat}" />
 					</p:column>
 					<p:column>
-						<h:inputText />
+						<p:selectOneRadio value="#{avaliacaoBean.pre2.socCuida}" >
+							<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+						</p:selectOneRadio>
 					</p:column>
 				</p:row>
 			</p:panelGrid>
+		</p:tab>
+	</p:tabView>
 </html>

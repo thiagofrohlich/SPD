@@ -1,6 +1,8 @@
 package br.ufpr.tcc.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -21,7 +23,8 @@ public class AlunoBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
+	private List<Aluno> listAluno;
+	private Aluno alunoSelecionado;
 	private Aluno aluno;
 	private Pessoa responsavel1;
 	private Pessoa responsavel2;
@@ -30,20 +33,11 @@ public class AlunoBean implements Serializable{
 	private CepHandler cepHandler;
 	private String nome;
 	
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 	@PostConstruct
 	public void init(){
+		listAluno = new ArrayList<>();
+		alunoSelecionado = new Aluno();
 		aluno = new Aluno();
 		pai = new Pessoa();
 		mae = new Pessoa();
@@ -63,10 +57,25 @@ public class AlunoBean implements Serializable{
 		
 	}
 	
+	public void selecionaAluno(){
+		aluno = alunoSelecionado;
+	}
+	
 	public void salva(){
 		
 	}
 
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	public Pessoa getPai() {
 		return pai;
@@ -112,6 +121,22 @@ public class AlunoBean implements Serializable{
 
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+
+	public List<Aluno> getListAluno() {
+		return listAluno;
+	}
+
+	public void setListAluno(List<Aluno> listAluno) {
+		this.listAluno = listAluno;
+	}
+
+	public Aluno getAlunoSelecionado() {
+		return alunoSelecionado;
+	}
+
+	public void setAlunoSelecionado(Aluno alunoSelecionado) {
+		this.alunoSelecionado = alunoSelecionado;
 	}
 	
 }

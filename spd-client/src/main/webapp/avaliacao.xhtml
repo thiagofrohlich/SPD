@@ -8,61 +8,90 @@
 	<ui:composition template="/template.xhtml">
 	
 		<ui:define name="body">
-		<div class="row">
-          <div class="col-lg-12">
-			<p:panelGrid styleClass="centralize noborder">
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.aluno}" />
-					</p:column>
-					<p:column>
-						<p:inputText value="" /> <p:commandButton value="#{msg.pesquisar}" />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.nome}" />
-					</p:column>
+		<h:form id="avaliacao">
+			<div class="row">
+	          <div class="col-lg-12">
+				<p:panelGrid styleClass="centralize noborder">
 					
-					<p:column>
-						<h:outputText value="" />
-					</p:column>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.aluno}" />
+						</p:column>
+						<p:column>
+							<p:inputText value="#{avaliacaoBean.nome}" /> <p:commandButton value="#{msg.pesquisar}" 
+											action="#{avaliacaoBean.buscaAluno()}" ajax="true" onsuccess="PF('aluno').show();"/>
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+				<p:panelGrid styleClass="centralize noborder" rendered="#{avaliacaoBean.renderPre1 || avaliacaoBean.renderMat2 || avaliacaoBean.renderPre2}">
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.nome}" />
+						</p:column>
+						
+						<p:column>
+							<h:outputText value="#{avaliacaoBean.alunoSelecionado.nome}" />
+						</p:column>
+						
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.nivel}" />
+						</p:column>
+						
+						<p:column>
+							<h:outputText value="#{avaliacaoBean.alunoSelecionado.nivel}" />
+						</p:column>
+					</p:row>
 					
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.nivel}" />
-					</p:column>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.periodo}" />
+						</p:column>
+						
+						<p:column >
+							<h:outputText value="#{avaliacaoBean.alunoSelecionado.periodo}" />
+						</p:column>
+						
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.horario}" />
+						</p:column>
+						
+						<p:column >
+							<h:outputText value="#{avaliacaoBean.alunoSelecionado.horario}" />
+						</p:column>
+					</p:row>
 					
-					<p:column>
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.periodo}" />
-					</p:column>
 					
-					<p:column >
-						<h:outputText value="" />
-					</p:column>
+				</p:panelGrid>
 					
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.horario}" />
-					</p:column>
-					
-					<p:column >
-						<h:outputText value="" />
-					</p:column>
-				</p:row>
-				
-				
-			</p:panelGrid>
-
-				<ui:include src="/WEB-INF/avaliacoes/matII.xhtml" />
-
+					<p:outputPanel rendered="#{avaliacaoBean.renderMat2}"><ui:include src="/WEB-INF/avaliacoes/matII.xhtml"  /></p:outputPanel>
+					<p:outputPanel rendered="#{avaliacaoBean.renderPre1}"><ui:include src="/WEB-INF/avaliacoes/preI.xhtml" /></p:outputPanel>
+					<p:outputPanel rendered="#{avaliacaoBean.renderPre2}"><ui:include src="/WEB-INF/avaliacoes/preII.xhtml" /></p:outputPanel>
+	
+				</div>
 			</div>
-		</div>
+			<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
+						
+						<p:dataTable value="#{avaliacaoBean.lstAluno}" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{avaliacaoBean.alunoSelecionado}" selectionMode="single"
+									 paginator="true" paginatorPosition="bottom" rows="10">
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="#{msg.nome}" />
+								</f:facet>
+								<h:outputText value="#{lstALuno.nome}"/>
+							</p:column>
+							
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="#{msg.matricula}" />
+								</f:facet>
+								<h:outputText value="#{lstALuno.matricula}"/>
+							</p:column>
+							
+						</p:dataTable>						
+						<p:commandButton value="#{msg.ok}" action="#{avaliacaoBean.selecionaAluno()}" ajax="true" update="@form" />
+						
+					</p:dialog>
+		</h:form>
 		</ui:define>
 	</ui:composition>
 </html>

@@ -5,279 +5,341 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 	
-	<p:panelGrid styleClass="centralize noborder">
-	<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.liguaOralEscrita}</h4>
-					</p:column>
+		<p:tabView>
+			<p:tab title="#{msg.liguaOralEscrita}">
+				<p:panelGrid styleClass="centralize noborder">
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.recLetra}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingReconhece}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>	
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.idenVogal}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingVogais}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
 					
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.recLetra}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.idenVogal}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.expreFala}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.ouveHist}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.narraRep}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.repNovasPalavras}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.difdesenho}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.regMundo}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.matematica}</h4>
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.identFormaGeo}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.percebeDifEle}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.compObjeto}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.percebePassagemTempo}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.agrupaElementos}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.realizaContagens}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.naturezaSociedade}</h4>
-					</p:column>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.expreFala}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingExpressa}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.ouveHist}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingOuve}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
 					
-				</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.narraRep}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingNarra}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.repNovasPalavras}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingRepete}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.difdesenho}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingDiferencia}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.regMundo}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingRegistra}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</p:tab>
+			
+			<p:tab title="#{msg.matematica}">
+				<p:panelGrid styleClass="centralize noborder">
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.identFormaGeo}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.matFormasGeometricas}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.percebeDifEle}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.matElementos}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.compObjeto}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.matCompara}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.percebePassagemTempo}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.matTempo}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.agrupaElementos}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.matAgrupa}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.realizaContagens}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.matContagem}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</p:tab>
+			
+			<p:tab title="#{msg.naturezaSociedade}">
+				<p:panelGrid styleClass="centralize noborder">
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.reconDifespecies}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.natEspecies}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.idenPartesCorpo}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.natCorpo}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.expressaEmo}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.natSentimento}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.reconMembros}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.natFamilia}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.apreciaMuscas}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.natMusicas}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.aprimoraPercepcao}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.natPercepcao}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</p:tab>
+			
+			<p:tab title="#{msg.artes}">
+				<p:panelGrid styleClass="centralize noborder">
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.exploraMateriais}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.artMateriais}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.desenvImagem}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.artCria}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.criaProdu}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.artCorpo}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</p:tab>
 				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.reconDifespecies}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.idenPartesCorpo}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.expressaEmo}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.reconMembros}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.apreciaMuscas}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.aprimoraPercepcao}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.artes}</h4>
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.exploraMateriais}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.desenvImagem}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.criaProdu}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h4>#{msg.aspectEmo}</h4>
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.relacionaColega}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.expressaGradual}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.conheceGrupo}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.demonstraInteresse}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.exploraDiversas}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.pedeAuxilio}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-				
-				<p:row>
-					<p:column styleClass="labelFixed">
-						<h:outputText value="#{msg.cuidaMateriais}" />
-					</p:column>
-					<p:column>
-						<h:inputText />
-					</p:column>
-				</p:row>
-			</p:panelGrid>
+			<p:tab title="#{msg.aspectEmo}">
+				<p:panelGrid styleClass="centralize noborder">
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.relacionaColega}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.socRelaciona}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.expressaGradual}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.socExpressa}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.conheceGrupo}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.socRespeita}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.demonstraInteresse}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.socInteresse}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.exploraDiversas}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.socExpressoesCorporais}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.pedeAuxilio}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.socAuxilio}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.cuidaMateriais}" />
+						</p:column>
+						<p:column>
+							<p:selectOneRadio value="#{avaliacaoBean.mat2.socCuida}" >
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
+							</p:selectOneRadio>
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</p:tab>
+		</p:tabView>
 </html>
