@@ -16,7 +16,7 @@ public class Pessoa implements Serializable {
 	private String celular;
 	private String cpf;
 	private String escolaridade;
-	private double localtrabalho;
+	private String localtrabalho;
 	private String nome;
 	private String parentesco;
 	private String profissao;
@@ -66,11 +66,11 @@ public class Pessoa implements Serializable {
 	}
 
 
-	public double getLocaltrabalho() {
+	public String getLocaltrabalho() {
 		return this.localtrabalho;
 	}
 
-	public void setLocaltrabalho(double localtrabalho) {
+	public void setLocaltrabalho(String localtrabalho) {
 		this.localtrabalho = localtrabalho;
 	}
 

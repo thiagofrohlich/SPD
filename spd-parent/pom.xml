@@ -61,10 +61,34 @@
 	 <dependencies>
 	 
 	 <dependency>
-		        <groupId>br.com.spd</groupId>
-		        <artifactId>spd-model</artifactId>
-		        <version>${tcc-ufpr.version}</version>
-		    </dependency>	    	
+        <groupId>br.com.spd</groupId>
+        <artifactId>spd-model</artifactId>
+        <version>${tcc-ufpr.version}</version>
+     </dependency>	    	
+	 
+	 <dependency>
+        <groupId>br.com.spd</groupId>
+        <artifactId>spd-domain</artifactId>
+        <version>${tcc-ufpr.version}</version>
+     </dependency>	    	
+	 
+	 <dependency>
+        <groupId>br.com.spd</groupId>
+        <artifactId>spd-services</artifactId>
+        <version>${tcc-ufpr.version}</version>
+     </dependency>	    	
+	 
+	 <dependency>
+        <groupId>br.com.spd</groupId>
+        <artifactId>spd-model-web</artifactId>
+        <version>${tcc-ufpr.version}</version>
+     </dependency>
+     	    	
+	 <dependency>
+        <groupId>br.com.spd</groupId>
+        <artifactId>spd-model-client</artifactId>
+        <version>${tcc-ufpr.version}</version>
+     </dependency>	    	
 	 
 	 <dependency>
 			  <groupId>org.springframework</groupId>

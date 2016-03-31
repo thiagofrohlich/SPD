@@ -38,7 +38,7 @@ public class Aluno implements Serializable {
 	private List<AvaliacaoPre1> avaliacaoPre1s;
 	private List<AvaliacaoPre2> avaliacaoPre2s;
 	private List<Ocorrencia> ocorrencias;
-	private List<Pessoa> pessoas;
+	private Pessoa pessoa;
 	
 	public Aluno() {
 	}
@@ -229,11 +229,12 @@ public class Aluno implements Serializable {
 	public void setOcorrencias(List<Ocorrencia> ocorrencias) {
 		this.ocorrencias = ocorrencias;
 	}
-	public List<Pessoa> getPessoas() {
-		return pessoas;
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
-	public void setPessoas(List<Pessoa> pessoas) {
-		this.pessoas = pessoas;
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 	
