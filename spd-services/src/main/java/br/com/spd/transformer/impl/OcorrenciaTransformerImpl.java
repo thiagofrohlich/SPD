@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.spd.domain.Aluno;
 import br.com.spd.domain.repository.AlunoRepository;
 import br.com.spd.model.Ocorrencia;
+import br.com.spd.transformer.AlunoTransformer;
 import br.com.spd.transformer.OcorrenciaTransformer;
 
 @Service
@@ -18,7 +19,7 @@ public class OcorrenciaTransformerImpl implements OcorrenciaTransformer {
 	private AlunoRepository alunoRepository;
 	
 	@Autowired
-	private AlunoTransformerImpl alunoTransformer;
+	private AlunoTransformer alunoTransformer;
 	
 	@Override
 	public br.com.spd.domain.Ocorrencia transformToDomain(Ocorrencia model) {

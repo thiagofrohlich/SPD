@@ -10,6 +10,7 @@ import br.com.spd.domain.Pessoa;
 import br.com.spd.domain.repository.PessoaRepository;
 import br.com.spd.model.Aluno;
 import br.com.spd.transformer.AlunoTransformer;
+import br.com.spd.transformer.PessoaTransformer;
 
 @Service
 public class AlunoTransformerImpl implements AlunoTransformer {
@@ -18,7 +19,7 @@ public class AlunoTransformerImpl implements AlunoTransformer {
 	private PessoaRepository pessoaRepository;
 	
 	@Autowired
-	private PessoaTransformerImpl pessoaTransformer;
+	private PessoaTransformer pessoaTransformer;
 	
 	@Override
 	public br.com.spd.domain.Aluno transformToDomain(Aluno model) {
