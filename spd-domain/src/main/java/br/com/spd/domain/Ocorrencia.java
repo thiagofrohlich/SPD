@@ -11,7 +11,7 @@ import java.util.Date;
  */
 @Entity
 @NamedQuery(name="Ocorrencia.findAll", query="SELECT o FROM Ocorrencia o")
-public class Ocorrencia implements Serializable {
+public class Ocorrencia implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	private Long idocorrencia;
 	private Date data;

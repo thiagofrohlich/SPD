@@ -2,7 +2,7 @@ package br.com.spd.model;
 
 import java.io.Serializable;
 
-public class Tipo implements Serializable{
+public class Tipo implements Serializable, Model {
 
 	/**
 	 * 

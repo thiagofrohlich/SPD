@@ -3,7 +3,7 @@ package br.com.spd.model;
 import java.io.Serializable;
 
 
-public class AvaliacaoMat2 implements Serializable {
+public class AvaliacaoMat2 implements Serializable, Model {
 	private static final long serialVersionUID = 1L;
 	private Long codavaliacao;
 	private String artCorpo;

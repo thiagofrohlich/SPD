@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="avaliacao_pre1")
 @NamedQuery(name="AvaliacaoPre1.findAll", query="SELECT a FROM AvaliacaoPre1 a")
-public class AvaliacaoPre1 implements Serializable {
+public class AvaliacaoPre1 implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	private Long codavaliacao;
 	private String artCria;

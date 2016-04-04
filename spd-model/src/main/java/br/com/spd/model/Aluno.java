@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Aluno implements Serializable {
+public class Aluno implements Serializable, Model {
 	private static final long serialVersionUID = 1L;
 	private Long matricula;
 	private String alergia;

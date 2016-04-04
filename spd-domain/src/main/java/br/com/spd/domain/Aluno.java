@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Aluno.findAll", query="SELECT a FROM Aluno a")
-public class Aluno implements Serializable {
+public class Aluno implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	private Long matricula;
 	private String alergia;
