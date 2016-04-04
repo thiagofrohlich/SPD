@@ -1,13 +1,9 @@
 package br.com.spd.transformer;
 
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
 
-public interface Transformer<Model, Domain> {
+public interface Transformer {
 
-	Domain transformToDomain(Model model);
-
-	Model transformToModel(Domain domain);
-
-	List<Model> transformToModel(List<Domain> domainList);
-
+	void transform(Object objectFrom, Object objectTo) throws IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException;
+	
 }

@@ -8,57 +8,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import br.com.spd.transformer.Transformer;
-
 import br.com.spd.domain.Domain;
 import br.com.spd.model.Model;
+import br.com.spd.transformer.Transformer;
 
-public abstract class AbstractTransformer implements Transformer<Model, Domain> {
-	
-	private Class<?> modelType;
-	private Class<?> domainType;
-	
-	public AbstractTransformer(Class<?> modelType, Class<?> domainType) {
-		this.modelType = modelType;
-		this.domainType = domainType;
-	}
-
-	@Override
-	public Domain transformToDomain(Model model) {
-		try {
-			Constructor<?> constructor = domainType.getConstructors()[0];
-			Domain domain = (Domain) constructor.newInstance();
-			transform(model, domain);
-			return domain;
-		} catch(IllegalArgumentException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
-//			throw new TransformerException(e);
-			return null;
-		}
-	}
+public abstract class AbstractTransformer implements Transformer {
 	
 	@Override
-	public Model transformToModel(Domain domain) {
-		try {
-			Constructor<?> constructor = modelType.getConstructors()[0];
-			Model model = (Model) constructor.newInstance();
-			transform(domain, model);
-			return model;
-		} catch(IllegalArgumentException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
-//			throw new TransformerException(e);
-			return null;
-		}
-	}
-	
-	@Override
-	public List<Model> transformToModel(List<Domain> domainList) {
-		List<Model> modelList = new ArrayList<>();
-		for(Domain d : domainList) {
-			modelList.add(transformToModel(d));
-		}
-		return modelList;
-	}
-
-	private void transform(Object objectFrom, Object objectTo) throws IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException {
+	public void transform(Object objectFrom, Object objectTo) throws IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException{
         Class<?> clazzTo = getClass(objectTo);
         Class<?> clazzFrom = getClass(objectFrom);
 
