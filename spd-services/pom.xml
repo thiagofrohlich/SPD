@@ -30,6 +30,23 @@
             <artifactId>joda-time</artifactId>
             <version>${joda-time.version}</version>
         </dependency>
+        
+        <!-- TESTS -->
+        
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+       <dependency>
+        	<groupId>br.com.spd</groupId>
+        	<artifactId>spd-model</artifactId>
+        	<version>${tcc-ufpr.version}</version>
+        	<type>test-jar</type>
+        	<scope>test</scope>
+        </dependency>		
 	 
 	</dependencies>  
   
