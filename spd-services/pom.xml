@@ -46,7 +46,7 @@
         	<version>${tcc-ufpr.version}</version>
         	<type>test-jar</type>
         	<scope>test</scope>
-        </dependency>		
+        </dependency>
 	 
 	</dependencies>  
   
