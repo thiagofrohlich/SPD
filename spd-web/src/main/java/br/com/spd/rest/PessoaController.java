@@ -1,4 +1,4 @@
-package br.ufpr.rest;
+package br.com.spd.rest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
