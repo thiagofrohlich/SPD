@@ -1,9 +1,9 @@
 package br.com.spd.transformer;
 
-import java.lang.reflect.InvocationTargetException;
+import br.com.spd.exception.TransformerException;
 
 public interface Transformer {
 
-	void transform(Object objectFrom, Object objectTo) throws IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException;
+	void transform(Object objectFrom, Object objectTo) throws TransformerException;
 	
 }

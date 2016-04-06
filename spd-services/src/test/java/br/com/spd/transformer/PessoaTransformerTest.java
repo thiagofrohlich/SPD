@@ -2,11 +2,10 @@ package br.com.spd.transformer;
 
 import static org.junit.Assert.assertEquals;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.spd.exception.TransformerException;
 import br.com.spd.model.Pessoa;
 import br.com.spd.model.PessoaModelBuilder;
 import br.com.spd.transformer.impl.GenericTransformer;
@@ -23,7 +22,7 @@ public class PessoaTransformerTest {
 	}
 
 	@Test
-	public void shouldTransformModelToDomain() throws IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException {
+	public void shouldTransformModelToDomain() throws TransformerException {
 //		Given
 		Pessoa pessoa = pessoaModelBuilder.build();
 		br.com.spd.domain.Pessoa pessoaDomain = new br.com.spd.domain.Pessoa();

@@ -2,6 +2,9 @@ package br.com.spd.model;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Pessoa implements Serializable, Model {
 	private static final long serialVersionUID = 1L;
 	private Long codpessoa;
