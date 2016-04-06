@@ -54,7 +54,7 @@ public class PessoaController {
 	@ResponseBody
 	@RequestMapping(value="/nome/{nome}", method=RequestMethod.GET)
 	public PessoaWrapper getByNome(@PathVariable String nome) throws IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException {
-		List<Pessoa> result = pessoaRepository.findByNome("%"+nome+"%");
+		List<Pessoa> result = pessoaRepository.findByNomeLike("%"+nome+"%");
 		PessoaWrapper wrapper = new PessoaWrapper();
 		wrapper.setList(new ArrayList<br.com.spd.model.Pessoa>(PageSize.DEFAULT));
 		
@@ -79,23 +79,9 @@ public class PessoaController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/cnpj/{cnpj}", method=RequestMethod.GET)
-	public br.com.spd.model.Pessoa getByCNPJ(@PathVariable final String cnpj) throws IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException {
-		Pessoa result = pessoaRepository.findByCNPJ(cnpj);
-		if(result != null){
-			br.com.spd.model.Pessoa model = new br.com.spd.model.Pessoa();
-			transformer.transform(result, model);
-			return model;
-		}else{
-			return null;
-		}
-		
-	}
-	
-	@ResponseBody
 	@RequestMapping(value="/cpf/{cpf}", method=RequestMethod.GET)
 	public br.com.spd.model.Pessoa getByCPF(@PathVariable final String cpf) throws IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException {
-		Pessoa result = pessoaRepository.findByCPF(cpf);
+		Pessoa result = pessoaRepository.findByCpf(cpf);
 		if(result != null){
 			br.com.spd.model.Pessoa model = new br.com.spd.model.Pessoa();
 			transformer.transform(result, model);
