@@ -31,413 +31,400 @@
 							</p:row>
                 		</p:panelGrid>
                 	</div>
-					<p:panelGrid  styleClass="noborder centralize" id="formCadastro">
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.ano_letivo}" />
-							</p:column>
-							<p:column>
-								<p:calendar locale="pt_BR" mask="true" showButtonPanel="false"  value="#{alunoBean.aluno.anoletivo}" id="anoLetivo"
-													pattern="dd/MM/yyyy" styleClass="inputDate" />
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.primeira_matricula}" />
-							</p:column>
-							<p:column>
-								<p:calendar locale="pt_BR" mask="true" showButtonPanel="false" value="#{alunoBean.aluno.anoinicio}" id="anoMatricula"
-													pattern="dd/MM/yyyy" styleClass="inputDate" />
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.nome}"  />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.nome}" id="nomeAluno"/>
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.dataNasc}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.datanasc}" id="datanasc"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.modalidade}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.modalidade}" id="modalidade"/>
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.periodo}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.periodo}" id="periodo"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.nivel}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.nivel}" id="nivel"/>
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.horario}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.horario}" id="horario"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.valor}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.valor}" id="valor"/>
-							</p:column>
-						</p:row>
-						
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h4>#{msg.dadosMedicos}</h4>
-							</p:column>
-						</p:row>
-	
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.intervCirurgicas}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.cirurgias}" id="cirurgias"/>
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.possuiAlergia}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.alergia}" id="alergia"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.restAlimentar}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.restalimentar}" id="restALimentar"/>
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.temperamento}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.temperamento}" id="temperamento"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h4>#{msg.contatos}</h4>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.responsavel}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.responsavel1.nome}" id="nomeResponsavel"/>
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.parentesco}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.responsavel1.parentesco}" id="parentesco"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.responsavel}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.responsavel2.nome}" id="nomeResponsavel2"/>
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.parentesco}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.responsavel2.parentesco}" id="parentesco2"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.casoEmergencia}" />
-							</p:column>
-							<p:column>
-								<p:inputText />
-							</p:column>
-	
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.sitPais}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.sitpais}" id="sitPais"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h4>#{msg.dadosPai}</h4>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.nome}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.pai.nome}" id="nomePai"/>
-							</p:column>
-						
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.rg}" />
-							</p:column>
-							<p:column>
-								<p:inputMask mask="9.999.999-9" value="#{alunoBean.pai.rg}" id="rgPai"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.cpf}" />
-							</p:column>
-							<p:column>
-								<p:inputMask mask="999.999.999-99" value="#{alunoBean.pai.cpf}" id="cpfPai"/>
-							</p:column>
-						
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.escolaridade}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.pai.escolaridade}" id="escolaridadePai"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.profissao}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.pai.profissao}" id="profPai"/>
-							</p:column>
-					
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.localTrabalho}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.pai.localtrabalho}" id="jobPai"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.telComercial}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.pai.telefone}" id="comPai"/>
-							</p:column>
-						
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.celular}" />
-							</p:column>
-							<p:column>
-								<p:inputText />
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h4>#{msg.dadosMae}</h4>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.nome}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.mae.nome}" id="nomeMae"/>
-							</p:column>
-					
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.rg}" />
-							</p:column>
-							<p:column>
-								<p:inputMask mask="9.999.999-9" value="#{alunoBean.mae.rg}" id="rgMae"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.cpf}" />
-							</p:column>
-							<p:column>
-								<p:inputMask mask="999.999.999-99" value="#{alunoBean.mae.cpf}" id="cpfMae"/>
-							</p:column>
-					
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.escolaridade}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.mae.escolaridade}" id="escolaridadeMae"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.profissao}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.mae.profissao}" id="profMae"/>
-							</p:column>
-					
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.localTrabalho}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.mae.localtrabalho}" id="jobMae"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.telComercial}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.mae.telefone}" id="comMae"/>
-							</p:column>
-					
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.celular}" />
-							</p:column>
-							<p:column>
-								<p:inputText />
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h4>#{msg.endereco}</h4>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.cep}" />
-							</p:column>
-							<p:column>
-								<p:inputMask mask="99.999-999" value="#{alunoBean.aluno.cep}" id="cep">
-									<p:ajax event="valueChange" listener="#{alunoBean.buscaCEP()}"   process="@this" 
-											/>
-								</p:inputMask>
-							</p:column>
-							
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.rua}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.rua}" id="rua"/>
-							</p:column>
-					
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.numero}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.numero}" id="numero"/>
-							</p:column>
-
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.bairro}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.bairro}" id="bairro"/>
-							</p:column>
-						
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.cidade}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.cep}" id="cidade">
+                	<p:tabView id="formCadastro">
+                		<p:tab title="#{msg.dadosGerais}">
+                			<p:panelGrid  styleClass="noborder centralize" >
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.ano_letivo}" />
+									</p:column>
+									<p:column>
+										<p:calendar locale="pt_BR" mask="true" showButtonPanel="false"  value="#{alunoBean.aluno.anoletivo}" id="anoLetivo"
+															pattern="dd/MM/yyyy" styleClass="inputDate" />
+									</p:column>
+			
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.primeira_matricula}" />
+									</p:column>
+									<p:column>
+										<p:calendar locale="pt_BR" mask="true" showButtonPanel="false" value="#{alunoBean.aluno.anoinicio}" id="anoMatricula"
+															pattern="dd/MM/yyyy" styleClass="inputDate" />
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.nome}"  />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.nome}" id="nomeAluno"/>
+									</p:column>
+			
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.dataNasc}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.datanasc}" id="datanasc"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.modalidade}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.modalidade}" id="modalidade"/>
+									</p:column>
+			
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.periodo}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.periodo}" id="periodo"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.nivel}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.nivel}" id="nivel"/>
+									</p:column>
+			
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.horario}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.horario}" id="horario"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.valor}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.valor}" id="valor"/>
+									</p:column>
+								</p:row>
+							</p:panelGrid>
+                		</p:tab>
+                		
+                		<p:tab title="#{msg.dadosMedicos}">
+                			<p:panelGrid  styleClass="noborder centralize" >
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.intervCirurgicas}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.cirurgias}" id="cirurgias"/>
+									</p:column>
+			
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.possuiAlergia}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.alergia}" id="alergia"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.restAlimentar}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.restalimentar}" id="restALimentar"/>
+									</p:column>
+			
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.temperamento}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.temperamento}" id="temperamento"/>
+									</p:column>
+								</p:row>
+                			</p:panelGrid>
+                		</p:tab>
+                		
+                		<p:tab title="#{msg.contatos}">
+                			<p:panelGrid  styleClass="noborder centralize" >
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.casoEmergencia}" />
+									</p:column>
+									<p:column>
+										<p:inputText />
+									</p:column>
+			
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.sitPais}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.sitpais}" id="sitPais"/>
+									</p:column>
+								</p:row>
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.responsavel}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.responsavel.nome}" />
+										<p:commandButton ajax="true" action="#{alunoBean.incluiResponsavel()}" value="incluir"/>
+									</p:column>
 									
-								</p:inputText>
-							</p:column>
-						
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.estado}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.estado}" id="estado"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.telRes}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.telefone}" id="tel"/>
-							</p:column>
-						
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.email}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.email}" id="email"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column styleClass="labelForm">
-								<h:outputText value="#{msg.religiao}" />
-							</p:column>
-							<p:column>
-								<p:inputText value="#{alunoBean.aluno.religiao}" id="religiao"/>
-							</p:column>
-						</p:row>
-						
-						<p:row>
-							<p:column />
-							<p:column styleClass="labelForm">
-								<p:commandButton value="#{msg.cancelar}" />
-							</p:column>
+								</p:row>
+
+								<p:row>
+									<p:dataTable value="#{alunoBean.listaResponsavel}" var="lstResponsavel">
+										<p:column headerText="#{msg.resopnsavel}">
+											<h:outputText value="#{lstResponsavel.nome}" />
+										</p:column>
+										
+										<p:column headerText="#{msg.resopnsavel}">
+											<h:outputText value="#{lstResponsavel.nome}" />
+										</p:column>
+										
+										<p:column >
+											<p:commandButton ajax="true" action="#{alunoBean.deletaResponsavel()}" value="delete" />
+										</p:column>
+									</p:dataTable>
+								</p:row>								
+														
+                			</p:panelGrid>
+                		</p:tab>
+                		
+                		<p:tab title="#{msg.dadosPai}">
+                			<p:panelGrid  styleClass="noborder centralize" >
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.nome}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.pai.nome}" id="nomePai"/>
+									</p:column>
+								
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.rg}" />
+									</p:column>
+									<p:column>
+										<p:inputMask mask="9.999.999-9" value="#{alunoBean.pai.rg}" id="rgPai"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.cpf}" />
+									</p:column>
+									<p:column>
+										<p:inputMask mask="999.999.999-99" value="#{alunoBean.pai.cpf}" id="cpfPai"/>
+									</p:column>
+								
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.escolaridade}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.pai.escolaridade}" id="escolaridadePai"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.profissao}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.pai.profissao}" id="profPai"/>
+									</p:column>
 							
-							<p:column>
-								<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" />
-							</p:column>
-						</p:row>
-						
-					</p:panelGrid>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.localTrabalho}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.pai.localtrabalho}" id="jobPai"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.telComercial}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.pai.telefone}" id="comPai"/>
+									</p:column>
+								
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.celular}" />
+									</p:column>
+									<p:column>
+										<p:inputText />
+									</p:column>
+								</p:row>
+                			</p:panelGrid>
+                		</p:tab>
+                		
+                		<p:tab title="#{msg.dadosMae}">
+                			<p:panelGrid  styleClass="noborder centralize" >
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.nome}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.mae.nome}" id="nomeMae"/>
+									</p:column>
+							
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.rg}" />
+									</p:column>
+									<p:column>
+										<p:inputMask mask="9.999.999-9" value="#{alunoBean.mae.rg}" id="rgMae"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.cpf}" />
+									</p:column>
+									<p:column>
+										<p:inputMask mask="999.999.999-99" value="#{alunoBean.mae.cpf}" id="cpfMae"/>
+									</p:column>
+							
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.escolaridade}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.mae.escolaridade}" id="escolaridadeMae"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.profissao}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.mae.profissao}" id="profMae"/>
+									</p:column>
+							
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.localTrabalho}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.mae.localtrabalho}" id="jobMae"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.telComercial}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.mae.telefone}" id="comMae"/>
+									</p:column>
+							
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.celular}" />
+									</p:column>
+									<p:column>
+										<p:inputText />
+									</p:column>
+								</p:row>
+                			</p:panelGrid>
+                		</p:tab>
+                		
+                		<p:tab title="#{msg.endereco}">
+                			<p:panelGrid  styleClass="noborder centralize" >
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.cep}" />
+									</p:column>
+									<p:column>
+										<p:inputMask mask="99.999-999" value="#{alunoBean.aluno.cep}" id="cep">
+											<p:ajax event="valueChange" listener="#{alunoBean.buscaCEP()}"   process="@this" 
+													/>
+										</p:inputMask>
+									</p:column>
+									
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.rua}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.rua}" id="rua"/>
+									</p:column>
+							
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.numero}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.numero}" id="numero"/>
+									</p:column>
+		
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.bairro}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.bairro}" id="bairro"/>
+									</p:column>
+								
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.cidade}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.cep}" id="cidade">
+											
+										</p:inputText>
+									</p:column>
+								
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.estado}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.estado}" id="estado"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.telRes}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.telefone}" id="tel"/>
+									</p:column>
+								
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.email}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.email}" id="email"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.religiao}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.religiao}" id="religiao"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column />
+									<p:column styleClass="labelForm">
+										<p:commandButton value="#{msg.cancelar}" />
+									</p:column>
+									
+									<p:column>
+										<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" />
+									</p:column>
+								</p:row>
+                			</p:panelGrid>
+                		</p:tab>
+                	</p:tabView>
 					
 					<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
 						
