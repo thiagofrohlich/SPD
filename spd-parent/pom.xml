@@ -47,6 +47,7 @@
 		<java-compiler.version>1.7</java-compiler.version>
 		<maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
 		<maven-jar-plugin.version>2.5</maven-jar-plugin.version>
+		<maven-war-plugin.version>2.2</maven-war-plugin.version>
 		<mail.version>1.3.2</mail.version>
 		<mockito-core.version>2.0.44-beta</mockito-core.version>
 	</properties>
@@ -473,6 +474,21 @@
 							</goals>
 						</execution>
 					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven-war-plugin.version}</version>
+					<configuration>
+						<webResources>
+							<resource>
+								<filtering>true</filtering>
+								<targetPath>WEB-INF/context</targetPath>
+								<directory>src/main/resources</directory>
+							</resource>
+						</webResources>
+					</configuration>
 				</plugin>
 			</plugins>
 

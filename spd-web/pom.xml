@@ -72,13 +72,16 @@
 			<artifactId>mockito-core</artifactId>
 			<version>${mockito-core.version}</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
+
 		<plugins>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven-war-plugin.version}</version>
 			</plugin>
 
 			<plugin>
