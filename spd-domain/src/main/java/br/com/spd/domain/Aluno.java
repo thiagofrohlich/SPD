@@ -1,9 +1,15 @@
 package br.com.spd.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -397,9 +403,6 @@ public class Aluno implements Serializable, Domain {
 		return ocorrencia;
 	}
 
-
-	//bi-directional many-to-one association to Pessoa
-	@OneToMany(mappedBy="aluno")
 	public Pessoa getPessoa() {
 		return this.pessoa;
 	}
@@ -407,5 +410,4 @@ public class Aluno implements Serializable, Domain {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-
 }

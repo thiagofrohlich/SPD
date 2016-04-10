@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
 
@@ -133,10 +131,6 @@ public class Pessoa implements Serializable, Domain {
 		this.telefone = telefone;
 	}
 
-
-	//bi-directional many-to-one association to Aluno
-	@ManyToOne
-	@JoinColumn(name="codaluno")
 	public Aluno getAluno() {
 		return this.aluno;
 	}
