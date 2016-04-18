@@ -43,6 +43,7 @@ public class AlunoBean implements Serializable{
 		mae = new Pessoa();
 		responsavel = new Pessoa();
 		listaResponsavel = new ArrayList<>();
+		cepHandler = new CepHandler();
 	}
 	
 	public List<Pessoa> getListaResponsavel() {
