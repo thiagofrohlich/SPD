@@ -39,11 +39,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 	
-<<<<<<< HEAD
-    <!--  Loads Spring Security config file -->
-=======
     <!-- Loads Spring Security config file -->
->>>>>>> origin/front-end
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
