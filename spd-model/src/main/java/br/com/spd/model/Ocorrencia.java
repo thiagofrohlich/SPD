@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-public class Ocorrencia implements Serializable {
+public class Ocorrencia implements Serializable, Model {
 	private static final long serialVersionUID = 1L;
 	private Long idocorrencia;
 	private Date data;

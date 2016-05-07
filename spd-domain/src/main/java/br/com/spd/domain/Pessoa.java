@@ -1,7 +1,10 @@
 package br.com.spd.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 
 /**
@@ -10,13 +13,13 @@ import javax.persistence.*;
  */
 @Entity
 @NamedQuery(name="Pessoa.findAll", query="SELECT p FROM Pessoa p")
-public class Pessoa implements Serializable {
+public class Pessoa implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	private Long codpessoa;
 	private String celular;
 	private String cpf;
 	private String escolaridade;
-	private double localtrabalho;
+	private String localtrabalho;
 	private String nome;
 	private String parentesco;
 	private String profissao;
@@ -66,11 +69,11 @@ public class Pessoa implements Serializable {
 	}
 
 
-	public double getLocaltrabalho() {
+	public String getLocaltrabalho() {
 		return this.localtrabalho;
 	}
 
-	public void setLocaltrabalho(double localtrabalho) {
+	public void setLocaltrabalho(String localtrabalho) {
 		this.localtrabalho = localtrabalho;
 	}
 
@@ -128,10 +131,6 @@ public class Pessoa implements Serializable {
 		this.telefone = telefone;
 	}
 
-
-	//bi-directional many-to-one association to Aluno
-	@ManyToOne
-	@JoinColumn(name="codaluno")
 	public Aluno getAluno() {
 		return this.aluno;
 	}

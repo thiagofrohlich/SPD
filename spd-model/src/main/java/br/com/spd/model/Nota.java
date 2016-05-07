@@ -2,7 +2,7 @@ package br.com.spd.model;
 
 import java.io.Serializable;
 
-public class Nota implements Serializable{
+public class Nota implements Serializable, Model {
 
 	
 	/**

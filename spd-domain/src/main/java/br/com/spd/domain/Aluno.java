@@ -1,9 +1,15 @@
 package br.com.spd.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -12,7 +18,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Aluno.findAll", query="SELECT a FROM Aluno a")
-public class Aluno implements Serializable {
+public class Aluno implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	private Long matricula;
 	private String alergia;
@@ -45,7 +51,7 @@ public class Aluno implements Serializable {
 	private List<AvaliacaoPre1> avaliacaoPre1s;
 	private List<AvaliacaoPre2> avaliacaoPre2s;
 	private List<Ocorrencia> ocorrencias;
-	private List<Pessoa> pessoas;
+	private Pessoa pessoa;
 
 	public Aluno() {
 	}
@@ -397,29 +403,11 @@ public class Aluno implements Serializable {
 		return ocorrencia;
 	}
 
-
-	//bi-directional many-to-one association to Pessoa
-	@OneToMany(mappedBy="aluno")
-	public List<Pessoa> getPessoas() {
-		return this.pessoas;
+	public Pessoa getPessoa() {
+		return this.pessoa;
 	}
 
-	public void setPessoas(List<Pessoa> pessoas) {
-		this.pessoas = pessoas;
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
-
-	public Pessoa addPessoa(Pessoa pessoa) {
-		getPessoas().add(pessoa);
-		pessoa.setAluno(this);
-
-		return pessoa;
-	}
-
-	public Pessoa removePessoa(Pessoa pessoa) {
-		getPessoas().remove(pessoa);
-		pessoa.setAluno(null);
-
-		return pessoa;
-	}
-
 }

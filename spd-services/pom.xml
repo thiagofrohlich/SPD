@@ -10,7 +10,45 @@
   	<version>0.0.1-SNAPSHOT</version>
   	<relativePath>../spd-parent</relativePath>
   </parent>  
-  
+
+	<dependencies>
+	
+		 <dependency>
+	        <groupId>br.com.spd</groupId>
+	        <artifactId>spd-model</artifactId>
+	        <version>${tcc-ufpr.version}</version>
+	     </dependency>	    	
+		 
+		 <dependency>
+	        <groupId>br.com.spd</groupId>
+	        <artifactId>spd-domain</artifactId>
+	        <version>${tcc-ufpr.version}</version>
+	     </dependency>	    	
+	 
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
+        </dependency>
+        
+        <!-- TESTS -->
+        
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+       <dependency>
+        	<groupId>br.com.spd</groupId>
+        	<artifactId>spd-model</artifactId>
+        	<version>${tcc-ufpr.version}</version>
+        	<type>test-jar</type>
+        	<scope>test</scope>
+        </dependency>
+	 
+	</dependencies>  
   
   <build>
     <plugins>
