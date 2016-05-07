@@ -29,7 +29,9 @@ public class CepHandler implements Serializable {
 	public Aluno getEndereco(Aluno aluno) throws Exception {
 		String json = null;
 		try{
-			json = getRestTemplate().getForObject(path+aluno.getCep(), String.class);
+			String cep = aluno.getCep();
+			cep = cep.replace(".", "").replace("-", "");
+			json = getRestTemplate().getForObject(path+cep, String.class);
 		}catch (Exception e){
 			Exception exception = new Exception("CEP inválido");
 			throw exception;
@@ -41,6 +43,7 @@ public class CepHandler implements Serializable {
 				map = mapper.readValue(json, new TypeReference<Map<String,Object>>(){});
 				aluno.setRua(((String) map.get("logradouro")));
 				aluno.setCidade((String) map.get("cidade"));
+				aluno.setBairro((String) map.get("bairro"));
 				aluno.setEstado(((Map<String, String>) map.get("estado_info")).get("nome"));
 			} catch (JsonParseException e) {
 				e.printStackTrace();
