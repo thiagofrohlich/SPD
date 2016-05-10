@@ -1,10 +1,9 @@
 package br.ufpr.tcc.service.handler;
 
-import java.util.List;
-
 import br.com.spd.model.Aluno;
+import br.com.spd.wrapper.AlunoWrapper;
 
 public interface AlunoServiceHandler extends ServiceHandler<Aluno, Integer>{
 
-	List<Aluno> findByNome(String nome);
+	AlunoWrapper findByNome(String nome);
 }

@@ -1,8 +1,7 @@
 package br.ufpr.tcc.service.handler.impl;
 
-import java.util.List;
-
 import br.com.spd.model.Aluno;
+import br.com.spd.wrapper.AlunoWrapper;
 import br.ufpr.tcc.service.handler.AlunoServiceHandler;
 
 public class AlunoServiceHandlerImpl extends AbstractServiceHandler<Aluno, Integer> implements AlunoServiceHandler{
@@ -13,9 +12,11 @@ public class AlunoServiceHandlerImpl extends AbstractServiceHandler<Aluno, Integ
 	}
 
 	@Override
-	public List<Aluno> findByNome(String nome) {
-		// TODO Auto-generated method stub
-		return null;
+	public AlunoWrapper findByNome(String nome) {
+		
+		return (AlunoWrapper) getRestTemplate().getForObject(getPath()+"/nome/{nome}", AlunoWrapper.class, nome);
 	}
+	
+	
 
 }

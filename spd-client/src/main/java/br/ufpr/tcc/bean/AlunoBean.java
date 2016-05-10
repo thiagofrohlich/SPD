@@ -13,6 +13,8 @@ import javax.faces.context.FacesContext;
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Pessoa;
 import br.ufpr.tcc.service.CepHandler;
+import br.ufpr.tcc.service.handler.AlunoServiceHandler;
+import br.ufpr.tcc.service.handler.impl.AlunoServiceHandlerImpl;
 
 @ViewScoped
 @ManagedBean(name = "alunoBean")
@@ -32,6 +34,8 @@ public class AlunoBean implements Serializable{
 	private Pessoa mae;
 	private CepHandler cepHandler;
 	private String nome;
+	private AlunoServiceHandler AlunoServiceHandler;
+	
 	
 
 	@PostConstruct
@@ -44,6 +48,7 @@ public class AlunoBean implements Serializable{
 		responsavel = new Pessoa();
 		listaResponsavel = new ArrayList<>();
 		cepHandler = new CepHandler();
+		AlunoServiceHandler = new AlunoServiceHandlerImpl();
 	}
 	
 	public List<Pessoa> getListaResponsavel() {
@@ -67,7 +72,7 @@ public class AlunoBean implements Serializable{
 	}
 	
 	public void buscaAluno(){
-		
+		listAluno = AlunoServiceHandler.findByNome(nome).getList();
 	}
 	
 	public void selecionaAluno(){
