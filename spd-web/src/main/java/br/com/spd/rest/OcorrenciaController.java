@@ -1,6 +1,7 @@
 package br.com.spd.rest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -63,6 +64,21 @@ public class OcorrenciaController {
 		return model;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/descricao/{descricao}", method=RequestMethod.GET)
+	public OcorrenciaWrapper getByNome(@PathVariable String descricao) throws TransformerException {
+		List<Ocorrencia> result = ocorrenciaRepository.findByDescricaoLike("%"+descricao+"%");
+		OcorrenciaWrapper wrapper = new OcorrenciaWrapper();
+		wrapper.setList(new ArrayList<br.com.spd.model.Ocorrencia>(PageSize.DEFAULT));
+		
+		for(Ocorrencia ocorrencia : result) {
+			br.com.spd.model.Ocorrencia o = new br.com.spd.model.Ocorrencia();
+			transformer.transform(ocorrencia, o);
+		}
+		
+		return wrapper;
+	}
+
 	@ResponseBody
 	@RequestMapping(method=RequestMethod.POST)
 	public br.com.spd.model.Ocorrencia create(@RequestBody br.com.spd.model.Ocorrencia ocorrencia) throws TransformerException {
