@@ -1,6 +1,7 @@
 package br.com.spd.rest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -63,6 +64,20 @@ public class AlunoController {
 		return model;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/nome/{nome}", method=RequestMethod.GET)
+	public AlunoWrapper getByNome(@PathVariable String nome) throws TransformerException {
+		List<Aluno> result = alunoRepository.findByNomeLike("%"+nome+"%");
+		AlunoWrapper wrapper = new AlunoWrapper();
+		wrapper.setList(new ArrayList<br.com.spd.model.Aluno>(PageSize.DEFAULT));
+		
+		for(Aluno aluno : result) {
+			br.com.spd.model.Aluno a = new br.com.spd.model.Aluno();
+			transformer.transform(aluno, a);
+		}
+		
+		return wrapper;
+	}
 	@ResponseBody
 	@RequestMapping(method=RequestMethod.POST)
 	public br.com.spd.model.Aluno create(@RequestBody br.com.spd.model.Aluno aluno) throws TransformerException {
