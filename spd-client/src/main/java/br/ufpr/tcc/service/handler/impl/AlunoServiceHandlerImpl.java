@@ -8,7 +8,7 @@ public class AlunoServiceHandlerImpl extends AbstractServiceHandler<Aluno, Integ
 
 	@Override
 	public String getRelativePath() {
-		return "/Aluno";
+		return "/aluno";
 	}
 
 	@Override

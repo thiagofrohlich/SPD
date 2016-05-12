@@ -13,7 +13,7 @@ import br.ufpr.tcc.service.handler.ServiceHandler;
 public abstract class AbstractServiceHandler<M, ID extends Serializable> implements ServiceHandler<M, ID> {
 	
 	private RestTemplate restTemplate;
-	private final String absolutePath = "http://localhost:8080/spd-client";
+	private final String absolutePath = "http://localhost:8080/spd-web";
 	
 	protected RestTemplate getRestTemplate() {
 		if(restTemplate == null) {

@@ -152,8 +152,8 @@
                 			</p:panelGrid>
                 		</p:tab>
                 		
-                		<p:tab title="#{msg.contatos}">
-                			<p:panelGrid  styleClass="noborder centralize" >
+                		<p:tab title="#{msg.contatos}" >
+                			<p:panelGrid  styleClass="noborder centralize" id="contato" >
 								<p:row>
 									<p:column styleClass="labelForm">
 										<h:outputText value="#{msg.casoEmergencia}" />
@@ -169,32 +169,42 @@
 										<p:inputText value="#{alunoBean.aluno.sitpais}" id="sitPais"/>
 									</p:column>
 								</p:row>
+								
 								<p:row>
-									<p:column styleClass="labelForm">
+									<p:column styleClass="labelForm" >
 										<h:outputText value="#{msg.responsavel}" />
 									</p:column>
 									<p:column>
 										<p:inputText value="#{alunoBean.responsavel.nome}" />
-										<p:commandButton ajax="true" action="#{alunoBean.incluiResponsavel()}" value="incluir"/>
+									</p:column>
+									<p:column styleClass="labelForm" >
+										<h:outputText value="#{msg.parentesco}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.responsavel.parentesco}" />
+										<p:commandButton ajax="true" action="#{alunoBean.incluiResponsavel()}" value="incluir" update="cadastro:formCadastro:contato cadastro:formCadastro:Tcontato" />
 									</p:column>
 									
 								</p:row>
-
+								</p:panelGrid>
+								<p:panelGrid  styleClass="noborder centralize" id="Tcontato">
 								<p:row>
-									<p:dataTable value="#{alunoBean.listaResponsavel}" var="lstResponsavel">
-										<p:column headerText="#{msg.resopnsavel}">
-											<h:outputText value="#{lstResponsavel.nome}" />
-										</p:column>
-										
-										<p:column headerText="#{msg.resopnsavel}">
-											<h:outputText value="#{lstResponsavel.nome}" />
-										</p:column>
-										
-										<p:column >
-											<p:commandButton ajax="true" action="#{alunoBean.deletaResponsavel()}" value="delete" />
-										</p:column>
-									</p:dataTable>
-								</p:row>								
+									<p:column colspan="4" >
+										<p:dataTable value="#{alunoBean.listaResponsavel}" var="lstResponsavel" styleClass="col-lg-12" >
+											<p:column headerText="#{msg.resopnsavel}" styleClass="col-lg-5">
+												<h:outputText value="#{lstResponsavel.nome}" />
+											</p:column>
+											
+											<p:column headerText="#{msg.resopnsavel}" styleClass="col-lg-5">
+												<h:outputText value="#{lstResponsavel.parentesco}" />
+											</p:column>
+											
+											<p:column styleClass="col-lg-1">
+												<p:commandButton ajax="true" action="#{alunoBean.deletaResponsavel(lstResponsavel)}" value="delete" update="cadastro:formCadastro:Tcontato" />
+											</p:column>
+										</p:dataTable>
+									</p:column>
+								</p:row>
 														
                 			</p:panelGrid>
                 		</p:tab>
@@ -424,7 +434,7 @@
 									</p:column>
 									
 									<p:column>
-										<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" />
+										<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" action="#{alunoBean.salva()}"/>
 									</p:column>
 								</p:row>
                 			</p:panelGrid>

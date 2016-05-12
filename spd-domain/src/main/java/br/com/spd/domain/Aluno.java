@@ -51,7 +51,7 @@ public class Aluno implements Serializable, Domain {
 	private List<AvaliacaoPre1> avaliacaoPre1s;
 	private List<AvaliacaoPre2> avaliacaoPre2s;
 	private List<Ocorrencia> ocorrencias;
-	private Pessoa pessoa;
+//	private Pessoa pessoa;
 
 	public Aluno() {
 	}
@@ -403,11 +403,11 @@ public class Aluno implements Serializable, Domain {
 		return ocorrencia;
 	}
 
-	public Pessoa getPessoa() {
+/*	public Pessoa getPessoa() {
 		return this.pessoa;
 	}
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
-	}
+	}*/
 }

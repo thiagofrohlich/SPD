@@ -14,7 +14,9 @@ import br.com.spd.model.Aluno;
 import br.com.spd.model.Pessoa;
 import br.ufpr.tcc.service.CepHandler;
 import br.ufpr.tcc.service.handler.AlunoServiceHandler;
+import br.ufpr.tcc.service.handler.PessoaServiceHandler;
 import br.ufpr.tcc.service.handler.impl.AlunoServiceHandlerImpl;
+import br.ufpr.tcc.service.handler.impl.PessoaServiceHandlerImpl;
 
 @ViewScoped
 @ManagedBean(name = "alunoBean")
@@ -35,8 +37,8 @@ public class AlunoBean implements Serializable{
 	private CepHandler cepHandler;
 	private String nome;
 	private AlunoServiceHandler AlunoServiceHandler;
-	
-	
+	private Long mat = (long) 100000000;
+	private PessoaServiceHandler pessoaServiceHandler;
 
 	@PostConstruct
 	public void init(){
@@ -49,6 +51,7 @@ public class AlunoBean implements Serializable{
 		listaResponsavel = new ArrayList<>();
 		cepHandler = new CepHandler();
 		AlunoServiceHandler = new AlunoServiceHandlerImpl();
+		pessoaServiceHandler = new PessoaServiceHandlerImpl();
 	}
 	
 	public List<Pessoa> getListaResponsavel() {
@@ -68,7 +71,12 @@ public class AlunoBean implements Serializable{
 	}
 	
 	public void incluiResponsavel(){
-		
+		listaResponsavel.add(responsavel);
+		responsavel = new Pessoa();
+	}
+	
+	public void deletaResponsavel(Pessoa responsavel){
+		listaResponsavel.remove(responsavel);
 	}
 	
 	public void buscaAluno(){
@@ -80,7 +88,13 @@ public class AlunoBean implements Serializable{
 	}
 	
 	public void salva(){
-		
+		mat++;
+		aluno.setMatricula(mat);
+		aluno = AlunoServiceHandler.create(aluno);
+		pai.setAluno(aluno);
+		mae.setAluno(aluno);
+		pessoaServiceHandler.create(mae);
+		pessoaServiceHandler.create(pai);
 	}
 
 	public String getNome() {
