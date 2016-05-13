@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.spd.PageSize;
+import br.com.spd.domain.Aluno;
 import br.com.spd.domain.Responsavel;
 import br.com.spd.domain.repository.ResponsavelRepository;
 import br.com.spd.exception.TransformerException;
-import br.com.spd.transformer.impl.GenericTransformer;
 import br.com.spd.transformer.impl.ResponsavelTransformer;
 import br.com.spd.wrapper.ResponsavelWrapper;
 
@@ -68,6 +68,25 @@ public class ResponsavelController {
 		return wrapper;
 	}
 
+	@ResponseBody
+	@RequestMapping(value="/aluno/{matricula}", method=RequestMethod.GET)
+	public ResponsavelWrapper getByAluno(@PathVariable Long matricula) throws TransformerException {
+		Aluno aluno = new Aluno();
+		aluno.setMatricula(matricula);
+		List<Responsavel> result = responsavelRepository.findByAluno(aluno);
+		
+		ResponsavelWrapper wrapper = new ResponsavelWrapper();
+		wrapper.setList(new ArrayList<br.com.spd.model.Responsavel>(PageSize.DEFAULT));
+		
+		for(Responsavel responsavel : result) {
+			br.com.spd.model.Responsavel p = new br.com.spd.model.Responsavel();
+			transformer.transform(responsavel, p);
+			wrapper.getList().add(p);
+		}
+		
+		return wrapper;
+	}
+	
 	@ResponseBody
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public br.com.spd.model.Responsavel getOne(@PathVariable final Long id) throws TransformerException {
