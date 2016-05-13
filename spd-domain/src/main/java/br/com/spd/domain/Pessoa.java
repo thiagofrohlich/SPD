@@ -17,7 +17,7 @@ public class Pessoa implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private Integer codpessoa;
+	private Long codpessoa;
 	private String celular;
 	private String cpf;
 	private String escolaridade;
@@ -30,11 +30,11 @@ public class Pessoa implements Serializable, Domain {
 	public Pessoa() {
 	}
 
-	public Integer getCodpessoa() {
+	public Long getCodpessoa() {
 		return this.codpessoa;
 	}
 
-	public void setCodpessoa(Integer codpessoa) {
+	public void setCodpessoa(Long codpessoa) {
 		this.codpessoa = codpessoa;
 	}
 

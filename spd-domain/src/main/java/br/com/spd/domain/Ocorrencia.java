@@ -20,7 +20,7 @@ public class Ocorrencia implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private Integer idocorrencia;
+	private Long idocorrencia;
 	private Date data;
 	private String descricao;
 	private String tipo;
@@ -38,11 +38,11 @@ public class Ocorrencia implements Serializable, Domain {
 	public Ocorrencia() {
 	}
 
-	public Integer getIdocorrencia() {
+	public Long getIdocorrencia() {
 		return this.idocorrencia;
 	}
 
-	public void setIdocorrencia(Integer idocorrencia) {
+	public void setIdocorrencia(Long idocorrencia) {
 		this.idocorrencia = idocorrencia;
 	}
 
