@@ -42,11 +42,12 @@ public class PessoaController {
 		PessoaWrapper wrapper = new PessoaWrapper(result);
 		wrapper.setList(new ArrayList<br.com.spd.model.Pessoa>(PageSize.DEFAULT));
 		
-		for(Pessoa pessoa : result) {
-			br.com.spd.model.Pessoa p = new br.com.spd.model.Pessoa();
-			transformer.transform(pessoa, p);
-			wrapper.getList().add(p);
-		}
+//		Use Professor or Responsavel instead
+//		for(Pessoa pessoa : result) {
+//			br.com.spd.model.Pessoa p = new br.com.spd.model.Pessoa();
+//			transformer.transform(pessoa, p);
+//			wrapper.getList().add(p);
+//		}
 		
 		return wrapper;
 	}
@@ -58,11 +59,12 @@ public class PessoaController {
 		PessoaWrapper wrapper = new PessoaWrapper();
 		wrapper.setList(new ArrayList<br.com.spd.model.Pessoa>(PageSize.DEFAULT));
 		
-		for(Pessoa pessoa : result) {
-			br.com.spd.model.Pessoa p = new br.com.spd.model.Pessoa();
-			transformer.transform(pessoa, p);
-			wrapper.getList().add(p);
-		}
+//		Use Professor or Responsavel instead
+//		for(Pessoa pessoa : result) {
+//			br.com.spd.model.Pessoa p = new br.com.spd.model.Pessoa();
+//			transformer.transform(pessoa, p);
+//			wrapper.getList().add(p);
+//		}
 		
 		return wrapper;
 	}
@@ -71,9 +73,11 @@ public class PessoaController {
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public br.com.spd.model.Pessoa getOne(@PathVariable final Long id) throws TransformerException {
 		Pessoa result = pessoaRepository.findOne(id);
-		br.com.spd.model.Pessoa model = new br.com.spd.model.Pessoa();
-		transformer.transform(result, model);
-		return model;
+//		Use Professor or Responsavel instead
+//		br.com.spd.model.Pessoa model = new br.com.spd.model.Pessoa();
+//		transformer.transform(result, model);
+//		return model;
+		return null;
 	}
 	
 	@ResponseBody
@@ -81,9 +85,11 @@ public class PessoaController {
 	public br.com.spd.model.Pessoa getByCPF(@PathVariable final String cpf) throws TransformerException {
 		Pessoa result = pessoaRepository.findByCpf(cpf);
 		if(result != null){
-			br.com.spd.model.Pessoa model = new br.com.spd.model.Pessoa();
-			transformer.transform(result, model);
-			return model;
+//			Use Professor or Responsavel instead
+//			br.com.spd.model.Pessoa model = new br.com.spd.model.Pessoa();
+//			transformer.transform(result, model);
+//			return model;
+			return null;
 		}else{
 			return null;
 		}
@@ -114,9 +120,11 @@ public class PessoaController {
 		Pessoa p = new Pessoa();
 		transformer.transform(pessoa, p);
 		p = pessoaRepository.save(p);
-		br.com.spd.model.Pessoa model = new br.com.spd.model.Pessoa();
-		transformer.transform(p, model);
-		return model;
+//		Use Professor or Responsavel instead
+//		br.com.spd.model.Pessoa model = new br.com.spd.model.Pessoa();
+//		transformer.transform(p, model);
+//		return model;
+		return null;
 	}
 
 }
