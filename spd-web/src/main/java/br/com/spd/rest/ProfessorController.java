@@ -18,7 +18,7 @@ import br.com.spd.PageSize;
 import br.com.spd.domain.Professor;
 import br.com.spd.domain.repository.ProfessorRepository;
 import br.com.spd.exception.TransformerException;
-import br.com.spd.transformer.impl.GenericTransformer;
+import br.com.spd.transformer.impl.ProfessorTransformer;
 import br.com.spd.wrapper.ProfessorWrapper;
 
 @Controller
@@ -26,12 +26,12 @@ import br.com.spd.wrapper.ProfessorWrapper;
 public class ProfessorController {
 	
 	private final ProfessorRepository professorRepository;
-	private final GenericTransformer transformer;
+	private final ProfessorTransformer transformer;
 
 	@Autowired
 	public ProfessorController(ProfessorRepository professorRepository) {
 		this.professorRepository = professorRepository;
-		this.transformer = new GenericTransformer();
+		this.transformer = new ProfessorTransformer();
 	}
 	
 	@ResponseBody
