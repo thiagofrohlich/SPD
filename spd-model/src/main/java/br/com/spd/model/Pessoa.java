@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
 @XmlRootElement
-@XmlSeeAlso({ Professor.class })
+@XmlSeeAlso({ Professor.class, Responsavel.class })
 public abstract class Pessoa implements Serializable, Model {
 	private static final long serialVersionUID = 1L;
 	protected Long codpessoa;
