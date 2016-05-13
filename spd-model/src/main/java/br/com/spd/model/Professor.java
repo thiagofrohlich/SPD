@@ -1,5 +1,8 @@
 package br.com.spd.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Professor extends Pessoa {
 	private static final long serialVersionUID = 1L;
 
