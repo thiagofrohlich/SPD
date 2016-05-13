@@ -50,10 +50,6 @@ public class AlunoController {
 		
 		return wrapper;
 	}
-	
-	
-	
-	
 
 	@ResponseBody
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)

@@ -48,6 +48,14 @@
         	<scope>test</scope>
         </dependency>
 	 
+       <dependency>
+        	<groupId>br.com.spd</groupId>
+        	<artifactId>spd-domain</artifactId>
+        	<version>${tcc-ufpr.version}</version>
+        	<type>test-jar</type>
+        	<scope>test</scope>
+        </dependency>
+	 
 	</dependencies>  
   
   <build>

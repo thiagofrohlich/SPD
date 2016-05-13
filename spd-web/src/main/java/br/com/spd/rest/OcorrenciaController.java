@@ -51,10 +51,6 @@ public class OcorrenciaController {
 		return wrapper;
 	}
 	
-	
-	
-	
-
 	@ResponseBody
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public br.com.spd.model.Ocorrencia getOne(@PathVariable final Long id) throws TransformerException {
@@ -74,6 +70,7 @@ public class OcorrenciaController {
 		for(Ocorrencia ocorrencia : result) {
 			br.com.spd.model.Ocorrencia o = new br.com.spd.model.Ocorrencia();
 			transformer.transform(ocorrencia, o);
+			wrapper.getList().add(o);
 		}
 		
 		return wrapper;

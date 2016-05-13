@@ -3,22 +3,21 @@ package br.com.spd.model;
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 @XmlRootElement
-public class Pessoa implements Serializable, Model {
+@XmlSeeAlso({ Professor.class, Responsavel.class })
+public abstract class Pessoa implements Serializable, Model {
 	private static final long serialVersionUID = 1L;
-	private Long codpessoa;
-	private String celular;
-	private String cpf;
-	private String escolaridade;
-	private String localtrabalho;
-	private String nome;
-	private String parentesco;
-	private String profissao;
-	private Boolean responsavel;
-	private String rg;
-	private String telefone;
-	private Aluno aluno;
+	protected Long codpessoa;
+	protected String celular;
+	protected String cpf;
+	protected String escolaridade;
+	protected String localtrabalho;
+	protected String nome;
+	protected String profissao;
+	protected String rg;
+	protected String telefone;
 
 	public Pessoa() {
 	}
@@ -78,30 +77,12 @@ public class Pessoa implements Serializable, Model {
 	}
 
 
-	public String getParentesco() {
-		return this.parentesco;
-	}
-
-	public void setParentesco(String parentesco) {
-		this.parentesco = parentesco;
-	}
-
-
 	public String getProfissao() {
 		return this.profissao;
 	}
 
 	public void setProfissao(String profissao) {
 		this.profissao = profissao;
-	}
-
-
-	public Boolean getResponsavel() {
-		return this.responsavel;
-	}
-
-	public void setResponsavel(Boolean responsavel) {
-		this.responsavel = responsavel;
 	}
 
 
@@ -120,14 +101,6 @@ public class Pessoa implements Serializable, Model {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-
-	public Aluno getAluno() {
-		return this.aluno;
-	}
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
 	}
 
 }

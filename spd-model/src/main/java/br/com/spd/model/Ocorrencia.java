@@ -3,7 +3,9 @@ package br.com.spd.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Ocorrencia implements Serializable, Model {
 	private static final long serialVersionUID = 1L;
 	private Long idocorrencia;
