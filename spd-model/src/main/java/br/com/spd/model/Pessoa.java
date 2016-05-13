@@ -3,22 +3,24 @@ package br.com.spd.model;
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 @XmlRootElement
-public class Pessoa implements Serializable, Model {
+@XmlSeeAlso({ Professor.class })
+public abstract class Pessoa implements Serializable, Model {
 	private static final long serialVersionUID = 1L;
-	private Long codpessoa;
-	private String celular;
-	private String cpf;
-	private String escolaridade;
-	private String localtrabalho;
-	private String nome;
-	private String parentesco;
-	private String profissao;
-	private Boolean responsavel;
-	private String rg;
-	private String telefone;
-	private Aluno aluno;
+	protected Long codpessoa;
+	protected String celular;
+	protected String cpf;
+	protected String escolaridade;
+	protected String localtrabalho;
+	protected String nome;
+	protected String parentesco;
+	protected String profissao;
+	protected Boolean responsavel;
+	protected String rg;
+	protected String telefone;
+	protected Aluno aluno;
 
 	public Pessoa() {
 	}
