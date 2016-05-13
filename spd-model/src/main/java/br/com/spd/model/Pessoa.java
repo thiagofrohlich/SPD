@@ -15,12 +15,9 @@ public abstract class Pessoa implements Serializable, Model {
 	protected String escolaridade;
 	protected String localtrabalho;
 	protected String nome;
-	protected String parentesco;
 	protected String profissao;
-	protected Boolean responsavel;
 	protected String rg;
 	protected String telefone;
-	protected Aluno aluno;
 
 	public Pessoa() {
 	}
@@ -80,30 +77,12 @@ public abstract class Pessoa implements Serializable, Model {
 	}
 
 
-	public String getParentesco() {
-		return this.parentesco;
-	}
-
-	public void setParentesco(String parentesco) {
-		this.parentesco = parentesco;
-	}
-
-
 	public String getProfissao() {
 		return this.profissao;
 	}
 
 	public void setProfissao(String profissao) {
 		this.profissao = profissao;
-	}
-
-
-	public Boolean getResponsavel() {
-		return this.responsavel;
-	}
-
-	public void setResponsavel(Boolean responsavel) {
-		this.responsavel = responsavel;
 	}
 
 
@@ -122,14 +101,6 @@ public abstract class Pessoa implements Serializable, Model {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-
-	public Aluno getAluno() {
-		return this.aluno;
-	}
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
 	}
 
 }

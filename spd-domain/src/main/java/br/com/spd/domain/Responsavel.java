@@ -14,7 +14,7 @@ public class Responsavel implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private Integer id;
+	private Long id;
 	private String parentesco;
 	private Boolean responsavel;
 
@@ -31,11 +31,11 @@ public class Responsavel implements Serializable, Domain {
 	public Responsavel() {
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

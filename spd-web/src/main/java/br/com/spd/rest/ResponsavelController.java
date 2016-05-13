@@ -19,6 +19,7 @@ import br.com.spd.domain.Responsavel;
 import br.com.spd.domain.repository.ResponsavelRepository;
 import br.com.spd.exception.TransformerException;
 import br.com.spd.transformer.impl.GenericTransformer;
+import br.com.spd.transformer.impl.ResponsavelTransformer;
 import br.com.spd.wrapper.ResponsavelWrapper;
 
 @Controller
@@ -26,12 +27,12 @@ import br.com.spd.wrapper.ResponsavelWrapper;
 public class ResponsavelController {
 	
 	private final ResponsavelRepository responsavelRepository;
-	private final GenericTransformer transformer;
+	private final ResponsavelTransformer transformer;
 
 	@Autowired
 	public ResponsavelController(ResponsavelRepository responsavelRepository) {
 		this.responsavelRepository = responsavelRepository;
-		this.transformer = new GenericTransformer();
+		this.transformer = new ResponsavelTransformer();
 	}
 	
 	@ResponseBody
