@@ -26,8 +26,8 @@ public class AlunoBean implements Serializable{
 	private List<Aluno> listAluno;
 	private Aluno alunoSelecionado;
 	private Aluno aluno;
-	private Pessoa responsavel1;
-	private Pessoa responsavel2;
+	private Pessoa responsavel;
+	private List<Pessoa> listaResponsavel;
 	private Pessoa pai;
 	private Pessoa mae;
 	private CepHandler cepHandler;
@@ -41,16 +41,29 @@ public class AlunoBean implements Serializable{
 		aluno = new Aluno();
 		pai = new Pessoa();
 		mae = new Pessoa();
-		responsavel1 = new Pessoa();
-		responsavel2 = new Pessoa();
+		responsavel = new Pessoa();
+		listaResponsavel = new ArrayList<>();
+		cepHandler = new CepHandler();
 	}
 	
+	public List<Pessoa> getListaResponsavel() {
+		return listaResponsavel;
+	}
+
+	public void setListaResponsavel(List<Pessoa> listaResponsavel) {
+		this.listaResponsavel = listaResponsavel;
+	}
+
 	public void buscaCEP(){
 		try{
 			cepHandler.getEndereco(aluno);
 		}catch (Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO", e.getMessage()));
 		}
+	}
+	
+	public void incluiResponsavel(){
+		
 	}
 	
 	public void buscaAluno(){
@@ -98,20 +111,12 @@ public class AlunoBean implements Serializable{
 
 
 
-	public Pessoa getResponsavel1() {
-		return responsavel1;
+	public Pessoa getResponsavel() {
+		return responsavel;
 	}
 
-	public void setResponsavel1(Pessoa responsavel1) {
-		this.responsavel1 = responsavel1;
-	}
-
-	public Pessoa getResponsavel2() {
-		return responsavel2;
-	}
-
-	public void setResponsavel2(Pessoa responsavel2) {
-		this.responsavel2 = responsavel2;
+	public void setResponsavel(Pessoa responsavel) {
+		this.responsavel = responsavel;
 	}
 
 	public Aluno getAluno() {

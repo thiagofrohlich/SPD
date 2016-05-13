@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:tag="http://java.sun.com/jsf/composite/tags">
+	
+	<ui:composition template="/template.xhtml">
+	
+		<ui:define name="body">
+		<div class="row">
+                    <div class="col-lg-12">
+			<div class="centralize">
+			<div class="col-lg-12">
+            	<h3 class="page-header">#{msg.cadastro}</h3>
+            </div>
+                <h:form id="cadastroProf">
+                	<div class="col-lg-12">
+                		<p:panelGrid  styleClass="noborder centralize">
+                			<p:row>
+								<p:column styleClass="labelForm">
+									<h:outputText value="#{msg.aluno}" />
+								</p:column>
+								<p:column>
+									<p:inputText value="#{professorBean}" id="nome"/>
+									<p:commandButton value="#{msg.pesquisar}" action="#{alunoBean.buscaAluno()}" 
+												onsuccess="PF('aluno').show();"	ajax="true" update=":cadastroProf:formCadastro" />
+								</p:column>
+							</p:row>
+                		</p:panelGrid>
+                	
+                		<p:panelGrid styleClass="noborder centralize">
+                			<p:row>
+                				<p:column styleClass="labelForm">
+                					<h:outputText value="#{msg.nome}"/>
+                				</p:column>
+                				<p:column>
+                					<p:inputText value="#{professorBean}" />
+                				</p:column>
+                				
+                				<p:column styleClass="labelForm">
+                					<h:outputText value="#{msg.cpf}"/>
+                				</p:column>
+                				<p:column>
+                					<p:inputText value="#{professorBean}" />
+                				</p:column>
+                			</p:row>
+
+                			<p:row>
+                				<p:column styleClass="labelForm">
+                					<h:outputText value="#{msg.cep}"/>
+                				</p:column>
+                				<p:column>
+                					<p:inputText value="#{professorBean}" />
+                				</p:column>
+                				
+                				<p:column styleClass="labelForm">
+                					<h:outputText value="#{msg.rua}"/>
+                				</p:column>
+                				<p:column>
+                					<p:inputText value="#{professorBean}" />
+                				</p:column>
+                			</p:row>
+                			
+                			<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.numero}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.numero}" id="numero"/>
+									</p:column>
+		
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.bairro}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.bairro}" id="bairro"/>
+									</p:column>
+								
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.cidade}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.cidade}" id="cidade">
+											
+										</p:inputText>
+									</p:column>
+								
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.estado}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.estado}" id="estado"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.telRes}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.telefone}" id="tel"/>
+									</p:column>
+								
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.email}" />
+									</p:column>
+									<p:column>
+										<p:inputText value="#{alunoBean.aluno.email}" id="email"/>
+									</p:column>
+								</p:row>
+                		</p:panelGrid>
+                	
+                	</div>
+					
+					<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
+						
+						<p:dataTable value="#{alunoBean.listAluno}" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{alunoBean.alunoSelecionado}" selectionMode="single"
+									 paginator="true" paginatorPosition="bottom" rows="10">
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="#{msg.nome}" />
+								</f:facet>
+								<h:outputText value="#{lstALuno.nome}"/>
+							</p:column>
+							
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="#{msg.matricula}" />
+								</f:facet>
+								<h:outputText value="#{lstALuno.matricula}"/>
+							</p:column>
+							
+						</p:dataTable>						
+						<p:commandButton value="#{msg.ok}" action="#{alunoBean.selecionaAluno()}" ajax="true" update="@form" />
+						
+					</p:dialog>
+				</h:form>
+			</div>
+			</div>
+			</div>
+		</ui:define>
+		<ui:define name="script">
+		
+		</ui:define>
+	</ui:composition>
+	
+</html>
