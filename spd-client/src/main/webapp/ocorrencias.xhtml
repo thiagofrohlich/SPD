@@ -18,7 +18,7 @@
 							<h:outputText value="#{msg.aluno}" />
 						</p:column>
 						<p:column>
-							<p:inputText value="" /> <p:commandButton value="#{msg.pesquisar}" action="#{ocorrenciaBean.buscaAluno()}" onsuccess="PF('aluno').show();" ajax="true"/>
+							<p:inputText value="" /> <p:commandButton value="#{msg.pesquisar}" action="#{alunoBean.buscaAluno()}" onsuccess="PF('aluno').show();" ajax="true"/>
 						</p:column>
 					</p:row>
 					
@@ -28,7 +28,7 @@
 						</p:column>
 						
 						<p:column>
-							<h:outputText value="#{ocorrenciaBean.alunoSelecionado.nome}" />
+							<h:outputText value="#{ocorrenciaBean.aluno.nome}" />
 						</p:column>
 						
 						<p:column styleClass="labelForm">
@@ -36,7 +36,7 @@
 						</p:column>
 						
 						<p:column>
-							<h:outputText value="#{ocorrenciaBean.alunoSelecionado.nivel}" />
+							<h:outputText value="#{ocorrenciaBean.aluno.nivel}" />
 						</p:column>
 					</p:row>
 					
@@ -46,7 +46,7 @@
 						</p:column>
 						
 						<p:column >
-							<h:outputText value="#{ocorrenciaBean.alunoSelecionado.periodo}" />
+							<h:outputText value="#{ocorrenciaBean.aluno.periodo}" />
 						</p:column>
 						
 						<p:column styleClass="labelForm">
@@ -54,7 +54,7 @@
 						</p:column>
 						
 						<p:column >
-							<h:outputText value="#{ocorrenciaBean.alunoSelecionado.horario}" />
+							<h:outputText value="#{ocorrenciaBean.aluno.horario}" />
 						</p:column>
 					</p:row>
 					</p:panelGrid>
@@ -94,7 +94,7 @@
 						</p:column>
 						
 						<p:column>
-							<p:commandButton value="#{msg.salvar}" />
+							<p:commandButton value="#{msg.salvar}" ajax="false" action="#{ocorrenciaBean.salva()}"/>
 						</p:column>
 					</p:row>
 				
@@ -103,7 +103,7 @@
 				</div>
 				<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
 						
-					<p:dataTable value="#{ocorrenciaBean.lstAluno}" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{ocorrenciaBean.alunoSelecionado}" selectionMode="single"
+					<p:dataTable value="#{alunoBean.lstAluno}" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{ocorrenciaBean.alunoSelecionado}" selectionMode="single"
 								 paginator="true" paginatorPosition="bottom" rows="10">
 						<p:column>
 							<f:facet name="header">

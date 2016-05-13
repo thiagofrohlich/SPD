@@ -11,12 +11,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.spd.model.Aluno;
-import br.com.spd.model.Pessoa;
+import br.com.spd.model.Responsavel;
 import br.ufpr.tcc.service.CepHandler;
 import br.ufpr.tcc.service.handler.AlunoServiceHandler;
-import br.ufpr.tcc.service.handler.PessoaServiceHandler;
+import br.ufpr.tcc.service.handler.ResponsavelServiceHandler;
 import br.ufpr.tcc.service.handler.impl.AlunoServiceHandlerImpl;
-import br.ufpr.tcc.service.handler.impl.PessoaServiceHandlerImpl;
+import br.ufpr.tcc.service.handler.impl.ResponsavelServiceHandlerImpl;
 
 @ViewScoped
 @ManagedBean(name = "alunoBean")
@@ -30,35 +30,35 @@ public class AlunoBean implements Serializable{
 	private List<Aluno> listAluno;
 	private Aluno alunoSelecionado;
 	private Aluno aluno;
-	private Pessoa responsavel;
-	private List<Pessoa> listaResponsavel;
-	private Pessoa pai;
-	private Pessoa mae;
+	private Responsavel responsavel;
+	private List<Responsavel> listaResponsavel;
+	private Responsavel pai;
+	private Responsavel mae;
 	private CepHandler cepHandler;
 	private String nome;
-	private AlunoServiceHandler AlunoServiceHandler;
+	private AlunoServiceHandler alunoServiceHandler;
 	private Long mat = (long) 100000000;
-	private PessoaServiceHandler pessoaServiceHandler;
+	private ResponsavelServiceHandler responsavelServiceHandler;
 
 	@PostConstruct
 	public void init(){
 		listAluno = new ArrayList<>();
 		alunoSelecionado = new Aluno();
 		aluno = new Aluno();
-		pai = new Pessoa();
-		mae = new Pessoa();
-		responsavel = new Pessoa();
+		pai = new Responsavel();
+		mae = new Responsavel();
+		responsavel = new Responsavel();
 		listaResponsavel = new ArrayList<>();
 		cepHandler = new CepHandler();
-		AlunoServiceHandler = new AlunoServiceHandlerImpl();
-		pessoaServiceHandler = new PessoaServiceHandlerImpl();
+		alunoServiceHandler = new AlunoServiceHandlerImpl();
+		responsavelServiceHandler = new ResponsavelServiceHandlerImpl();
 	}
 	
-	public List<Pessoa> getListaResponsavel() {
+	public List<Responsavel> getListaResponsavel() {
 		return listaResponsavel;
 	}
 
-	public void setListaResponsavel(List<Pessoa> listaResponsavel) {
+	public void setListaResponsavel(List<Responsavel> listaResponsavel) {
 		this.listaResponsavel = listaResponsavel;
 	}
 
@@ -72,15 +72,15 @@ public class AlunoBean implements Serializable{
 	
 	public void incluiResponsavel(){
 		listaResponsavel.add(responsavel);
-		responsavel = new Pessoa();
+		responsavel = new Responsavel();
 	}
 	
-	public void deletaResponsavel(Pessoa responsavel){
+	public void deletaResponsavel(Responsavel responsavel){
 		listaResponsavel.remove(responsavel);
 	}
 	
 	public void buscaAluno(){
-		listAluno = AlunoServiceHandler.findByNome(nome).getList();
+		listAluno = alunoServiceHandler.findByNome(nome).getList();
 	}
 	
 	public void selecionaAluno(){
@@ -90,11 +90,11 @@ public class AlunoBean implements Serializable{
 	public void salva(){
 		mat++;
 		aluno.setMatricula(mat);
-		aluno = AlunoServiceHandler.create(aluno);
+		aluno = alunoServiceHandler.create(aluno);
 		pai.setAluno(aluno);
 		mae.setAluno(aluno);
-		pessoaServiceHandler.create(mae);
-		pessoaServiceHandler.create(pai);
+		responsavelServiceHandler.create(mae);
+		responsavelServiceHandler.create(pai);
 	}
 
 	public String getNome() {
@@ -109,32 +109,32 @@ public class AlunoBean implements Serializable{
 		return serialVersionUID;
 	}
 
-	public Pessoa getPai() {
+	public Responsavel getPai() {
 		return pai;
 	}
 
 
-	public void setPai(Pessoa pai) {
+	public void setPai(Responsavel pai) {
 		this.pai = pai;
 	}
 
 
-	public Pessoa getMae() {
+	public Responsavel getMae() {
 		return mae;
 	}
 
 
-	public void setMae(Pessoa mae) {
+	public void setMae(Responsavel mae) {
 		this.mae = mae;
 	}
 
 
 
-	public Pessoa getResponsavel() {
+	public Responsavel getResponsavel() {
 		return responsavel;
 	}
 
-	public void setResponsavel(Pessoa responsavel) {
+	public void setResponsavel(Responsavel responsavel) {
 		this.responsavel = responsavel;
 	}
 

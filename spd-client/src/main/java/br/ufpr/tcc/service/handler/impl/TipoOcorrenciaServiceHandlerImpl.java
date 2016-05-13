@@ -1,13 +1,18 @@
 package br.ufpr.tcc.service.handler.impl;
 
 import br.com.spd.model.Tipo;
-import br.ufpr.tcc.service.handler.TipoOcorrenciaService;
+import br.com.spd.wrapper.TipoOcorrenciaWrapper;
+import br.ufpr.tcc.service.handler.TipoOcorrenciaServiceHandler;
 
-public class TipoOcorrenciaServiceHandlerImpl extends AbstractServiceHandler<Tipo, Integer> implements TipoOcorrenciaService{
+public class TipoOcorrenciaServiceHandlerImpl extends AbstractServiceHandler<Tipo, Integer> implements TipoOcorrenciaServiceHandler{
 
 	@Override
 	public String getRelativePath() {
-		// TODO Auto-generated method stub
+		return "/tipoOcorrencia";
+	}
+
+	@Override
+	public TipoOcorrenciaWrapper getAll() {
 		return null;
 	}
 

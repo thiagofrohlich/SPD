@@ -10,33 +10,49 @@ import javax.faces.bean.ViewScoped;
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Ocorrencia;
 import br.com.spd.model.Tipo;
+import br.com.spd.model.TipoOcorrencia;
+import br.ufpr.tcc.service.handler.OcorrenciaServiceHandler;
+import br.ufpr.tcc.service.handler.TipoOcorrenciaServiceHandler;
+import br.ufpr.tcc.service.handler.impl.OcorrenciaServiceHandlerImpl;
+import br.ufpr.tcc.service.handler.impl.TipoOcorrenciaServiceHandlerImpl;
 
 @ViewScoped
 @ManagedBean(name = "ocorrenciaBean")
 public class OcorrenciaBean {
 	
+	private Aluno aluno;
 	private Aluno alunoSelecionado;
-	private List<Tipo> lstTipo;
+	private List<TipoOcorrencia> lstTipo;
 	private List<Aluno> lstAluno;
 	private Ocorrencia ocorrencia;
 	private boolean alunoFound;
+	private TipoOcorrenciaServiceHandler tipoOcorrenciaService;
+	private OcorrenciaServiceHandler ocorrenciaServiceHandler;
 	
 	@PostConstruct
 	public void init(){
+		aluno = new Aluno();
 		alunoSelecionado = new Aluno();
 		lstAluno = new ArrayList<>();
-		lstTipo = new ArrayList<>();
 		alunoFound = false;
+		tipoOcorrenciaService = new TipoOcorrenciaServiceHandlerImpl();
+		ocorrenciaServiceHandler = new OcorrenciaServiceHandlerImpl();
+		lstTipo = tipoOcorrenciaService.getAll().getList();
 	}
 	
-	public void buscaAluno(){
-		
-	}
+	
 	
 	public void selecionaAluno(){
-		
+		aluno = alunoSelecionado;
+		alunoSelecionado = new Aluno();
+	}
+	
+	public void salva(){
+		ocorrencia.setAluno(aluno);
+		ocorrenciaServiceHandler.create(ocorrencia);
 	}
 
+	
 	public Aluno getAlunoSelecionado() {
 		return alunoSelecionado;
 	}
@@ -53,11 +69,11 @@ public class OcorrenciaBean {
 		this.lstAluno = lstAluno;
 	}
 
-	public List<Tipo> getLstTipo() {
+	public List<TipoOcorrencia> getLstTipo() {
 		return lstTipo;
 	}
 
-	public void setLstTipo(List<Tipo> lstTipo) {
+	public void setLstTipo(List<TipoOcorrencia> lstTipo) {
 		this.lstTipo = lstTipo;
 	}
 
@@ -75,5 +91,17 @@ public class OcorrenciaBean {
 
 	public void setAlunoFound(boolean alunoFound) {
 		this.alunoFound = alunoFound;
+	}
+
+
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 }

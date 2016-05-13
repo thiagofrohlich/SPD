@@ -7,21 +7,22 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import br.com.spd.model.Pessoa;
+import br.com.spd.model.Professor;
+
 
 @ViewScoped
 @ManagedBean(name = "professorBean")
 public class ProfessorBean {
 
-	private Pessoa professor;
-	private List<Pessoa> listProfessor;
-	private Pessoa professorSelecionado;
+	private Professor professor;
+	private List<Professor> listProfessor;
+	private Professor professorSelecionado;
 	
 	@PostConstruct
 	public void init(){
-		professor = new Pessoa();
+		professor = new Professor();
 		listProfessor = new ArrayList<>();
-		professorSelecionado = new Pessoa();
+		professorSelecionado = new Professor();
 	}
 
 	public void buscaProfessor(){
@@ -30,30 +31,30 @@ public class ProfessorBean {
 	
 	public void selecionaProfessor(){
 		professor = professorSelecionado;
-		professorSelecionado = new Pessoa();
+		professorSelecionado = new Professor();
 	}
 	
-	public Pessoa getProfessor() {
+	public Professor getProfessor() {
 		return professor;
 	}
 
-	public void setProfessor(Pessoa professor) {
+	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
 
-	public List<Pessoa> getListProfessor() {
+	public List<Professor> getListProfessor() {
 		return listProfessor;
 	}
 
-	public void setListProfessor(List<Pessoa> listProfessor) {
+	public void setListProfessor(List<Professor> listProfessor) {
 		this.listProfessor = listProfessor;
 	}
 
-	public Pessoa getProfessorSelecionado() {
+	public Professor getProfessorSelecionado() {
 		return professorSelecionado;
 	}
 
-	public void setProfessorSelecionado(Pessoa professorSelecionado) {
+	public void setProfessorSelecionado(Professor professorSelecionado) {
 		this.professorSelecionado = professorSelecionado;
 	}
 }
