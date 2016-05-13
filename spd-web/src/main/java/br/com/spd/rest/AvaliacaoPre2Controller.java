@@ -50,10 +50,6 @@ public class AvaliacaoPre2Controller {
 		return wrapper;
 	}
 	
-	
-	
-	
-
 	@ResponseBody
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public br.com.spd.model.AvaliacaoPre2 getOne(@PathVariable final Long id) throws TransformerException {

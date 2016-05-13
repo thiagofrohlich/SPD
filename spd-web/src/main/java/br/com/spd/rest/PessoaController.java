@@ -61,13 +61,11 @@ public class PessoaController {
 		for(Pessoa pessoa : result) {
 			br.com.spd.model.Pessoa p = new br.com.spd.model.Pessoa();
 			transformer.transform(pessoa, p);
+			wrapper.getList().add(p);
 		}
 		
 		return wrapper;
 	}
-	
-	
-	
 
 	@ResponseBody
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)

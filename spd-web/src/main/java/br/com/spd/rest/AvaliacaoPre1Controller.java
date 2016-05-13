@@ -49,10 +49,6 @@ public class AvaliacaoPre1Controller {
 		
 		return wrapper;
 	}
-	
-	
-	
-	
 
 	@ResponseBody
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)

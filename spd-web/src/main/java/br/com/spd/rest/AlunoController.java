@@ -50,10 +50,6 @@ public class AlunoController {
 		
 		return wrapper;
 	}
-	
-	
-	
-	
 
 	@ResponseBody
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
@@ -74,6 +70,7 @@ public class AlunoController {
 		for(Aluno aluno : result) {
 			br.com.spd.model.Aluno a = new br.com.spd.model.Aluno();
 			transformer.transform(aluno, a);
+			wrapper.getList().add(a);
 		}
 		
 		return wrapper;
