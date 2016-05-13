@@ -36,10 +36,26 @@ public class TipoOcorrenciaController {
 	
 	@ResponseBody
 	@RequestMapping(value="/page/{page}", method=RequestMethod.GET)
-	public TipoOcorrenciaWrapper getAll(@PathVariable Integer page) throws TransformerException {
+	public TipoOcorrenciaWrapper getAllInPages(@PathVariable Integer page) throws TransformerException {
 		Pageable pageRequest = new PageRequest(page, PageSize.DEFAULT);
 		Page<TipoOcorrencia> result = tipoOcorrenciaRepository.findAll(pageRequest);
 		TipoOcorrenciaWrapper wrapper = new TipoOcorrenciaWrapper(result);
+		wrapper.setList(new ArrayList<br.com.spd.model.TipoOcorrencia>(PageSize.DEFAULT));
+		
+		for(TipoOcorrencia tipoOcorrencia : result) {
+			br.com.spd.model.TipoOcorrencia p = new br.com.spd.model.TipoOcorrencia();
+			transformer.transform(tipoOcorrencia, p);
+			wrapper.getList().add(p);
+		}
+		
+		return wrapper;
+	}
+	
+	@ResponseBody
+	@RequestMapping(method=RequestMethod.GET)
+	public TipoOcorrenciaWrapper getAll(@PathVariable Integer page) throws TransformerException {
+		List<TipoOcorrencia> result = (List<TipoOcorrencia>) tipoOcorrenciaRepository.findAll();
+		TipoOcorrenciaWrapper wrapper = new TipoOcorrenciaWrapper();
 		wrapper.setList(new ArrayList<br.com.spd.model.TipoOcorrencia>(PageSize.DEFAULT));
 		
 		for(TipoOcorrencia tipoOcorrencia : result) {
