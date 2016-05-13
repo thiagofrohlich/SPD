@@ -15,32 +15,28 @@ import javax.persistence.NamedQuery;
 @NamedQuery(name="Pessoa.findAll", query="SELECT p FROM Pessoa p")
 public class Pessoa implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
-	private Long codpessoa;
+	
+	@Id
+	private Integer codpessoa;
 	private String celular;
 	private String cpf;
 	private String escolaridade;
 	private String localtrabalho;
 	private String nome;
-	private String parentesco;
 	private String profissao;
-	private Boolean responsavel;
 	private String rg;
 	private String telefone;
-	private Aluno aluno;
 
 	public Pessoa() {
 	}
 
-
-	@Id
-	public Long getCodpessoa() {
+	public Integer getCodpessoa() {
 		return this.codpessoa;
 	}
 
-	public void setCodpessoa(Long codpessoa) {
+	public void setCodpessoa(Integer codpessoa) {
 		this.codpessoa = codpessoa;
 	}
-
 
 	public String getCelular() {
 		return this.celular;
@@ -50,7 +46,6 @@ public class Pessoa implements Serializable, Domain {
 		this.celular = celular;
 	}
 
-
 	public String getCpf() {
 		return this.cpf;
 	}
@@ -58,7 +53,6 @@ public class Pessoa implements Serializable, Domain {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
 
 	public String getEscolaridade() {
 		return this.escolaridade;
@@ -68,7 +62,6 @@ public class Pessoa implements Serializable, Domain {
 		this.escolaridade = escolaridade;
 	}
 
-
 	public String getLocaltrabalho() {
 		return this.localtrabalho;
 	}
@@ -76,7 +69,6 @@ public class Pessoa implements Serializable, Domain {
 	public void setLocaltrabalho(String localtrabalho) {
 		this.localtrabalho = localtrabalho;
 	}
-
 
 	public String getNome() {
 		return this.nome;
@@ -86,16 +78,6 @@ public class Pessoa implements Serializable, Domain {
 		this.nome = nome;
 	}
 
-
-	public String getParentesco() {
-		return this.parentesco;
-	}
-
-	public void setParentesco(String parentesco) {
-		this.parentesco = parentesco;
-	}
-
-
 	public String getProfissao() {
 		return this.profissao;
 	}
@@ -103,16 +85,6 @@ public class Pessoa implements Serializable, Domain {
 	public void setProfissao(String profissao) {
 		this.profissao = profissao;
 	}
-
-
-	public Boolean getResponsavel() {
-		return this.responsavel;
-	}
-
-	public void setResponsavel(Boolean responsavel) {
-		this.responsavel = responsavel;
-	}
-
 
 	public String getRg() {
 		return this.rg;
@@ -122,7 +94,6 @@ public class Pessoa implements Serializable, Domain {
 		this.rg = rg;
 	}
 
-
 	public String getTelefone() {
 		return this.telefone;
 	}
@@ -130,13 +101,4 @@ public class Pessoa implements Serializable, Domain {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
-	public Aluno getAluno() {
-		return this.aluno;
-	}
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
-
 }

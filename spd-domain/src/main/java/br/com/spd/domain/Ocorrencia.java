@@ -1,8 +1,13 @@
 package br.com.spd.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 
 /**
@@ -13,27 +18,34 @@ import java.util.Date;
 @NamedQuery(name="Ocorrencia.findAll", query="SELECT o FROM Ocorrencia o")
 public class Ocorrencia implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
-	private Long idocorrencia;
+	
+	@Id
+	private Integer idocorrencia;
 	private Date data;
 	private String descricao;
 	private String tipo;
+
+	//bi-directional many-to-one association to Aluno
+	@ManyToOne
+	@JoinColumn(name="matricula")
 	private Aluno aluno;
+
+	//bi-directional many-to-one association to TipoOcorrencia
+	@ManyToOne
+	@JoinColumn(name="tipo_ocorrencia_id")
+	private TipoOcorrencia tipoOcorrencia;
 
 	public Ocorrencia() {
 	}
 
-
-	@Id
-	public Long getIdocorrencia() {
+	public Integer getIdocorrencia() {
 		return this.idocorrencia;
 	}
 
-	public void setIdocorrencia(Long idocorrencia) {
+	public void setIdocorrencia(Integer idocorrencia) {
 		this.idocorrencia = idocorrencia;
 	}
 
-
-	@Temporal(TemporalType.DATE)
 	public Date getData() {
 		return this.data;
 	}
@@ -41,7 +53,6 @@ public class Ocorrencia implements Serializable, Domain {
 	public void setData(Date data) {
 		this.data = data;
 	}
-
 
 	public String getDescricao() {
 		return this.descricao;
@@ -51,7 +62,6 @@ public class Ocorrencia implements Serializable, Domain {
 		this.descricao = descricao;
 	}
 
-
 	public String getTipo() {
 		return this.tipo;
 	}
@@ -60,10 +70,6 @@ public class Ocorrencia implements Serializable, Domain {
 		this.tipo = tipo;
 	}
 
-
-	//bi-directional many-to-one association to Aluno
-	@ManyToOne
-	@JoinColumn(name="matricula")
 	public Aluno getAluno() {
 		return this.aluno;
 	}
@@ -72,4 +78,11 @@ public class Ocorrencia implements Serializable, Domain {
 		this.aluno = aluno;
 	}
 
+	public TipoOcorrencia getTipoOcorrencia() {
+		return this.tipoOcorrencia;
+	}
+
+	public void setTipoOcorrencia(TipoOcorrencia tipoOcorrencia) {
+		this.tipoOcorrencia = tipoOcorrencia;
+	}
 }
