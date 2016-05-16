@@ -13,7 +13,7 @@ public class TipoOcorrenciaServiceHandlerImpl extends AbstractServiceHandler<Tip
 
 	@Override
 	public TipoOcorrenciaWrapper getAll() {
-		return null;
+		return getRestTemplate().getForObject(getPath(), TipoOcorrenciaWrapper.class);
 	}
 
 }

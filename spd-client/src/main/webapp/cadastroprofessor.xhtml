@@ -22,46 +22,49 @@
                 		<p:panelGrid  styleClass="noborder centralize">
                 			<p:row>
 								<p:column styleClass="labelForm">
-									<h:outputText value="#{msg.aluno}" />
+									<h:outputText value="#{msg.Professor}" />
 								</p:column>
 								<p:column>
 									<p:inputText value="#{professorBean.professor.nome}" id="nome"/>
 									<p:commandButton value="#{msg.pesquisar}" action="#{professorBean.buscaProfessor()}" 
-												onsuccess="PF('professor').show();"	ajax="true" update=":cadastroProf:formCadastro" />
+												onsuccess="PF('professor').show();"	ajax="true" update=":cadastroProf:profTable" />
 								</p:column>
 							</p:row>
                 		</p:panelGrid>
                 	
-                		<p:panelGrid styleClass="noborder centralize">
+                		<p:panelGrid styleClass="noborder centralize" id="panelCadastro">
                 			<p:row>
                 				<p:column styleClass="labelForm">
                 					<h:outputText value="#{msg.nome}"/>
                 				</p:column>
                 				<p:column>
-                					<p:inputText value="#{professorBean}" />
+                					<p:inputText value="#{professorBean.professor.nome}" />
                 				</p:column>
                 				
                 				<p:column styleClass="labelForm">
                 					<h:outputText value="#{msg.cpf}"/>
                 				</p:column>
                 				<p:column>
-                					<p:inputText value="#{professorBean}" />
+                					<p:inputText value="#{professorBean.professor.cpf}" />
                 				</p:column>
                 			</p:row>
 
                 			<p:row>
                 				<p:column styleClass="labelForm">
-                					<h:outputText value="#{msg.cep}"/>
-                				</p:column>
+									<h:outputText value="#{msg.cep}" />
+								</p:column>
                 				<p:column>
-                					<p:inputText value="#{professorBean}" />
-                				</p:column>
+									<p:inputMask mask="99.999-999" value="#{alunoBean.aluno.cep}" id="cep">
+										<p:ajax event="valueChange" listener="#{alunoBean.buscaCEP()}"  process="@this" update=":cadastroProf:panelCadastro" 
+												/>
+									</p:inputMask>
+								</p:column>
                 				
                 				<p:column styleClass="labelForm">
                 					<h:outputText value="#{msg.rua}"/>
                 				</p:column>
                 				<p:column>
-                					<p:inputText value="#{professorBean}" />
+                					<p:inputText value="#{alunoBean.aluno.rua}" />
                 				</p:column>
                 			</p:row>
                 			
@@ -121,7 +124,7 @@
 					
 					<p:dialog id="professor" closable="true" widgetVar="professor" width="500" height="500">
 						
-						<p:dataTable value="#{professorBean.listProfessor}" var="lstprofessor"  rowKey="#{lstprofessor.id}" selection="#{professorBean.professorSelecionado}" selectionMode="single"
+						<p:dataTable value="#{professorBean.listProfessor}" var="lstprofessor" id="profTable"  rowKey="#{lstprofessor.id}" selection="#{professorBean.professorSelecionado}" selectionMode="single"
 									 paginator="true" paginatorPosition="bottom" rows="10">
 							<p:column>
 								<f:facet name="header">

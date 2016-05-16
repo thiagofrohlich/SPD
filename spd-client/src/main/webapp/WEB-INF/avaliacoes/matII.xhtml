@@ -13,9 +13,10 @@
 							<h:outputText value="#{msg.recLetra}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingReconhece}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.lingReconhece}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>	
@@ -23,9 +24,10 @@
 							<h:outputText value="#{msg.idenVogal}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingVogais}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.lingVogais}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -34,9 +36,10 @@
 							<h:outputText value="#{msg.expreFala}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingExpressa}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.lingExpressa}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -44,9 +47,10 @@
 							<h:outputText value="#{msg.ouveHist}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingOuve}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.lingOuve}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -55,9 +59,10 @@
 							<h:outputText value="#{msg.narraRep}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingNarra}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.lingNarra}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -65,9 +70,10 @@
 							<h:outputText value="#{msg.repNovasPalavras}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingRepete}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.lingRepete}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -76,9 +82,10 @@
 							<h:outputText value="#{msg.difdesenho}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingDiferencia}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.lingDiferencia}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -86,9 +93,10 @@
 							<h:outputText value="#{msg.regMundo}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.lingRegistra}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.lingRegistra}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 				</p:panelGrid>
@@ -101,9 +109,10 @@
 							<h:outputText value="#{msg.identFormaGeo}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.matFormasGeometricas}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.matFormasGeometricas}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -111,9 +120,10 @@
 							<h:outputText value="#{msg.percebeDifEle}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.matElementos}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.matElementos}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -122,9 +132,10 @@
 							<h:outputText value="#{msg.compObjeto}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.matCompara}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.matCompara}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -132,9 +143,10 @@
 							<h:outputText value="#{msg.percebePassagemTempo}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.matTempo}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.matTempo}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -143,9 +155,10 @@
 							<h:outputText value="#{msg.agrupaElementos}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.matAgrupa}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.matAgrupa}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -153,9 +166,10 @@
 							<h:outputText value="#{msg.realizaContagens}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.matContagem}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.matContagem}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 				</p:panelGrid>
@@ -168,9 +182,10 @@
 							<h:outputText value="#{msg.reconDifespecies}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.natEspecies}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.natEspecies}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -178,9 +193,10 @@
 							<h:outputText value="#{msg.idenPartesCorpo}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.natCorpo}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.natCorpo}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -189,9 +205,10 @@
 							<h:outputText value="#{msg.expressaEmo}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.natSentimento}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.natSentimento}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -199,9 +216,10 @@
 							<h:outputText value="#{msg.reconMembros}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.natFamilia}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.natFamilia}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -210,9 +228,10 @@
 							<h:outputText value="#{msg.apreciaMuscas}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.natMusicas}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.natMusicas}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -220,9 +239,10 @@
 							<h:outputText value="#{msg.aprimoraPercepcao}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.natPercepcao}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.natPercepcao}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 				</p:panelGrid>
@@ -235,9 +255,10 @@
 							<h:outputText value="#{msg.exploraMateriais}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.artMateriais}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.artMateriais}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -245,9 +266,10 @@
 							<h:outputText value="#{msg.desenvImagem}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.artCria}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.artCria}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -256,9 +278,10 @@
 							<h:outputText value="#{msg.criaProdu}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.artCorpo}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.artCorpo}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 				</p:panelGrid>
@@ -271,9 +294,10 @@
 							<h:outputText value="#{msg.relacionaColega}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.socRelaciona}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.socRelaciona}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -281,9 +305,10 @@
 							<h:outputText value="#{msg.expressaGradual}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.socExpressa}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.socExpressa}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -292,9 +317,10 @@
 							<h:outputText value="#{msg.conheceGrupo}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.socRespeita}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.socRespeita}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -302,9 +328,10 @@
 							<h:outputText value="#{msg.demonstraInteresse}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.socInteresse}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.socInteresse}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -313,9 +340,10 @@
 							<h:outputText value="#{msg.exploraDiversas}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.socExpressoesCorporais}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.socExpressoesCorporais}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					<p:row>
@@ -323,9 +351,10 @@
 							<h:outputText value="#{msg.pedeAuxilio}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.socAuxilio}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.socAuxilio}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 					
@@ -334,9 +363,10 @@
 							<h:outputText value="#{msg.cuidaMateriais}" />
 						</p:column>
 						<p:column>
-							<p:selectOneRadio value="#{avaliacaoBean.mat2.socCuida}" >
-								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.value}" itemValue="#{notas.key}" />
-							</p:selectOneRadio>
+							<p:selectOneMenu value="#{avaliacaoBean.mat2.socCuida}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItems value="#{avaliacaoBean.notas}" var="notas" itemLabel="#{notas.descricao}" itemValue="#{notas.id}" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 				</p:panelGrid>

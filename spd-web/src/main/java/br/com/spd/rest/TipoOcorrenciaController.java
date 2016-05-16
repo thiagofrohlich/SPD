@@ -53,7 +53,7 @@ public class TipoOcorrenciaController {
 	
 	@ResponseBody
 	@RequestMapping(method=RequestMethod.GET)
-	public TipoOcorrenciaWrapper getAll(@PathVariable Integer page) throws TransformerException {
+	public TipoOcorrenciaWrapper getAll() throws TransformerException {
 		List<TipoOcorrencia> result = (List<TipoOcorrencia>) tipoOcorrenciaRepository.findAll();
 		TipoOcorrenciaWrapper wrapper = new TipoOcorrenciaWrapper();
 		wrapper.setList(new ArrayList<br.com.spd.model.TipoOcorrencia>(PageSize.DEFAULT));

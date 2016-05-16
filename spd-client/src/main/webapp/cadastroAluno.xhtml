@@ -27,7 +27,7 @@
 								<p:column>
 									<p:inputText value="#{alunoBean.nome}" id="nome"/>
 									 <p:commandButton value="#{msg.pesquisar}" action="#{alunoBean.buscaAluno()}" 
-												onsuccess="PF('aluno').show();"	ajax="true" update=":cadastro:formCadastro" />
+												onsuccess="PF('aluno').show();"	ajax="true" update=":cadastro:alunoTable" />
 								</p:column>
 							</p:row>
                 		</p:panelGrid>
@@ -444,7 +444,7 @@
 					
 					<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
 						
-						<p:dataTable value="#{alunoBean.listAluno}" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{alunoBean.alunoSelecionado}" selectionMode="single"
+						<p:dataTable value="#{alunoBean.listAluno}" var="lstALuno" id="alunoTable" rowKey="#{lstALuno.matricula}" selection="#{alunoBean.alunoSelecionado}" selectionMode="single"
 									 paginator="true" paginatorPosition="bottom" rows="10">
 							<p:column>
 								<f:facet name="header">

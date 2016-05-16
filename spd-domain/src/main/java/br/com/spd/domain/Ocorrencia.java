@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 
 
 /**
@@ -20,6 +23,8 @@ public class Ocorrencia implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@SequenceGenerator(name="pk_Ocorrencia",sequenceName="ocorrencia_id_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="pk_Ocorrencia")
 	private Long idocorrencia;
 	private Date data;
 	private String descricao;

@@ -9,7 +9,6 @@ import javax.faces.bean.ViewScoped;
 
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Ocorrencia;
-import br.com.spd.model.Tipo;
 import br.com.spd.model.TipoOcorrencia;
 import br.ufpr.tcc.service.handler.OcorrenciaServiceHandler;
 import br.ufpr.tcc.service.handler.TipoOcorrenciaServiceHandler;
@@ -23,7 +22,6 @@ public class OcorrenciaBean {
 	private Aluno aluno;
 	private Aluno alunoSelecionado;
 	private List<TipoOcorrencia> lstTipo;
-	private List<Aluno> lstAluno;
 	private Ocorrencia ocorrencia;
 	private boolean alunoFound;
 	private TipoOcorrenciaServiceHandler tipoOcorrenciaService;
@@ -33,8 +31,8 @@ public class OcorrenciaBean {
 	public void init(){
 		aluno = new Aluno();
 		alunoSelecionado = new Aluno();
-		lstAluno = new ArrayList<>();
 		alunoFound = false;
+		ocorrencia = new Ocorrencia();
 		tipoOcorrenciaService = new TipoOcorrenciaServiceHandlerImpl();
 		ocorrenciaServiceHandler = new OcorrenciaServiceHandlerImpl();
 		lstTipo = tipoOcorrenciaService.getAll().getList();
@@ -61,13 +59,6 @@ public class OcorrenciaBean {
 		this.alunoSelecionado = alunoSelecionado;
 	}
 
-	public List<Aluno> getLstAluno() {
-		return lstAluno;
-	}
-
-	public void setLstAluno(List<Aluno> lstAluno) {
-		this.lstAluno = lstAluno;
-	}
 
 	public List<TipoOcorrencia> getLstTipo() {
 		return lstTipo;

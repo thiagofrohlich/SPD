@@ -18,8 +18,8 @@
 							<h:outputText value="#{msg.aluno}" />
 						</p:column>
 						<p:column>
-							<p:inputText value="#{avaliacaoBean.nome}" /> <p:commandButton value="#{msg.pesquisar}" 
-											action="#{avaliacaoBean.buscaAluno()}" ajax="true" onsuccess="PF('aluno').show();"/>
+							<p:inputText value="#{alunoBean.nome}" /> <p:commandButton value="#{msg.pesquisar}" 
+											action="#{alunoBean.buscaAluno()}" ajax="true" onsuccess="PF('aluno').show();" update=":avaliacao:alunoTable" />
 						</p:column>
 					</p:row>
 				</p:panelGrid>
@@ -63,15 +63,16 @@
 					
 				</p:panelGrid>
 					
-					<p:outputPanel rendered="true"><ui:include src="/WEB-INF/avaliacoes/matII.xhtml"  /></p:outputPanel>
-					<p:outputPanel rendered="#{avaliacaoBean.renderPre1}"><ui:include src="/WEB-INF/avaliacoes/preI.xhtml" /></p:outputPanel>
+					<p:outputPanel rendered="false"><ui:include src="/WEB-INF/avaliacoes/matII.xhtml"  /></p:outputPanel>
+					<p:outputPanel rendered="true"><ui:include src="/WEB-INF/avaliacoes/preI.xhtml" /></p:outputPanel>
 					<p:outputPanel rendered="#{avaliacaoBean.renderPre2}"><ui:include src="/WEB-INF/avaliacoes/preII.xhtml" /></p:outputPanel>
 	
 				</div>
+				<p:commandButton value="#{msg.salvar}" ajax="false" action="#{avaliacaoBean.salvaAluno()}" />
 			</div>
 			<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
 						
-						<p:dataTable value="#{avaliacaoBean.lstAluno}" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{avaliacaoBean.alunoSelecionado}" selectionMode="single"
+						<p:dataTable value="#{alunoBean.listAluno}" id="alunoTable" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{avaliacaoBean.alunoSelecionado}" selectionMode="single"
 									 paginator="true" paginatorPosition="bottom" rows="10">
 							<p:column>
 								<f:facet name="header">

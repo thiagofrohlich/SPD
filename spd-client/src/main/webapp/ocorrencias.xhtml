@@ -18,7 +18,8 @@
 							<h:outputText value="#{msg.aluno}" />
 						</p:column>
 						<p:column>
-							<p:inputText value="" /> <p:commandButton value="#{msg.pesquisar}" action="#{alunoBean.buscaAluno()}" onsuccess="PF('aluno').show();" ajax="true"/>
+							<p:inputText value="#{alunoBean.nome}" /> 
+							<p:commandButton value="#{msg.pesquisar}" action="#{alunoBean.buscaAluno()}" onsuccess="PF('aluno').show();" ajax="true" update=":ocorrencia:alunoTable"/>
 						</p:column>
 					</p:row>
 					
@@ -65,7 +66,7 @@
 						</p:column>
 						<p:column >
 							<p:selectOneMenu value="#{ocorrenciaBean.ocorrencia.tipo}">
-								<f:selectItems value="#{ocorrenciaBean.lstTipo}" var="tipo" itemLabel="#{tipo.value}" itemValue="#{tipo.key}" />
+								<f:selectItems value="#{ocorrenciaBean.lstTipo}" var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo.idTipoOcorrencia}" />
 							</p:selectOneMenu>
 						</p:column>
 						</p:row>
@@ -103,7 +104,7 @@
 				</div>
 				<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
 						
-					<p:dataTable value="#{alunoBean.lstAluno}" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{ocorrenciaBean.alunoSelecionado}" selectionMode="single"
+					<p:dataTable value="#{alunoBean.listAluno}" var="lstALuno" id="alunoTable" rowKey="#{lstALuno.matricula}" selection="#{ocorrenciaBean.alunoSelecionado}" selectionMode="single"
 								 paginator="true" paginatorPosition="bottom" rows="10">
 						<p:column>
 							<f:facet name="header">

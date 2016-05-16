@@ -90,7 +90,7 @@ public class AlunoBean implements Serializable{
 	public void salva(){
 		mat++;
 		aluno.setMatricula(mat);
-		aluno = alunoServiceHandler.create(aluno);
+		alunoServiceHandler.create(aluno);
 		pai.setAluno(aluno);
 		mae.setAluno(aluno);
 		responsavelServiceHandler.create(mae);

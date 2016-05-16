@@ -7,7 +7,7 @@ public class AvaliacaoMatIIServiceHandlerImpl extends AbstractServiceHandler<Ava
 
 	@Override
 	public String getRelativePath() {
-		return "/avaliacaoMatII";
+		return "/avaliacaoMat2";
 	}
 
 }
