@@ -94,7 +94,10 @@
 										<h:outputText value="#{msg.nivel}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.nivel}" id="nivel"/>
+										<p:selectOneMenu  value="#{alunoBean.aluno.turma.id}">
+											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+											<f:selectItems value="#{alunoBean.lstTurma}" var="lstTurma" itemLabel="#{lstTurma.descricao}" itemValue="#{lstTurma.id}" />
+										</p:selectOneMenu>
 									</p:column>
 			
 									<p:column styleClass="labelForm">

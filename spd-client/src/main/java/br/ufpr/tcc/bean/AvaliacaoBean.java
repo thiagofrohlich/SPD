@@ -7,11 +7,11 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import br.com.spd.enuns.Notas;
 import br.com.spd.model.Aluno;
 import br.com.spd.model.AvaliacaoMat2;
 import br.com.spd.model.AvaliacaoPre1;
 import br.com.spd.model.AvaliacaoPre2;
-import br.com.spd.model.Notas;
 import br.ufpr.tcc.service.handler.AvaliacaoMatIIServiceHandler;
 import br.ufpr.tcc.service.handler.AvaliacaoPreIIServiceHandler;
 import br.ufpr.tcc.service.handler.AvaliacaoPreIServiceHandler;

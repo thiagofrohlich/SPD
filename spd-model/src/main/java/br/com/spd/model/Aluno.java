@@ -41,7 +41,16 @@ public class Aluno implements Serializable, Model {
 	private List<AvaliacaoPre2> avaliacaoPre2s;
 	private List<Ocorrencia> ocorrencias;
 	private Pessoa pessoa;
+	private Turma turma;
 	
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
+	}
+
 	public Aluno() {
 	}
 	

@@ -12,11 +12,14 @@ import javax.faces.context.FacesContext;
 
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Responsavel;
+import br.com.spd.model.Turma;
 import br.ufpr.tcc.service.CepHandler;
 import br.ufpr.tcc.service.handler.AlunoServiceHandler;
 import br.ufpr.tcc.service.handler.ResponsavelServiceHandler;
+import br.ufpr.tcc.service.handler.TurmaServiceHandler;
 import br.ufpr.tcc.service.handler.impl.AlunoServiceHandlerImpl;
 import br.ufpr.tcc.service.handler.impl.ResponsavelServiceHandlerImpl;
+import br.ufpr.tcc.service.handler.impl.TurmaServiceHandlerImpl;
 
 @ViewScoped
 @ManagedBean(name = "alunoBean")
@@ -32,6 +35,7 @@ public class AlunoBean implements Serializable{
 	private Aluno aluno;
 	private Responsavel responsavel;
 	private List<Responsavel> listaResponsavel;
+	private List<Turma> lstTurma;
 	private Responsavel pai;
 	private Responsavel mae;
 	private CepHandler cepHandler;
@@ -39,6 +43,15 @@ public class AlunoBean implements Serializable{
 	private AlunoServiceHandler alunoServiceHandler;
 	private Long mat = (long) 100000000;
 	private ResponsavelServiceHandler responsavelServiceHandler;
+	public List<Turma> getLstTurma() {
+		return lstTurma;
+	}
+
+	public void setLstTurma(List<Turma> lstTurma) {
+		this.lstTurma = lstTurma;
+	}
+
+	private TurmaServiceHandler turmaServiceHandler;
 
 	@PostConstruct
 	public void init(){
@@ -52,6 +65,8 @@ public class AlunoBean implements Serializable{
 		cepHandler = new CepHandler();
 		alunoServiceHandler = new AlunoServiceHandlerImpl();
 		responsavelServiceHandler = new ResponsavelServiceHandlerImpl();
+		turmaServiceHandler = new TurmaServiceHandlerImpl();
+		lstTurma = turmaServiceHandler.findAll().getList();
 	}
 	
 	public List<Responsavel> getListaResponsavel() {
