@@ -1,6 +1,7 @@
 package br.com.spd.transformer;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +10,8 @@ import br.com.spd.domain.Pessoa;
 import br.com.spd.domain.PessoaDomainBuilder;
 import br.com.spd.domain.ResponsavelDomainBuilder;
 import br.com.spd.exception.TransformerException;
+import br.com.spd.model.Aluno;
+import br.com.spd.model.AlunoModelBuilder;
 import br.com.spd.model.Responsavel;
 import br.com.spd.model.ResponsavelModelBuilder;
 import br.com.spd.transformer.impl.ResponsavelTransformer;
@@ -19,6 +22,7 @@ public class ResponsavelTransformerTest {
 	private ResponsavelDomainBuilder responsavelDomainBuilder;
 	private PessoaDomainBuilder pessoaDomainBuilder;
 	private ResponsavelTransformer transformer;
+	private AlunoModelBuilder alunoModelBuilder;
 	
 	@Before
 	public void setUp() {
@@ -26,12 +30,14 @@ public class ResponsavelTransformerTest {
 		responsavelDomainBuilder = new ResponsavelDomainBuilder();
 		pessoaDomainBuilder = new PessoaDomainBuilder();
 		transformer = new ResponsavelTransformer();
+		alunoModelBuilder = new AlunoModelBuilder();
 	}
 
 	@Test
 	public void shouldTransformModelToDomain() throws TransformerException {
 //		Given
-		Responsavel responsavel = responsavelModelBuilder.build();
+		Aluno aluno = alunoModelBuilder.build();
+		Responsavel responsavel = responsavelModelBuilder.withAluno(aluno).build();
 		br.com.spd.domain.Responsavel responsavelDomain = new br.com.spd.domain.Responsavel();
 		
 //		When
@@ -50,7 +56,7 @@ public class ResponsavelTransformerTest {
 		assertEquals(responsavel.getResponsavel(), responsavelDomain.getResponsavel());
 		assertEquals(responsavel.getRg(), responsavelDomain.getPessoa().getRg());
 		assertEquals(responsavel.getTelefone(), responsavelDomain.getPessoa().getTelefone());
-		assertEquals(responsavel.getAluno(), responsavelDomain.getAluno());
+		assertAluno(aluno, responsavelDomain.getAluno());
 	}
 	
 	@Test
@@ -79,4 +85,35 @@ public class ResponsavelTransformerTest {
 		assertEquals(responsavel.getAluno(), responsavelModel.getAluno());
 	}
 	
+	private void assertAluno(Aluno expected, br.com.spd.domain.Aluno actual) {
+		assertNotNull(expected);
+		assertNotNull(actual);
+		assertEquals(expected.getAlergia(), actual.getAlergia());
+		assertEquals(expected.getAnoinicio(), actual.getAnoinicio());
+		assertEquals(expected.getAnoletivo(), actual.getAnoletivo());
+		assertEquals(expected.getBairro(), actual.getBairro());
+		assertEquals(expected.getCep(), actual.getCep());
+		assertEquals(expected.getCidade(), actual.getCidade());
+		assertEquals(expected.getCirurgias(), actual.getCirurgias());
+		assertEquals(expected.getCodmed(), actual.getCodmed());
+		assertEquals(expected.getDatanasc(), actual.getDatanasc());
+		assertEquals(expected.getEmail(), actual.getEmail());
+		assertEquals(expected.getEstado(), actual.getEstado());
+		assertEquals(expected.getHorario(), actual.getHorario());
+		assertEquals(expected.getMatricula(), actual.getMatricula());
+		assertEquals(expected.getModalidade(), actual.getModalidade());
+		assertEquals(expected.getNivel(), actual.getNivel());
+		assertEquals(expected.getNome(), actual.getNome());
+		assertEquals(expected.getNumero(), actual.getNumero());
+		assertEquals(expected.getPeriodo(), actual.getPeriodo());
+		assertEquals(expected.getReligiao(), actual.getReligiao());
+		assertEquals(expected.getRestalimentar(), actual.getRestalimentar());
+		assertEquals(expected.getRua(), actual.getRua());
+		assertEquals(expected.getSitpais(), actual.getSitpais());
+		assertEquals(expected.getTelefone(), actual.getTelefone());
+		assertEquals(expected.getTemperamento(), actual.getTemperamento());
+		assertEquals(expected.getTratamento(), actual.getTratamento());
+		assertEquals(expected.getValor(), actual.getValor());
+	}
+
 }
