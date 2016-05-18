@@ -17,14 +17,22 @@ public class ResponsavelTransformer extends GenericTransformer {
 		
 		super.transform(objectFrom, objectTo);
 		
-		if(isModel(objectFrom)) {
-			transformModelToDomain(objectFrom, objectTo);
+		if(instanceOfResponsavel(objectFrom)) {
+		
+			if(isModel(objectFrom)) {
+				transformModelToDomain(objectFrom, objectTo);
+			}
+			
+			if(isDomain(objectFrom)){
+				transformDomainToModel(objectFrom, objectTo);
+			}
+			
 		}
 		
-		if(isDomain(objectFrom)){
-			transformDomainToModel(objectFrom, objectTo);
-		}
-		
+	}
+
+	private boolean instanceOfResponsavel(Object objectFrom) {
+		return Responsavel.class.equals(objectFrom.getClass()) || br.com.spd.model.Responsavel.class.equals(objectFrom.getClass());
 	}
 	
 	private void transformModelToDomain(Object objectFrom, Object objectTo)

@@ -45,7 +45,7 @@ public class Aluno implements Serializable, Domain {
 	private String telefone;
 	private String temperamento;
 	private String tratamento;
-	private double valor;
+	private Double valor;
 
 	//bi-directional many-to-one association to Turma
 	@ManyToOne
@@ -255,11 +255,11 @@ public class Aluno implements Serializable, Domain {
 		this.tratamento = tratamento;
 	}
 
-	public double getValor() {
+	public Double getValor() {
 		return this.valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 

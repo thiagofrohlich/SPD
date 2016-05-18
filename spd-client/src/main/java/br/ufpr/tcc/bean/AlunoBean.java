@@ -43,13 +43,6 @@ public class AlunoBean implements Serializable{
 	private AlunoServiceHandler alunoServiceHandler;
 	private Long mat = (long) 100000000;
 	private ResponsavelServiceHandler responsavelServiceHandler;
-	public List<Turma> getLstTurma() {
-		return lstTurma;
-	}
-
-	public void setLstTurma(List<Turma> lstTurma) {
-		this.lstTurma = lstTurma;
-	}
 
 	private TurmaServiceHandler turmaServiceHandler;
 
@@ -58,6 +51,7 @@ public class AlunoBean implements Serializable{
 		listAluno = new ArrayList<>();
 		alunoSelecionado = new Aluno();
 		aluno = new Aluno();
+		aluno.setTurma(new Turma());
 		pai = new Responsavel();
 		mae = new Responsavel();
 		responsavel = new Responsavel();
@@ -177,5 +171,14 @@ public class AlunoBean implements Serializable{
 	public void setAlunoSelecionado(Aluno alunoSelecionado) {
 		this.alunoSelecionado = alunoSelecionado;
 	}
+	
+	public List<Turma> getLstTurma() {
+		return lstTurma;
+	}
+	
+	public void setLstTurma(List<Turma> lstTurma) {
+		this.lstTurma = lstTurma;
+	}
+
 	
 }

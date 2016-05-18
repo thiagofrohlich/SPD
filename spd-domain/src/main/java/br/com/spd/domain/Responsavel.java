@@ -14,6 +14,8 @@ public class Responsavel implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@SequenceGenerator(name="pk_responsavel",sequenceName="responsavel_id_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="pk_responsavel")
 	private Long id;
 	private String parentesco;
 	private Boolean responsavel;

@@ -34,6 +34,23 @@ public class TurmaController {
 		this.transformer = new GenericTransformer();
 	}
 	
+	
+	@ResponseBody
+	@RequestMapping(method=RequestMethod.GET)
+	public TurmaWrapper getAll() throws TransformerException {
+		List<Turma> result = (List<Turma>) turmaRepository.findAll();
+		TurmaWrapper wrapper = new TurmaWrapper();
+		wrapper.setList(new ArrayList<br.com.spd.model.Turma>(PageSize.DEFAULT));
+		
+		for(Turma turma : result) {
+			br.com.spd.model.Turma o = new br.com.spd.model.Turma();
+			transformer.transform(turma, o);
+			wrapper.getList().add(o);
+		}
+		
+		return wrapper;
+	}
+	
 	@ResponseBody
 	@RequestMapping(value="/page/{page}", method=RequestMethod.GET)
 	public TurmaWrapper getAll(@PathVariable Integer page) throws TransformerException {

@@ -35,22 +35,14 @@ public class Aluno implements Serializable, Model {
 	private String telefone;
 	private String temperamento;
 	private String tratamento;
-	private double valor;
+	private Double valor;
 	private List<AvaliacaoMat2> avaliacaoMat2s;
 	private List<AvaliacaoPre1> avaliacaoPre1s;
 	private List<AvaliacaoPre2> avaliacaoPre2s;
 	private List<Ocorrencia> ocorrencias;
-	private Pessoa pessoa;
+	private List<Responsavel> responsaveis;
 	private Turma turma;
 	
-	public Turma getTurma() {
-		return turma;
-	}
-
-	public void setTurma(Turma turma) {
-		this.turma = turma;
-	}
-
 	public Aluno() {
 	}
 	
@@ -210,10 +202,10 @@ public class Aluno implements Serializable, Model {
 	public void setTratamento(String tratamento) {
 		this.tratamento = tratamento;
 	}
-	public double getValor() {
+	public Double getValor() {
 		return valor;
 	}
-	public void setValor(double valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 	public List<AvaliacaoMat2> getAvaliacaoMat2s() {
@@ -240,14 +232,22 @@ public class Aluno implements Serializable, Model {
 	public void setOcorrencias(List<Ocorrencia> ocorrencias) {
 		this.ocorrencias = ocorrencias;
 	}
-	public Pessoa getPessoa() {
-		return pessoa;
+
+	public List<Responsavel> getResponsaveis() {
+		return responsaveis;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public void setResponsaveis(List<Responsavel> responsaveis) {
+		this.responsaveis = responsaveis;
 	}
 
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
+	}
 	
 
 }
