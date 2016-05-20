@@ -21,6 +21,7 @@ import org.springframework.data.domain.PageRequest;
 
 import br.com.spd.domain.Pessoa;
 import br.com.spd.domain.Professor;
+import br.com.spd.domain.repository.PessoaRepository;
 import br.com.spd.domain.repository.ProfessorRepository;
 import br.com.spd.exception.TransformerException;
 import br.com.spd.wrapper.ProfessorWrapper;
@@ -31,11 +32,12 @@ public class ProfessorControllerTest {
 	
 	@Mock
 	private ProfessorRepository professorRepository;
+	private PessoaRepository pessoaRepository;
 	
 	@Before
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
-		controller = new ProfessorController(professorRepository);
+		controller = new ProfessorController(professorRepository, pessoaRepository);
 	}
 	
 	@Test

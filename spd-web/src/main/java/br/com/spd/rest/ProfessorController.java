@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.spd.PageSize;
+import br.com.spd.domain.Pessoa;
 import br.com.spd.domain.Professor;
+import br.com.spd.domain.repository.PessoaRepository;
 import br.com.spd.domain.repository.ProfessorRepository;
 import br.com.spd.exception.TransformerException;
 import br.com.spd.transformer.impl.ProfessorTransformer;
@@ -26,11 +28,13 @@ import br.com.spd.wrapper.ProfessorWrapper;
 public class ProfessorController {
 	
 	private final ProfessorRepository professorRepository;
+	private final PessoaRepository pessoaRepository;
 	private final ProfessorTransformer transformer;
 
 	@Autowired
-	public ProfessorController(ProfessorRepository professorRepository) {
+	public ProfessorController(ProfessorRepository professorRepository, PessoaRepository pessoaRepository) {
 		this.professorRepository = professorRepository;
+		this.pessoaRepository = pessoaRepository;
 		this.transformer = new ProfessorTransformer();
 	}
 	
@@ -111,12 +115,24 @@ public class ProfessorController {
 	
 	private br.com.spd.model.Professor saveOrUpdate(final br.com.spd.model.Professor professor)
 			throws TransformerException {
-		Professor p = new Professor();
-		transformer.transform(professor, p);
-		p = professorRepository.save(p);
+//		Transform to Domain
+		Professor prof = new Professor();
+		transformer.transform(professor, prof);
+		
+//		Save Pessoa and P
+		prof = save(prof);
+		
+//		Transform to Model
 		br.com.spd.model.Professor model = new br.com.spd.model.Professor();
-		transformer.transform(p, model);
+		transformer.transform(prof, model);
+		
 		return model;
+	}
+	
+	private Professor save(Professor professor) {
+		Pessoa pessoa = pessoaRepository.save(professor.getPessoa());
+		professor.setPessoa(pessoa);
+		return professorRepository.save(professor);
 	}
 
 }

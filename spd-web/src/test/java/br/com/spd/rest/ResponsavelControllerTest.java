@@ -21,6 +21,7 @@ import org.springframework.data.domain.PageRequest;
 
 import br.com.spd.domain.Pessoa;
 import br.com.spd.domain.Responsavel;
+import br.com.spd.domain.repository.PessoaRepository;
 import br.com.spd.domain.repository.ResponsavelRepository;
 import br.com.spd.exception.TransformerException;
 import br.com.spd.wrapper.ResponsavelWrapper;
@@ -31,11 +32,12 @@ public class ResponsavelControllerTest {
 	
 	@Mock
 	private ResponsavelRepository responsavelRepository;
+	private PessoaRepository pessoaRepository;
 	
 	@Before
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
-		controller = new ResponsavelController(responsavelRepository);
+		controller = new ResponsavelController(responsavelRepository, pessoaRepository);
 	}
 	
 	@Test
