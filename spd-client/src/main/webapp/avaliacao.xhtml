@@ -63,8 +63,8 @@
 					
 				</p:panelGrid>
 					
-					<p:outputPanel rendered="false"><ui:include src="/WEB-INF/avaliacoes/matII.xhtml"  /></p:outputPanel>
-					<p:outputPanel rendered="true"><ui:include src="/WEB-INF/avaliacoes/preI.xhtml" /></p:outputPanel>
+					<p:outputPanel rendered="#{avaliacaoBean.renderMat2}"><ui:include src="/WEB-INF/avaliacoes/matII.xhtml"  /></p:outputPanel>
+					<p:outputPanel rendered="#{avaliacaoBean.renderPre1}"><ui:include src="/WEB-INF/avaliacoes/preI.xhtml" /></p:outputPanel>
 					<p:outputPanel rendered="#{avaliacaoBean.renderPre2}"><ui:include src="/WEB-INF/avaliacoes/preII.xhtml" /></p:outputPanel>
 	
 				</div>
@@ -89,7 +89,8 @@
 							</p:column>
 							
 						</p:dataTable>						
-						<p:commandButton value="#{msg.ok}" action="#{avaliacaoBean.selecionaAluno()}" ajax="true" update="@form" />
+						<p:commandButton value="#{msg.ok}" rendered="#{avaliacaoBean.renderMat2 || avaliacaoBean.renderPre1 || avaliacaoBean.renderPre2}" 
+						action="#{avaliacaoBean.selecionaAluno()}" ajax="true" update="@form" style="display:inline;"/>
 						
 					</p:dialog>
 		</h:form>

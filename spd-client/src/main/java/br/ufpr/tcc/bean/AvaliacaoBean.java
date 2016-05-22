@@ -45,7 +45,7 @@ public class AvaliacaoBean {
 		alunoSelecionado = new Aluno();
 		renderPre1 = false;
 		renderPre2 = false;
-		renderMat2 = true;
+		renderMat2 = false;
 		lstAluno = new ArrayList<>();
 		avaliacaoMatIIServiceHandler = new AvaliacaoMatIIServiceHandlerImpl();
 		avaliacaoPreIServiceHandler = new AvaliacaoPreIServiceHandlerImpl();
@@ -53,7 +53,7 @@ public class AvaliacaoBean {
 	}
 	
 	public void selecionaAluno(){
-		/*if(alunoSelecionado.getSerie() == 1){
+		if(alunoSelecionado.getSerie() == 1){
 			renderPre1 = false;
 			renderPre2 = false;
 			renderMat2 = true;
@@ -70,14 +70,9 @@ public class AvaliacaoBean {
 			renderPre2 = true;
 			renderMat2 = false;
 			pre2.setAluno(alunoSelecionado);
-		}*/
-		mat2.setAluno(alunoSelecionado);
-		renderMat2 = true;
+		}
 	}
 	
-	public void buscaAluno(){
-		
-	}
 	
 	public void salvaAluno(){
 		if(renderMat2){
