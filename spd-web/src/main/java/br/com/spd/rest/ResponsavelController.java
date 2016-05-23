@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.spd.PageSize;
 import br.com.spd.domain.Aluno;
+import br.com.spd.domain.Pessoa;
 import br.com.spd.domain.Responsavel;
+import br.com.spd.domain.repository.PessoaRepository;
 import br.com.spd.domain.repository.ResponsavelRepository;
 import br.com.spd.exception.TransformerException;
 import br.com.spd.transformer.impl.ResponsavelTransformer;
@@ -27,11 +29,13 @@ import br.com.spd.wrapper.ResponsavelWrapper;
 public class ResponsavelController {
 	
 	private final ResponsavelRepository responsavelRepository;
+	private final PessoaRepository pessoaRepository;
 	private final ResponsavelTransformer transformer;
 
 	@Autowired
-	public ResponsavelController(ResponsavelRepository responsavelRepository) {
+	public ResponsavelController(ResponsavelRepository responsavelRepository, PessoaRepository pessoaRepository) {
 		this.responsavelRepository = responsavelRepository;
+		this.pessoaRepository = pessoaRepository;
 		this.transformer = new ResponsavelTransformer();
 	}
 	
@@ -131,12 +135,24 @@ public class ResponsavelController {
 	
 	private br.com.spd.model.Responsavel saveOrUpdate(final br.com.spd.model.Responsavel responsavel)
 			throws TransformerException {
-		Responsavel p = new Responsavel();
-		transformer.transform(responsavel, p);
-		p = responsavelRepository.save(p);
+//		Transform to Domain
+		Responsavel resp = new Responsavel();
+		transformer.transform(responsavel, resp);
+		
+//		Save Pessoa and Responsavel
+		resp = save(resp);
+		
+//		Transform to Model
 		br.com.spd.model.Responsavel model = new br.com.spd.model.Responsavel();
-		transformer.transform(p, model);
+		transformer.transform(resp, model);
+		
 		return model;
+	}
+
+	private Responsavel save(Responsavel responsavel) {
+		Pessoa pessoa = pessoaRepository.save(responsavel.getPessoa());
+		responsavel.setPessoa(pessoa);
+		return responsavelRepository.save(responsavel);
 	}
 
 }
