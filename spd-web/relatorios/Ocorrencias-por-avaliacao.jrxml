@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91f5d6a-c39f-4aa1-b182-0af0bd7e62f4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT a.matricula, a.nome, o.descricao as odescricao, o.data, tp.descricao as tpdescricao, p.nome as professor
+FROM aluno a
+INNER JOIN turma t
+ON (a.id_turma = t.id)
+INNER JOIN ocorrencia o
+ON (o.matricula = a.matricula)
+INNER JOIN tipo_ocorrencia tp
+ON (o.tipo_ocorrencia_id = tp.id_tipo_ocorrencia)
+INNER JOIN professor
+ON (professor.id_turma=t.id)
+INNER JOIN pessoa p
+ON (p.codpessoa = professor.codpessoa)
+WHERE tp.descricao = 'Avaliação']]>
+	</queryString>
+	<field name="matricula" class="java.lang.Long"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="odescricao" class="java.lang.String"/>
+	<field name="data" class="java.sql.Date"/>
+	<field name="tpdescricao" class="java.lang.String"/>
+	<field name="professor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="79" backcolor="#DEDEDE" uuid="ff8103cf-3205-41b9-8b5c-99ab8067c101"/>
+				<staticText>
+					<reportElement mode="Transparent" x="10" y="10" width="216" height="59" forecolor="#000000" backcolor="#000000" uuid="cebb6c41-2305-45cb-871d-b0ebd51fce5d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="300" y="49" width="250" height="20" forecolor="#000000" backcolor="#000000" uuid="05b4f5c9-5ccd-48b7-8166-0133d40eb3cf"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ocorrências por Avaliação]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="350" y="29" width="200" height="20" uuid="c481fc25-41c8-4dd3-9613-bdd79e667f39"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="30" backcolor="#DEDEDE" uuid="2de374f0-8982-4d89-b48d-9f22639ef87e"/>
+			</frame>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="160" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="159" width="575" height="1" uuid="56382a81-d8ee-47cc-a23d-1cad18765a81"/>
+			</line>
+			<staticText>
+				<reportElement x="210" y="85" width="108" height="20" uuid="b09a5161-311d-4c2f-ba63-42e76901a589"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Matrícula do Aluno:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="110" width="90" height="20" uuid="2423be86-88b1-4392-98d5-b772cf803b6b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Nome do Aluno:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="25" width="150" height="20" uuid="9c57c593-572d-40c3-846d-a9b0c4559f5d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Descrição da ocorrência:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="85" width="30" height="20" uuid="74936272-b0ae-4af7-8b0a-2b8e559e8abc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="108" height="20" uuid="3646e17b-f87a-4236-a278-e3bc377c6e05"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Tipo da Ocorrência:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="135" width="77" height="20" uuid="99fb324e-da1c-4a56-8e60-79d9e1b0cbc5"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Professor(a):]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="318" y="85" width="237" height="20" uuid="5b4422c8-f65d-4465-bd5a-16f5eadbedf7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="110" width="455" height="20" uuid="c4b9d217-553d-4b5f-b118-e548099c7e0f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="45" width="545" height="40" uuid="8eb19713-db55-4459-8f08-60b2e4ecaccd"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{odescricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="135" width="468" height="20" uuid="26403802-4ace-425a-bb9f-9aa431300e8f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{professor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="85" width="170" height="20" uuid="c241e03b-e0c6-4e76-a05b-f60c2adce45a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="0" width="437" height="20" uuid="78bf085d-977c-4fe3-bb6c-c32dc23d6027"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tpdescricao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="20" backcolor="#DEDEDE" uuid="8618a032-5150-47f9-9d0d-f345acbfd3ed"/>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="10" y="0" width="100" height="20" uuid="0b90c3ff-30bc-473c-96b7-d76e46bcefc3"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="430" y="0" width="80" height="20" uuid="8d56613c-aa91-4577-bae3-7145f1bf90cd"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="510" y="0" width="40" height="20" uuid="298850b6-042a-4f0f-9894-63b7c26d9ae0"/>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

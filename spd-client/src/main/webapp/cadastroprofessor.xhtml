@@ -19,13 +19,14 @@
             </div>
                 <h:form id="cadastroProf">
                 	<div class="col-lg-12">
+                		<p:messages id="messageProfessor" autoUpdate="true" />
                 		<p:panelGrid  styleClass="noborder centralize">
                 			<p:row>
 								<p:column styleClass="labelForm">
 									<h:outputText value="#{msg.Professor}" />
 								</p:column>
 								<p:column>
-									<p:inputText value="#{professorBean.professor.nome}" id="nome"/>
+									<p:inputText value="#{professorBean.name}" id="nome"/>
 									<p:commandButton value="#{msg.pesquisar}" action="#{professorBean.buscaProfessor()}" 
 												onsuccess="PF('professor').show();"	ajax="true" update=":cadastroProf:profTable" />
 								</p:column>
@@ -54,9 +55,8 @@
 									<h:outputText value="#{msg.cep}" />
 								</p:column>
                 				<p:column>
-									<p:inputMask mask="99.999-999" value="#{alunoBean.aluno.cep}" id="cep">
-										<p:ajax event="valueChange" listener="#{alunoBean.buscaCEP()}"  process="@this" update=":cadastroProf:panelCadastro" 
-												/>
+									<p:inputMask mask="99.999-999" value="#{professorBean.professor.cep}" id="cep">
+										<p:ajax event="valueChange" listener="#{professorBean.buscaCEP()}"  process="@this" update=":cadastroProf:panelCadastro" />
 									</p:inputMask>
 								</p:column>
                 				
@@ -64,7 +64,7 @@
                 					<h:outputText value="#{msg.rua}"/>
                 				</p:column>
                 				<p:column>
-                					<p:inputText value="#{alunoBean.aluno.rua}" />
+                					<p:inputText value="#{professorBean.professor.rua}" />
                 				</p:column>
                 			</p:row>
                 			
@@ -73,14 +73,14 @@
 										<h:outputText value="#{msg.numero}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.numero}" id="numero"/>
+										<p:inputText value="#{professorBean.professor.numero}" id="numero"/>
 									</p:column>
 		
 									<p:column styleClass="labelForm">
 										<h:outputText value="#{msg.bairro}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.bairro}" id="bairro"/>
+										<p:inputText value="#{professorBean.professor.bairro}" id="bairro"/>
 									</p:column>
 								
 								</p:row>
@@ -90,7 +90,7 @@
 										<h:outputText value="#{msg.cidade}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.cidade}" id="cidade">
+										<p:inputText value="#{professorBean.professor.cidade}" id="cidade">
 											
 										</p:inputText>
 									</p:column>
@@ -99,7 +99,7 @@
 										<h:outputText value="#{msg.estado}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.estado}" id="estado"/>
+										<p:inputText value="#{professorBean.professor.estado}" id="estado"/>
 									</p:column>
 								</p:row>
 								
@@ -108,14 +108,25 @@
 										<h:outputText value="#{msg.telRes}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.telefone}" id="tel"/>
+										<p:inputText value="#{professorBean.professor.telefone}" id="tel"/>
 									</p:column>
 								
 									<p:column styleClass="labelForm">
 										<h:outputText value="#{msg.email}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.email}" id="email"/>
+										<p:inputText value="#{professorBean.professor.email}" id="email"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column />
+									<p:column styleClass="labelForm">
+										<p:commandButton value="#{msg.cancelar}" />
+									</p:column>
+									
+									<p:column>
+										<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" action="#{professorBean.salva()}"/>
 									</p:column>
 								</p:row>
                 		</p:panelGrid>

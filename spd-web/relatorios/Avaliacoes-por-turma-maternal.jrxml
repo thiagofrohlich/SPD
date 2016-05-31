@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91f5d6a-c39f-4aa1-b182-0af0bd7e62f4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="turmaDescricao" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT a.matricula, a.nome, t.descricao, p.nome as professor, av.ling_reconhece, av.ling_vogais,
+       av.ling_expressa, av.ling_ouve, av.ling_narra, av.ling_repete, av.ling_diferencia,
+       av.ling_registra, av.mat_formas_geometricas, av.mat_elementos, av.mat_compara,
+       av.mat_tempo, av.mat_agrupa, av.mat_contagem, av.nat_especies, av.nat_corpo,
+       av.nat_sentimento, av.nat_familia, av.nat_musicas, av.nat_percepcao, av.art_materiais,
+       av.art_corpo, av.art_cria, av.soc_relaciona, av.soc_expressa, av.soc_respeita,
+       av.soc_interesse, av.soc_expressoes_corporais, av.soc_auxilio, av.soc_cuida
+  FROM aluno a
+  INNER JOIN avaliacao_mat2 av ON (a.matricula = av.matricula)
+  INNER JOIN turma t ON(a.id_turma = t.id)
+  INNER JOIN professor ON(professor.id_turma = a.id_turma)
+  INNER JOIN pessoa p ON (professor.codpessoa = p.codpessoa)
+WHERE t.descricao = $P{turmaDescricao}
+]]>
+	</queryString>
+	<field name="matricula" class="java.lang.Long"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="professor" class="java.lang.String"/>
+	<field name="ling_reconhece" class="java.sql.Array"/>
+	<field name="ling_vogais" class="java.sql.Array"/>
+	<field name="ling_expressa" class="java.sql.Array"/>
+	<field name="ling_ouve" class="java.sql.Array"/>
+	<field name="ling_narra" class="java.sql.Array"/>
+	<field name="ling_repete" class="java.sql.Array"/>
+	<field name="ling_diferencia" class="java.sql.Array"/>
+	<field name="ling_registra" class="java.sql.Array"/>
+	<field name="mat_formas_geometricas" class="java.sql.Array"/>
+	<field name="mat_elementos" class="java.sql.Array"/>
+	<field name="mat_compara" class="java.sql.Array"/>
+	<field name="mat_tempo" class="java.sql.Array"/>
+	<field name="mat_agrupa" class="java.sql.Array"/>
+	<field name="mat_contagem" class="java.sql.Array"/>
+	<field name="nat_especies" class="java.sql.Array"/>
+	<field name="nat_corpo" class="java.sql.Array"/>
+	<field name="nat_sentimento" class="java.sql.Array"/>
+	<field name="nat_familia" class="java.sql.Array"/>
+	<field name="nat_musicas" class="java.sql.Array"/>
+	<field name="nat_percepcao" class="java.sql.Array"/>
+	<field name="art_materiais" class="java.sql.Array"/>
+	<field name="art_corpo" class="java.sql.Array"/>
+	<field name="art_cria" class="java.sql.Array"/>
+	<field name="soc_relaciona" class="java.sql.Array"/>
+	<field name="soc_expressa" class="java.sql.Array"/>
+	<field name="soc_respeita" class="java.sql.Array"/>
+	<field name="soc_interesse" class="java.sql.Array"/>
+	<field name="soc_expressoes_corporais" class="java.sql.Array"/>
+	<field name="soc_auxilio" class="java.sql.Array"/>
+	<field name="soc_cuida" class="java.sql.Array"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="79" backcolor="#DEDEDE" uuid="ff8103cf-3205-41b9-8b5c-99ab8067c101"/>
+				<staticText>
+					<reportElement mode="Transparent" x="10" y="10" width="216" height="59" forecolor="#000000" backcolor="#000000" uuid="cebb6c41-2305-45cb-871d-b0ebd51fce5d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="300" y="49" width="250" height="20" forecolor="#000000" backcolor="#000000" uuid="05b4f5c9-5ccd-48b7-8166-0133d40eb3cf"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Avaliação por Turma]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="350" y="29" width="200" height="20" uuid="c481fc25-41c8-4dd3-9613-bdd79e667f39"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="30" backcolor="#DEDEDE" uuid="2de374f0-8982-4d89-b48d-9f22639ef87e"/>
+				<staticText>
+					<reportElement x="10" y="0" width="89" height="30" uuid="d40a2499-1397-4234-ac1b-6f495663f316"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Turma:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="99" y="0" width="451" height="30" uuid="904d9898-9ceb-4cf9-9049-22c8bf8c77aa"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{turmaDescricao}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="650" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="40" width="465" height="20" uuid="b09a5161-311d-4c2f-ba63-42e76901a589"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Linguagem Oral e Escrita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="60" width="465" height="16" uuid="9c57c593-572d-40c3-846d-a9b0c4559f5d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Reconhece a letra inicial do próprio nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="76" width="465" height="16" uuid="74936272-b0ae-4af7-8b0a-2b8e559e8abc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Identifica as vogais e já realiza tentativas de escrita:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="92" width="465" height="16" uuid="3646e17b-f87a-4236-a278-e3bc377c6e05"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Expressa-se com clareza ao falar:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="108" width="465" height="16" uuid="0779730d-c705-47a7-afd2-61a975a6397f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Ouve e observa pequenas histórias, fatos, textos lido pela professora com atenção:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="124" width="465" height="16" uuid="e66880dd-b74b-43c5-bd98-96430924d24a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Narra ou reproduz através de gravuras:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="140" width="465" height="16" uuid="b4b2a55f-f70d-4c1b-b8bb-aadbe67c77c8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Repete novas palavras com clareza:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="156" width="465" height="16" uuid="4d51bb7e-7951-4428-a82c-fccc2ec45af0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Diferencia desenhos de escritas:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="172" width="465" height="16" uuid="8014ea59-ed5a-4de5-8293-1f8724f0101a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Registra e percebe o mundo por meio de diversas linguagens:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="188" width="465" height="20" uuid="700e88dd-2a9a-45d7-b431-130cb5014f6a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Matemática]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="208" width="465" height="16" uuid="beb07e8a-61f6-45e4-8d92-4f13fe0ad51a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Identifica e relaciona formas geométricas nas situações do cotidiano:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="224" width="465" height="16" uuid="23ff776f-204e-4150-a421-bcd19ab430c6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Percebe diferentes elementos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="240" width="465" height="16" uuid="a7f2c1f8-e3d4-4cd0-b9cd-7a67715a7ef3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Compara objetos, estabelecendo relações entre eles:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="256" width="465" height="16" uuid="c5d5ffb3-9818-425b-9ca4-bf200b73d46d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Percebe a passagem do tempo por meio de suas atividades na escola: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="272" width="465" height="16" uuid="a8a0e26f-9ba0-4f70-b465-1d5982337107"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Agrupa elementos segundo critérios selecionados:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="288" width="465" height="16" uuid="8018a60f-c198-47a6-849a-a221b7186e38"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Realiza contagens de 01 (um) à 05 (cinco):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="304" width="465" height="20" uuid="4940c3fe-298e-4e90-b974-5d680894ddb4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Natureza e sociedade ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="324" width="465" height="24" uuid="5f4a637a-5038-41cb-894f-15f7967a7ec2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Reconhece diferentes espécies de seres vivos, animais silvestres, de jardim, do mar e domésticos, suas características e suas necessidades vitais:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="348" width="465" height="16" uuid="81c126d3-8823-4016-ab9d-459e94ef4f05"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Identifica suas próprias partes do corpo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="364" width="465" height="16" uuid="d12f6a11-68b8-4f2c-ab56-319786ed1a3e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Expressa alguns sentimentos e emoções, sabendo diferenciá-los, expondo suas vontades e gosto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="380" width="465" height="16" uuid="013c68b6-98ee-4e02-a137-7bc00d29d3a2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Reconhece os membros de sua família pelo nome e algumas tradições:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="396" width="465" height="16" uuid="bb6810d5-e7e3-4183-aa24-d7562ee3d0fc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Aprecia obras músicas de diferentes gêneros e estilos, da cultura brasileira e do universo infantil:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="412" width="465" height="16" uuid="df448f64-a6be-408a-a112-050497d83b3d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Aprimora sua percepção auditiva, visual, tátil, paladar e olfato, em situações do cotidiano:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="464" width="465" height="16" uuid="3ebc27af-6fb2-4347-a960-6fc2edfb15a0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Desenvolve a imagem do seu corpo, ampliando sua representação:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="428" width="465" height="20" uuid="6c579240-3968-443c-bc0b-8df00f1d904c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Artes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="448" width="465" height="16" uuid="ccaee56e-5300-4ade-bb1c-a322aa887528"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Explora o uso de materiais como: argila, massinha de mode lar, materiais de  sucata, entre outros:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="480" width="465" height="24" uuid="7854aaa1-298b-4d3f-8639-ec9bb037a701"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Cria e aprecia suas produções e dos seus colegas, expressando  oralmente  o que observou, como: desenhos, pinturas, colagens e modelagens:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="504" width="465" height="20" uuid="70216904-38b6-4b4d-9fd4-a774802be50e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comportamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="524" width="465" height="16" uuid="a037b115-85cd-4a39-8c90-6e28c76a92d8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Desenvolve a imagem do seu corpo, ampliando sua representação:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="540" width="465" height="16" uuid="cf532b3c-dfbc-4394-aa7f-a71f48f2c9b4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Expressa-se gradualmente em conformidade com a idade:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="556" width="465" height="16" uuid="414f94de-5877-4049-9183-babc530e0bdf"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Conhece, respeita e utiliza de algumas regras de convivência em grupo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="572" width="465" height="16" uuid="5585bc50-820e-4e04-a756-19300173161f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Demonstra interesse nas atividades escolares:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="588" width="465" height="16" uuid="d89ea838-a24f-49fd-8efd-5e2ac9a6e868"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Explora diversas possibilidades de expressões corporais:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="604" width="465" height="16" uuid="3b97f96b-2508-48e2-893e-eb171e305b0e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Pede auxílio para soluções de problemas do cotidiano:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="620" width="465" height="16" uuid="268315df-b7dc-4216-a92d-13b6b8a606dd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Cuida dos materiais de uso individual e coletivo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="476" y="40" width="79" height="20" uuid="219595e1-e7e2-492d-b883-5975bc942cf4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="58" height="20" uuid="da091f39-4368-4735-a886-1880582ec9a1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Matrícula:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="0" width="84" height="20" uuid="2045e80a-199d-4255-8e33-8268a9c06d26"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Professor(a):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="20" width="58" height="20" uuid="98ef95c9-a5b9-4bc4-9164-e3dc5d649df9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="68" y="0" width="158" height="20" uuid="e14396e0-33c3-485d-9c98-b647c2a63312"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="245" height="20" uuid="6b9dfbb4-a176-4032-afd0-5a3fb6a45e7f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{professor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="20" width="487" height="20" uuid="84c2130c-f366-48aa-b8e8-3fb094b9e4af"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="556" width="79" height="16" uuid="27539ab2-57bd-4811-a6f3-60ffac889f8c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{soc_respeita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="380" width="79" height="16" uuid="ec9bde12-9121-4316-bc93-f027a7087e7f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{nat_familia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="288" width="79" height="16" uuid="24cfc3ad-0fed-4189-9216-5e26ee63577e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{mat_contagem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="240" width="79" height="16" uuid="d13e32d0-2c6c-44d7-ae87-770dad43326b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{mat_compara}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="396" width="79" height="16" uuid="499ac724-4704-4185-9622-db52a2b28d92"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{nat_musicas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="172" width="79" height="16" uuid="263e4188-5705-44f8-80df-d5db54377fb9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{ling_registra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="364" width="79" height="16" uuid="85ef152c-d0bf-4075-aa0d-6c264b000a43"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{nat_sentimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="620" width="79" height="16" uuid="11fb773d-3dc2-4d5a-a90a-f59e38b821e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{soc_cuida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="272" width="79" height="16" uuid="6bf8746c-e8dc-4208-a88d-453b352c6e08"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{mat_agrupa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="324" width="79" height="24" uuid="57a35176-3f9f-4694-bee7-4dedf1affd3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{nat_especies}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="480" width="79" height="24" uuid="3fbd9894-68da-48dd-8612-66268347c3b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{art_cria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="140" width="79" height="16" uuid="85166778-1e7d-44d2-bba7-09d5f1d4787c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{ling_repete}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="572" width="79" height="16" uuid="be46852e-75dd-4b3f-8b38-1a3ab11157f9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{soc_interesse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="448" width="79" height="16" uuid="0307a538-72b7-4b6e-a2f4-db3f3890a90c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{art_materiais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="588" width="79" height="16" uuid="731448c9-3f23-4f61-8fc2-47934645ed42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{soc_expressoes_corporais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="604" width="79" height="16" uuid="19720d99-82a0-4eba-aa3e-fd3ac41b29e2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{soc_auxilio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="464" width="79" height="16" uuid="bde18952-61f7-4430-8fdc-6ed98c3d70ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{art_corpo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="92" width="79" height="16" uuid="42c1b31f-969c-45df-9673-18e264f7c896"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{ling_expressa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="256" width="79" height="16" uuid="417b9a8e-627d-40d1-acb0-1b4902201ae6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{mat_tempo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="412" width="79" height="16" uuid="ae2d83ff-0655-49d8-92e6-7c7bd3c501c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{nat_percepcao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="540" width="79" height="16" uuid="6f34de18-4e02-4bc2-8f9a-df2208bdc180"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{soc_expressa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="208" width="79" height="16" uuid="51d8d5d0-0633-4c47-989d-fa78ceadeab2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{mat_formas_geometricas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="156" width="79" height="16" uuid="a63a2acb-47dc-4ff7-914a-7e83029c87e5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{ling_diferencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="224" width="79" height="16" uuid="7e75c6a2-1f25-4f1a-bf27-717ca1bc29a7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{mat_elementos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="108" width="79" height="16" uuid="84c8dedf-401c-4539-9afe-cc7f97dd6dcb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{ling_ouve}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="348" width="79" height="16" uuid="fa9d1844-4411-4121-8303-da989b1a4f94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{nat_corpo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="60" width="79" height="16" uuid="6a4da3a4-98e9-4edb-847d-91173f61d994"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{ling_reconhece}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="76" width="79" height="16" uuid="be157cce-b40d-42ba-b578-8d6de8688a38"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{ling_vogais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="524" width="79" height="16" uuid="8762d6fd-a6f1-47d1-a712-47c127597147"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{soc_relaciona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="124" width="79" height="16" uuid="5a1861e8-c402-49a4-af3f-30942152c26a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{ling_narra}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="20" backcolor="#DEDEDE" uuid="8618a032-5150-47f9-9d0d-f345acbfd3ed"/>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="10" y="0" width="100" height="20" uuid="0b90c3ff-30bc-473c-96b7-d76e46bcefc3"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="430" y="0" width="80" height="20" uuid="8d56613c-aa91-4577-bae3-7145f1bf90cd"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="510" y="0" width="40" height="20" uuid="298850b6-042a-4f0f-9894-63b7c26d9ae0"/>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

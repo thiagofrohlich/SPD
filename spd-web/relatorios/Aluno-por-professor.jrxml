@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91f5d6a-c39f-4aa1-b182-0af0bd7e62f4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nomeProfessor" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT a.matricula, a.nome, t.descricao, p.nome as professor
+FROM aluno a
+INNER JOIN turma t
+ON (a.id_turma = t.id)
+INNER JOIN professor
+ON (professor.id_turma=t.id)
+INNER JOIN pessoa p
+ON (p.codpessoa = professor.codpessoa)
+where p.nome = $P{nomeProfessor}]]>
+	</queryString>
+	<field name="matricula" class="java.lang.Long"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="professor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="79" backcolor="#DEDEDE" uuid="ff8103cf-3205-41b9-8b5c-99ab8067c101"/>
+				<staticText>
+					<reportElement mode="Transparent" x="10" y="10" width="216" height="59" forecolor="#000000" backcolor="#000000" uuid="cebb6c41-2305-45cb-871d-b0ebd51fce5d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="350" y="49" width="200" height="20" forecolor="#000000" backcolor="#000000" uuid="05b4f5c9-5ccd-48b7-8166-0133d40eb3cf"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Aluno por Professor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="350" y="29" width="200" height="20" uuid="c481fc25-41c8-4dd3-9613-bdd79e667f39"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="30" backcolor="#DEDEDE" uuid="2de374f0-8982-4d89-b48d-9f22639ef87e"/>
+				<staticText>
+					<reportElement x="10" y="0" width="100" height="30" uuid="d40a2499-1397-4234-ac1b-6f495663f316"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Professor(a):]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="110" y="0" width="445" height="30" uuid="3efc3953-a5ba-428b-a6d2-2898b90884df"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{professor}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="100" height="20" uuid="d943b213-1433-44d4-a23c-609aad4696dd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Matrícula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="345" height="20" uuid="ca4f4a93-ebe9-449f-bd9a-6f8ee7fb5db5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="100" height="20" uuid="e61c269a-ebde-4ece-b4ea-ec0a4d12f0b4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Turma]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="23" width="575" height="1" uuid="e8a0d1fd-bfd1-485b-ab5f-66610c0db746"/>
+			</line>
+			<textField>
+				<reportElement x="10" y="3" width="100" height="20" uuid="aeef132a-9636-4260-93b5-eb80fe734c7d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="4" width="345" height="20" uuid="1417ebf3-ff8e-4a80-a812-fb6c2125abe9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="4" width="100" height="20" uuid="e74184cd-7939-4803-b334-758e72576e05"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="20" backcolor="#DEDEDE" uuid="8618a032-5150-47f9-9d0d-f345acbfd3ed"/>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="10" y="0" width="100" height="20" uuid="0b90c3ff-30bc-473c-96b7-d76e46bcefc3"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="430" y="0" width="80" height="20" uuid="8d56613c-aa91-4577-bae3-7145f1bf90cd"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="510" y="0" width="40" height="20" uuid="298850b6-042a-4f0f-9894-63b7c26d9ae0"/>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -67,6 +67,11 @@
 			<artifactId>jackson-annotations</artifactId>
 			<version>${jackson-faster.version}</version>
 		</dependency>
+		
+		<dependency>
+		  <groupId>net.sf.jasperreports</groupId>
+		  <artifactId>jasperreports</artifactId>
+		</dependency>
 
 		<!-- TESTS -->
 

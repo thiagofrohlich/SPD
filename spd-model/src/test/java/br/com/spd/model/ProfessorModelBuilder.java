@@ -27,7 +27,6 @@ public class ProfessorModelBuilder {
 		professor.setProfissao(profissao);
 		professor.setRg(rg);
 		professor.setTelefone(telefone);
-		professor.setPessoa(pessoa);
 		professor.setTurma(turma);
 		return professor;
 	}

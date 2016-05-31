@@ -3,6 +3,7 @@ package br.ufpr.tcc.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -43,7 +44,7 @@ public class AlunoBean implements Serializable{
 	private AlunoServiceHandler alunoServiceHandler;
 	private Long mat = (long) 100000000;
 	private ResponsavelServiceHandler responsavelServiceHandler;
-
+	private ResourceBundle rb;
 	private TurmaServiceHandler turmaServiceHandler;
 
 	@PostConstruct
@@ -61,6 +62,7 @@ public class AlunoBean implements Serializable{
 		responsavelServiceHandler = new ResponsavelServiceHandlerImpl();
 		turmaServiceHandler = new TurmaServiceHandlerImpl();
 		lstTurma = turmaServiceHandler.findAll().getList();
+		rb = ResourceBundle.getBundle("msg");
 	}
 	
 	public List<Responsavel> getListaResponsavel() {
@@ -97,13 +99,18 @@ public class AlunoBean implements Serializable{
 	}
 	
 	public void salva(){
-		mat++;
-		aluno.setMatricula(mat);
-		alunoServiceHandler.create(aluno);
-		pai.setAluno(aluno);
-		mae.setAluno(aluno);
-		responsavelServiceHandler.create(mae);
-		responsavelServiceHandler.create(pai);
+		try{
+			mat++;
+			aluno.setMatricula(mat);
+			alunoServiceHandler.create(aluno);
+			pai.setAluno(aluno);
+			mae.setAluno(aluno);
+			responsavelServiceHandler.create(mae);
+			responsavelServiceHandler.create(pai);
+			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAlunoSuccess")));
+		}catch(Exception e){
+			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAlunofailure")));
+		}
 	}
 
 	public String getNome() {

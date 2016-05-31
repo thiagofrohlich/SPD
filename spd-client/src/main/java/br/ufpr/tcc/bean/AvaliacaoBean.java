@@ -2,10 +2,13 @@ package br.ufpr.tcc.bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.spd.enuns.Notas;
 import br.com.spd.model.Aluno;
@@ -35,6 +38,7 @@ public class AvaliacaoBean {
 	private AvaliacaoMatIIServiceHandler avaliacaoMatIIServiceHandler;
 	private AvaliacaoPreIServiceHandler avaliacaoPreIServiceHandler;
 	private AvaliacaoPreIIServiceHandler avaliacaoPreIIServiceHandler;
+	private ResourceBundle rb;
 	
 	
 	@PostConstruct
@@ -50,6 +54,7 @@ public class AvaliacaoBean {
 		avaliacaoMatIIServiceHandler = new AvaliacaoMatIIServiceHandlerImpl();
 		avaliacaoPreIServiceHandler = new AvaliacaoPreIServiceHandlerImpl();
 		avaliacaoPreIIServiceHandler = new AvaliacaoPreIIServiceHandlerImpl();
+		rb = ResourceBundle.getBundle("msg");
 	}
 	
 	public void selecionaAluno(){
@@ -75,14 +80,19 @@ public class AvaliacaoBean {
 	
 	
 	public void salvaAluno(){
-		if(renderMat2){
-			avaliacaoMatIIServiceHandler.create(mat2);
-		}else 
-		if(renderPre1){
-			avaliacaoPreIServiceHandler.create(pre1);
-		}else
-		if(renderPre2){
-			avaliacaoPreIIServiceHandler.create(pre2);
+		try{
+			if(renderMat2){
+				avaliacaoMatIIServiceHandler.create(mat2);
+			}else 
+				if(renderPre1){
+					avaliacaoPreIServiceHandler.create(pre1);
+				}else
+					if(renderPre2){
+						avaliacaoPreIIServiceHandler.create(pre2);
+					}
+			FacesContext.getCurrentInstance().addMessage("messageAavaliacao", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAvaliacaoSuccess")));
+		}catch(Exception e){
+			FacesContext.getCurrentInstance().addMessage("messageAvaliacao", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAvaliacaoFailure")));
 		}
 	}
 

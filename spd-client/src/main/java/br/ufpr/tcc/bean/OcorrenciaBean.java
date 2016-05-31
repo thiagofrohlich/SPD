@@ -2,10 +2,13 @@ package br.ufpr.tcc.bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Ocorrencia;
@@ -26,6 +29,7 @@ public class OcorrenciaBean {
 	private boolean alunoFound;
 	private TipoOcorrenciaServiceHandler tipoOcorrenciaService;
 	private OcorrenciaServiceHandler ocorrenciaServiceHandler;
+	private ResourceBundle rb;
 	
 	@PostConstruct
 	public void init(){
@@ -36,6 +40,7 @@ public class OcorrenciaBean {
 		tipoOcorrenciaService = new TipoOcorrenciaServiceHandlerImpl();
 		ocorrenciaServiceHandler = new OcorrenciaServiceHandlerImpl();
 		lstTipo = tipoOcorrenciaService.getAll().getList();
+		rb = ResourceBundle.getBundle("msg");
 	}
 	
 	
@@ -46,8 +51,13 @@ public class OcorrenciaBean {
 	}
 	
 	public void salva(){
-		ocorrencia.setAluno(aluno);
-		ocorrenciaServiceHandler.create(ocorrencia);
+		try{
+			ocorrencia.setAluno(aluno);
+			ocorrenciaServiceHandler.create(ocorrencia);
+			FacesContext.getCurrentInstance().addMessage("messageOcorrencia", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaOcorrenciaSuccess")));
+		}catch(Exception e){
+			FacesContext.getCurrentInstance().addMessage("messageOcorrencia", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaOcorrenciaFailure")));
+		}
 	}
 
 	

@@ -3,8 +3,11 @@ package br.com.spd.domain;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 
 
 /**
@@ -17,6 +20,8 @@ public class Pessoa implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@SequenceGenerator(name="pk_pessoa",sequenceName="pessoa_id_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="pk_pessoa")
 	private Long codpessoa;
 	private String celular;
 	private String cpf;
