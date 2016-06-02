@@ -1,4 +1,4 @@
-package br.com.spd.enuns;
+package br.com.spd.enums;
 
 public enum Roles {
 	ADMINISTRADOR(1, "ADMINISTRADOR"),
