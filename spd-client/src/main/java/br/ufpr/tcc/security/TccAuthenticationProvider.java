@@ -3,45 +3,48 @@ package br.ufpr.tcc.security;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import br.com.spd.enums.Roles;
+import br.com.spd.model.Usuario;
+import br.ufpr.tcc.service.handler.UsuarioServiceHandler;
+
 
 @Component
 public class TccAuthenticationProvider  implements AuthenticationProvider{
 	
-//	private UsuarioServiceHandlerImpl usuarioService = new UsuarioServiceHandlerImpl();
-
+	@Autowired
+	private UsuarioServiceHandler usuarioService;
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) {
 		String login = (String) authentication.getName();
 		String password = (String) authentication.getCredentials();
-		Collection<GrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(new Role("USUARIO"));
+		
+		Usuario usuario = usuarioService.getByLogin(login);
+		throwExceptionIfNotFound(usuario);
+		throwExceptionIfPasswordIsInvalid(password, usuario);
+		
+		Collection<GrantedAuthority> authorities = getAuthorities(usuario.getRole());
+		
 		return new UsernamePasswordAuthenticationToken(login, password, authorities);
-		/*if(usuarioService.canLogin(login, password)){
-			Collection<GrantedAuthority> authorities = getAuthorities("USUARIO");
-			return new UsernamePasswordAuthenticationToken(login, password, authorities);
-		}else{
-			throw new BadCredentialsException("Usuário não encontrado.");
-		}*/
 	}
 
-	private Collection<GrantedAuthority> getAuthorities(String acesso) {
-//		String acessos[] = usuario.getAcessos().split(",");
+	private Collection<GrantedAuthority> getAuthorities(Integer roleId) {
+		Roles role = Roles.valueOf(roleId);
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
-//		for(String acesso : acessos) {
-			authorities.add(new Role(acesso));
-//		}
+		authorities.add(new Role(role.getDescricao()));
 		return authorities;
 	}
 
-	/*private void throwExceptionIfPasswordIsInvalid(String password,
-			UsuarioSummary usuario) {
+	private void throwExceptionIfPasswordIsInvalid(String password,
+			Usuario usuario) {
 		if(!password.equals(usuario.getSenha())) {
 			throw new BadCredentialsException("Senha inválida");
 		}
@@ -52,7 +55,7 @@ public class TccAuthenticationProvider  implements AuthenticationProvider{
 			throw new BadCredentialsException("Usuário não encontrado.");
 		}
 	}
-*/
+
 	
 	@Override
 	public boolean supports(Class<?> arg0) {

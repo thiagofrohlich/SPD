@@ -21,4 +21,13 @@ public enum Roles {
 		return descricao;
 	}
 	
+	public static Roles valueOf(Integer key) {
+		for(Roles role : Roles.values()) {
+			if(role.getId().equals(key)) {
+				return role;
+			}
+		}
+		return null;
+	}
+	
 }
