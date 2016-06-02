@@ -1,4 +1,4 @@
-package br.com.spd.enuns;
+package br.com.spd.enums;
 
 public enum Notas {
 	MUITO_BOM("Muito bom", "M"), BOM("Bom", "B"), EM_PROGRESSO("Em Progresso", "E");

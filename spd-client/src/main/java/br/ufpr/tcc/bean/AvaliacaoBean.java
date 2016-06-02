@@ -10,7 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import br.com.spd.enuns.Notas;
+import br.com.spd.enums.Notas;
 import br.com.spd.model.Aluno;
 import br.com.spd.model.AvaliacaoMat2;
 import br.com.spd.model.AvaliacaoPre1;

@@ -49,6 +49,13 @@ public class ProfessorTransformerTest {
 		assertEquals(professor.getRg(), professorDomain.getPessoa().getRg());
 		assertEquals(professor.getTelefone(), professorDomain.getPessoa().getTelefone());
 		assertEquals(professor.getTurma(), professorDomain.getTurma());
+		assertEquals(professor.getCep(), professorDomain.getCep());
+		assertEquals(professor.getRua(), professorDomain.getRua());
+		assertEquals(professor.getNumero(), professorDomain.getNumero());
+		assertEquals(professor.getBairro(), professorDomain.getBairro());
+		assertEquals(professor.getCidade(), professorDomain.getCidade());
+		assertEquals(professor.getEstado(), professorDomain.getEstado());
+		assertEquals(professor.getEmail(), professorDomain.getEmail());
 	}
 	
 	@Test
@@ -73,6 +80,13 @@ public class ProfessorTransformerTest {
 		assertEquals(professor.getPessoa().getRg(), professorModel.getRg());
 		assertEquals(professor.getPessoa().getTelefone(), professorModel.getTelefone());
 		assertEquals(professor.getTurma(), professorModel.getTurma());
+		assertEquals(professor.getCep(), professorModel.getCep());
+		assertEquals(professor.getRua(), professorModel.getRua());
+		assertEquals(professor.getNumero(), professorModel.getNumero());
+		assertEquals(professor.getBairro(), professorModel.getBairro());
+		assertEquals(professor.getCidade(), professorModel.getCidade());
+		assertEquals(professor.getEstado(), professorModel.getEstado());
+		assertEquals(professor.getEmail(), professorModel.getEmail());
 	}
 	
 }

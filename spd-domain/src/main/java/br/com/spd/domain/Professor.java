@@ -25,11 +25,12 @@ public class Professor implements Serializable, Domain {
 	@SequenceGenerator(name="pk_professor",sequenceName="professor_id_seq", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="pk_professor")
 	private Long id;
-	private String rua;
 	private String cep;
-	private String estado;
+	private String rua;
+	private String numero;
+	private String bairro;
 	private String cidade;
-	private String telefone;
+	private String estado;
 	private String email;
 
 	//bi-directional many-to-one association to Pessoa
@@ -101,20 +102,28 @@ public class Professor implements Serializable, Domain {
 		this.cidade = cidade;
 	}
 
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
 	}
 
 }

@@ -8,14 +8,13 @@ public class Professor extends Pessoa {
 
 	private Long id;
 	private Turma turma;
-	private String bairro;
 	private String cep;
-	private String cidade;
-	private String email;
-	private String estado;
-	private String numero;
 	private String rua;
-	private String senha;
+	private String numero;
+	private String bairro;
+	private String cidade;
+	private String estado;
+	private String email;
 	
 
 	public Professor() {
@@ -92,14 +91,6 @@ public class Professor extends Pessoa {
 
 	public void setRua(String rua) {
 		this.rua = rua;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 }

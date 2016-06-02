@@ -14,6 +14,13 @@ public class ProfessorModelBuilder {
 	private String telefone = "test-telefone";
 	private Pessoa pessoa = null;
 	private Turma turma = null;
+	private String cep = "teste-cep";
+	private String rua = "teste-rua";
+	private String numero = "teste-numero";
+	private String bairro = "teste-bairro";
+	private String cidade = "teste-cidade";
+	private String estado = "teste-estado";
+	private String email = "teste-email";
 	
 	public Professor build() {
 		Professor professor = new Professor();
@@ -28,6 +35,14 @@ public class ProfessorModelBuilder {
 		professor.setRg(rg);
 		professor.setTelefone(telefone);
 		professor.setTurma(turma);
+		professor.setCep(cep);
+		professor.setRua(rua);
+		professor.setNumero(numero);
+		professor.setBairro(bairro);
+		professor.setCidade(cidade);
+		professor.setEstado(estado);
+		professor.setTelefone(telefone);
+		professor.setEmail(email);
 		return professor;
 	}
 	
@@ -77,6 +92,41 @@ public class ProfessorModelBuilder {
 	}
 	public ProfessorModelBuilder withTurma(Turma turma) {
 		this.turma = turma;
+		return this;
+	}
+
+	public ProfessorModelBuilder withCep(String cep) {
+		this.cep = cep;
+		return this;
+	}
+
+	public ProfessorModelBuilder withRua(String rua) {
+		this.rua = rua;
+		return this;
+	}
+
+	public ProfessorModelBuilder withNumero(String numero) {
+		this.numero = numero;
+		return this;
+	}
+
+	public ProfessorModelBuilder withBairro(String bairro) {
+		this.bairro = bairro;
+		return this;
+	}
+
+	public ProfessorModelBuilder withCidade(String cidade) {
+		this.cidade = cidade;
+		return this;
+	}
+
+	public ProfessorModelBuilder withEstado(String estado) {
+		this.estado = estado;
+		return this;
+	}
+
+	public ProfessorModelBuilder withEmail(String email) {
+		this.email = email;
 		return this;
 	}
 	
