@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="turmaDescricao" class="java.lang.String">
+	<parameter name="turmaId" class="java.lang.Long">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -11,7 +11,7 @@
 FROM aluno a
 INNER JOIN turma t
 ON (a.id_turma = t.id)
-WHERE t.descricao = $P{turmaDescricao}]]>
+WHERE t.id = $P{turmaId}]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Long"/>
 	<field name="nome" class="java.lang.String"/>

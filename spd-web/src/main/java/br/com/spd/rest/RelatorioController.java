@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import javax.sql.DataSource;
 
@@ -29,6 +30,7 @@ import net.sf.jasperreports.engine.JasperReport;
 public class RelatorioController {
 
 	private DataSource dataSource;
+	private ResourceBundle rb = ResourceBundle.getBundle("app");
 	
 	@Autowired
 	public RelatorioController(DataSource dataSource){
@@ -39,7 +41,7 @@ public class RelatorioController {
 	@RequestMapping(value="/alunoTurma/{turma}", method=RequestMethod.GET)
 	public byte[] getAlunoPorTurma(@PathVariable final Long turma) {
 		Map<String, Object> map = new HashMap<>();
-		map.put("turmaDescricao", turma);
+		map.put("turmaId", turma);
 		
 		return geraRelatorio(map, null);
 	}
@@ -50,7 +52,7 @@ public class RelatorioController {
 	@RequestMapping(value="/ocorrenciaAluno/{aluno}", method=RequestMethod.GET)
 	public byte[] getOcorrenciaAluno(@PathVariable final Long aluno) {
 		Map<String, Object> map = new HashMap<>();
-		map.put("aluno", aluno);
+		map.put("alunoId", aluno);
 		
 		return geraRelatorio(map, null);
 	}
@@ -59,28 +61,26 @@ public class RelatorioController {
 	@RequestMapping(value="/ocorrenciaTurma/{turma}", method=RequestMethod.GET)
 	public byte[] getOcorrenciaTurma(@PathVariable final Long turma) {
 		Map<String, Object> map = new HashMap<>();
-		map.put("turma", turma);
+		map.put("turmaId", turma);
 		
 		return geraRelatorio(map, null);
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/aluno/{aluno}/ocorrencia/{ocorrencia}", method=RequestMethod.GET)
-	public byte[] getAlunoOcorrencia(@PathVariable final Long aluno, @PathVariable final Long ocorrencia) {
+	@RequestMapping(value="/aluno/{aluno}", method=RequestMethod.GET)
+	public byte[] getAlunoOcorrencia(@PathVariable final Long aluno) {
 		Map<String, Object> map = new HashMap<>();
-		map.put("aluno", aluno);
-		map.put("ocorrencia", ocorrencia);
+		map.put("alunoId", aluno);
 		return geraRelatorio(map, null);
 	}
 	
 	
 	
 	@ResponseBody
-	@RequestMapping(value="/turma/{turma}/avaliacaoAluno/{aluno}", method=RequestMethod.GET)
-	public byte[] getAvaliacaAluno(@PathVariable final Long turma,@PathVariable final Long aluno) {
+	@RequestMapping(value="/avaliacaoAluno/{aluno}/turma/{turma}", method=RequestMethod.GET)
+	public byte[] getAvaliacaoAluno(@PathVariable final Long aluno,@PathVariable final Long turma) {
 		Map<String, Object> map = new HashMap<>();
-		map.put("turma", turma);
-		map.put("aluno", aluno);
+		map.put("alunoId", aluno);
 		switch (turma.intValue()) {
 		case 1:
 			return geraRelatorio(map, null);
@@ -95,10 +95,10 @@ public class RelatorioController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/turma/{turma}", method=RequestMethod.GET)
-	public byte[] getAvaliacaAluno(@PathVariable final Long turma) {
+	@RequestMapping(value="/avaliacaoTurma/{turma}", method=RequestMethod.GET)
+	public byte[] getAvaliacaoTurma(@PathVariable final Long turma) {
 		Map<String, Object> map = new HashMap<>();
-		map.put("turma", turma);
+		map.put("turmaId", turma);
 		switch (turma.intValue()) {
 		case 1:
 			return geraRelatorio(map, null);
@@ -121,10 +121,10 @@ public class RelatorioController {
 			Connection conn = DataSourceUtils.getConnection(dataSource);
 			SimpleDateFormat format= new SimpleDateFormat("yyyyMMddHHmmss");  
 			String id = format.format(new Date());
-			JasperReport pathRxml = JasperCompileManager.compileReport(relatorio);
+			JasperReport pathRxml = JasperCompileManager.compileReport(rb.getString("relOrigin")+relatorio);
 			JasperPrint printReport = JasperFillManager.fillReport(pathRxml, map, conn);
-			JasperExportManager.exportReportToPdfFile(printReport,"C:\\Users\\Rodrigo\\Documents"+id+".pdf");
-			File file = new File("C:\\Users\\Rodrigo\\Documents"+id+".pdf");
+			JasperExportManager.exportReportToPdfFile(printReport,rb.getString("relPath")+id+".pdf");
+			File file = new File(rb.getString("relPath")+id+".pdf");
 			FileInputStream fis = new FileInputStream(file);  
 	        byte[] data = new byte[fis.available()];  
 	        fis.read(data);  

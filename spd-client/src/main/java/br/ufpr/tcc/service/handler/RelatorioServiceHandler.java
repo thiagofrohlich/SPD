@@ -4,5 +4,13 @@ public interface RelatorioServiceHandler extends ServiceHandler<Integer, Integer
 
 	String getRelativePath();
 
-	byte[] getTeste();
+	byte[] getAlunoPorTurma(Long turma);
+
+	byte[] getOcorrenciaAluno(Long aluno);
+
+	byte[] getOcorrenciaTurma(Long turma);
+
+	byte[] getAvaliacaoTurma(Long turma);
+
+	byte[] getavaliacaoAluno(Long turma, Long aluno);
 }
