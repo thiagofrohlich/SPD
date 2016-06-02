@@ -20,5 +20,15 @@ public class UsuarioServiceHandlerImpl  extends AbstractServiceHandler<Usuario,I
 	public Usuario getByLogin(String login) {
 		return (Usuario) getRestTemplate().getForObject(getPath()+"login/{login}", Usuario.class, login);
 	}
+	
+	@Override
+	public String encodePassword(String password) {
+		return getRestTemplate().getForObject(getPath()+"/password/encode/{password}", String.class, password);
+	}
+	
+	@Override
+	public Boolean canLogin(String login, String password) {
+		return getRestTemplate().getForObject(getPath()+"/login/{login}/{password}", Boolean.class, login, password);
+	}
 
 }

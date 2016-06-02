@@ -17,7 +17,7 @@ import br.ufpr.tcc.service.handler.UsuarioServiceHandler;
 
 
 @Component
-public class TccAuthenticationProvider  implements AuthenticationProvider{
+public class SpdAuthenticationProvider  implements AuthenticationProvider{
 	
 	@Autowired
 	private UsuarioServiceHandler usuarioService;
@@ -27,13 +27,13 @@ public class TccAuthenticationProvider  implements AuthenticationProvider{
 		String login = (String) authentication.getName();
 		String password = (String) authentication.getCredentials();
 		
-		Usuario usuario = usuarioService.getByLogin(login);
-		throwExceptionIfNotFound(usuario);
-		throwExceptionIfPasswordIsInvalid(password, usuario);
-		
-		Collection<GrantedAuthority> authorities = getAuthorities(usuario.getRole());
-		
-		return new UsernamePasswordAuthenticationToken(login, password, authorities);
+		if(usuarioService.canLogin(login, password)) {
+			Usuario usuario = usuarioService.getByLogin(login);
+			Collection<GrantedAuthority> authorities = getAuthorities(usuario.getRole());
+			return new UsernamePasswordAuthenticationToken(login, password, authorities);
+		} else {
+			throw new BadCredentialsException("Usuário não encontrado.");
+		}
 	}
 
 	private Collection<GrantedAuthority> getAuthorities(Integer roleId) {
@@ -43,20 +43,6 @@ public class TccAuthenticationProvider  implements AuthenticationProvider{
 		return authorities;
 	}
 
-	private void throwExceptionIfPasswordIsInvalid(String password,
-			Usuario usuario) {
-		if(!password.equals(usuario.getSenha())) {
-			throw new BadCredentialsException("Senha inválida");
-		}
-	}
-
-	private void throwExceptionIfNotFound(Usuario usuario) {
-		if(usuario == null) {
-			throw new BadCredentialsException("Usuário não encontrado.");
-		}
-	}
-
-	
 	@Override
 	public boolean supports(Class<?> arg0) {
 		return true;
