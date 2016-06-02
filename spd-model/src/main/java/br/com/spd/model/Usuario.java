@@ -12,7 +12,7 @@ public class Usuario implements Serializable, Model {
 	private Boolean ativo;
 	private String login;
 	private Boolean resetarSenha;
-	private String roles;
+	private Integer role;
 	private String senha;
 
 	public Usuario() {
@@ -50,12 +50,12 @@ public class Usuario implements Serializable, Model {
 		this.resetarSenha = resetarSenha;
 	}
 
-	public String getRoles() {
-		return this.roles;
+	public Integer getRole() {
+		return this.role;
 	}
 
-	public void setRoles(String roles) {
-		this.roles = roles;
+	public void setRole(Integer role) {
+		this.role = role;
 	}
 
 	public String getSenha() {
