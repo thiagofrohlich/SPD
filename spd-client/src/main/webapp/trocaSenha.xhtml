@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:tag="http://java.sun.com/jsf/composite/tags">
+	
+	<ui:composition template="/template.xhtml">
+	
+		<ui:define name="body">
+		<div class="row">
+                    <div class="col-lg-12">
+			<div class="centralize">
+			<div class="col-lg-12">
+            	<h3 class="page-header">#{msg.cadastro}</h3>
+            </div>
+                <h:form id="cadastroSenha">
+                	<div class="col-lg-12">
+                		<p:messages id="messageSenha" autoUpdate="true" />
+                	
+                		<p:panelGrid styleClass="noborder centralize" id="panelCadastro">
+                			<p:row>
+                				<p:column styleClass="labelForm">
+                					<h:outputText value="#{msg.senhaNova}"/>
+                				</p:column>
+                				<p:column>
+                					<p:inputText value="#{usuarioBean.senha}" />
+                				</p:column>
+                			</p:row>
+
+                			<p:row>
+                				<p:column styleClass="labelForm">
+                					<h:outputText value="#{msg.senhaConfirma}"/>
+                				</p:column>
+                				<p:column>
+                					<p:inputText value="#{usuarioBean.confirmaSenha}" />
+                				</p:column>
+                			</p:row>
+                			
+                			<p:row>
+								<p:column>
+									<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" action="#{professorBean.salva()}"/>
+								</p:column>
+							</p:row>
+                		</p:panelGrid>
+                	
+                	</div>
+					
+					<p:dialog id="usuario" closable="true" widgetVar="usuario" width="500" height="500">
+						
+						<p:dataTable value="#{usuarioBean.listUsuario}" var="lstUsuario" id="userTable"  rowKey="#{lstUsuario.id}" selection="#{usuarioBean.usuarioSelecionado}" selectionMode="single"
+									 paginator="true" paginatorPosition="bottom" rows="10">
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="#{msg.nome}" />
+								</f:facet>
+								<h:outputText value="#{lstUsuario.login}"/>
+							</p:column>
+							
+							
+						</p:dataTable>						
+						<p:commandButton value="#{msg.ok}" action="#{usuarioBean.selecionaUsuario()}" ajax="true" update="@form" />
+						
+					</p:dialog>
+				</h:form>
+			</div>
+			</div>
+			</div>
+		</ui:define>
+		<ui:define name="script">
+		
+		</ui:define>
+	</ui:composition>
+	
+</html>

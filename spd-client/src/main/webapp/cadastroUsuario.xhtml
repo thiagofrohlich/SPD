@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:tag="http://java.sun.com/jsf/composite/tags">
+	
+	<ui:composition template="/template.xhtml">
+	
+		<ui:define name="body">
+		<div class="row">
+                    <div class="col-lg-12">
+			<div class="centralize">
+			<div class="col-lg-12">
+            	<h3 class="page-header">#{msg.cadastro}</h3>
+            </div>
+                <h:form id="cadastroUser">
+                	<div class="col-lg-12">
+                		<p:messages id="messageUsuario" autoUpdate="true" />
+                		<p:panelGrid  styleClass="noborder centralize">
+                			<p:row>
+								<p:column styleClass="labelForm">
+									<h:outputText value="#{msg.usuario}" />
+								</p:column>
+								<p:column>
+									<p:inputText value="#{usuarioBean.nome}" id="nome"/>
+									<p:commandButton value="#{msg.pesquisar}" action="#{usuarioBean.buscaUsuario()}" 
+												onsuccess="PF('usuario').show();"	ajax="true" update=":cadastroUser:userTable" />
+								</p:column>
+							</p:row>
+                		</p:panelGrid>
+                	
+                		<p:panelGrid styleClass="noborder centralize" id="panelCadastro">
+                			<p:row>
+                				<p:column styleClass="labelForm">
+                					<h:outputText value="#{msg.login}"/>
+                				</p:column>
+                				<p:column>
+                					<p:inputText value="#{usuarioBean.usuario.login}" />
+                				</p:column>
+                			</p:row>
+                			
+                			<p:row>
+                				<p:column styleClass="labelForm">
+                					<h:outputText value="#{msg.ativo}"/>
+                				</p:column>
+                				<p:column>
+                					<p:selectOneRadio value="#{usuarioBean.usuario.ativo}">
+                						<f:selectItem itemLabel="#{msg.sim}" itemValue="#{true}"  />
+                						<f:selectItem itemLabel="#{msg.nao}" itemValue="#{false}" />
+                					</p:selectOneRadio>
+                				</p:column>
+                			</p:row>
+
+                			<p:row>
+                				<p:column styleClass="labelForm">
+									<h:outputText value="#{msg.roles}" />
+								</p:column>
+                				<p:column>
+									<p:selectOneMenu value="#{usuarioBean.usuario.roles}" >
+										<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+										<f:selectItems value="#{usuarioBean.roles}" var="roles" itemLabel="#{roles.descricao}" itemValue="#{roles.id}" />
+									</p:selectOneMenu>
+								</p:column>
+                			</p:row>
+                			
+                			
+                			
+                			<p:row>
+								<p:column rendered="#{usuarioBean.resetarSenha}">
+									<p:commandButton value="#{msg.resetarSenha}" id="resetButton" ajax="true" action="#{usuarioBean.resetarSenha()}"/>
+								</p:column>
+								<p:column>
+									<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" action="#{professorBean.salva()}"/>
+								</p:column>
+							</p:row>
+                		</p:panelGrid>
+                	
+                	</div>
+					
+					<p:dialog id="usuario" closable="true" widgetVar="usuario" width="500" height="500">
+						
+						<p:dataTable value="#{usuarioBean.listUsuario}" var="lstUsuario" id="userTable"  rowKey="#{lstUsuario.id}" selection="#{usuarioBean.usuarioSelecionado}" selectionMode="single"
+									 paginator="true" paginatorPosition="bottom" rows="10">
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="#{msg.nome}" />
+								</f:facet>
+								<h:outputText value="#{lstUsuario.login}"/>
+							</p:column>
+							
+							
+						</p:dataTable>						
+						<p:commandButton value="#{msg.ok}" action="#{usuarioBean.selecionaUsuario()}" ajax="true" update="@form" />
+						
+					</p:dialog>
+				</h:form>
+			</div>
+			</div>
+			</div>
+		</ui:define>
+		<ui:define name="script">
+		
+		</ui:define>
+	</ui:composition>
+	
+</html>

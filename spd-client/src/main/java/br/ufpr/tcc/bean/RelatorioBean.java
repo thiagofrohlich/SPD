@@ -28,7 +28,7 @@ public class RelatorioBean {
 	
 	public void teste() throws IOException{
 		byte[] bt = null;
-		bt = relatorioServiceHandler.getTeste();
+		bt = relatorioServiceHandler.getAlunoPorTurma(alunoSelecionado.getMatricula());
 		FacesContext context = FacesContext.getCurrentInstance();  
 		HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();  
 		response.reset();  
