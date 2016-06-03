@@ -90,7 +90,7 @@ public class AvaliacaoBean {
 					if(renderPre2){
 						avaliacaoPreIIServiceHandler.create(pre2);
 					}
-			FacesContext.getCurrentInstance().addMessage("messageAavaliacao", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAvaliacaoSuccess")));
+			FacesContext.getCurrentInstance().addMessage("messageAvaliacao", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAvaliacaoSuccess")));
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageAvaliacao", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAvaliacaoFailure")));
 		}

@@ -48,7 +48,7 @@
                 					<h:outputText value="#{msg.ativo}"/>
                 				</p:column>
                 				<p:column>
-                					<p:selectOneRadio value="#{usuarioBean.usuario.ativo}">
+                					<p:selectOneRadio value="#{usuarioBean.usuario.ativo}" >
                 						<f:selectItem itemLabel="#{msg.sim}" itemValue="#{true}"  />
                 						<f:selectItem itemLabel="#{msg.nao}" itemValue="#{false}" />
                 					</p:selectOneRadio>
@@ -57,7 +57,7 @@
 
                 			<p:row>
                 				<p:column styleClass="labelForm">
-									<h:outputText value="#{msg.roles}" />
+									<h:outputText value="#{msg.cargo}" />
 								</p:column>
                 				<p:column>
 									<p:selectOneMenu value="#{usuarioBean.usuario.roles}" >
@@ -74,7 +74,7 @@
 									<p:commandButton value="#{msg.resetarSenha}" id="resetButton" ajax="true" action="#{usuarioBean.resetarSenha()}"/>
 								</p:column>
 								<p:column>
-									<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" action="#{professorBean.salva()}"/>
+									<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" action="#{usuarioBean.salvaUsuario()}"/>
 								</p:column>
 							</p:row>
                 		</p:panelGrid>

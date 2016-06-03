@@ -12,6 +12,8 @@ import javax.faces.context.FacesContext;
 
 import br.com.spd.enums.Roles;
 import br.com.spd.model.Usuario;
+import br.ufpr.tcc.service.handler.UsuarioServiceHandler;
+import br.ufpr.tcc.service.handler.impl.UsuarioServiceHandlerImpl;
 
 @ViewScoped
 @ManagedBean(name = "usuarioBean")
@@ -26,15 +28,17 @@ public class UsuarioBean {
 	private Usuario usuarioSelecionado;
 	private String senha;
 	private String confirmaSenha;
-
+	private UsuarioServiceHandler usuarioServiceHandler;
 
 	@PostConstruct
 	public void init(){
 		usuario = new Usuario();
+		usuario.setAtivo(true);
 		resetarSenha = false;
 		rb = ResourceBundle.getBundle("msg");
 		listUsuario = new ArrayList<>();
 		usuarioSelecionado = new Usuario();
+		usuarioServiceHandler = new UsuarioServiceHandlerImpl();
 	}
 	
 	public void resetarSenha(){
@@ -42,8 +46,24 @@ public class UsuarioBean {
 		FacesContext.getCurrentInstance().addMessage("messageAavaliacao", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAvaliacaoSuccess")));
 	}
 	
+	public void buscaUsuario(){
+		listUsuario = usuarioServiceHandler.findByLogin(nome).getList();
+	}
+	
 	public void selecionaUsuario(){
-		
+		usuario = usuarioSelecionado;
+		resetarSenha = true;
+		usuarioSelecionado = new Usuario();
+	}
+	
+	public void salvaUsuario(){
+		try{
+			usuario.setResetarSenha(true);
+			usuarioServiceHandler.create(usuario);
+			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAvaliacaoSuccess")));
+		}catch(Exception e){
+			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAvaliacaoSuccess")));
+		}
 	}
 	
 	public Roles[] getRoles(){
