@@ -32,7 +32,7 @@ public class RelatorioServiceHandlerImpl extends AbstractServiceHandler<Integer,
 	
 	@Override
 	public byte[] getavaliacaoAluno(Long turma, Long aluno) {
-		return   getRestTemplate().getForObject(getPath()+"/avalaicaoAluno/{aluno}/turma/{turma}", byte[].class, aluno, turma);
+		return   getRestTemplate().getForObject(getPath()+"/avaliacaoAluno/{aluno}/turma/{turma}", byte[].class, aluno, turma);
 	}
 	
 	

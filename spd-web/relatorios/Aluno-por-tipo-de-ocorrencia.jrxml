@@ -72,11 +72,11 @@ WHERE tp.id_tipo_ocorrencia = $P{idTipoOcorrencia}]]>
 					<text><![CDATA[Tipo de Ocorrência:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="110" y="0" width="445" height="30" uuid="a23309e3-84b5-4257-aa52-30a4dd9b21fa"/>
-					<textElement verticalAlignment="Middle">
+					<reportElement x="110" y="10" width="445" height="20" uuid="3d91b52c-bad1-4dbd-a16a-190a8b8f263c"/>
+					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$P{descricaoTipoOcorrencia}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{tpdescricao}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

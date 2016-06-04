@@ -108,18 +108,18 @@ WHERE a.matricula = $P{alunoId}]]>
 					<text><![CDATA[Nome:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="264" y="0" width="291" height="30" uuid="84d4311b-3e0d-4940-96a1-5d2913fb6c93"/>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial" size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$P{nomeAluno}]]></textFieldExpression>
-				</textField>
-				<textField>
 					<reportElement x="71" y="0" width="155" height="30" uuid="7b3d3b31-5a50-4ac7-98c9-e3cd3de1093a"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="264" y="10" width="291" height="20" uuid="e84430cc-f7b0-4e94-bdf7-72708a18d861"/>
+					<textElement>
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

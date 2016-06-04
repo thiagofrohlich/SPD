@@ -100,11 +100,11 @@ WHERE t.id = $P{turmaId}]]>
 					<text><![CDATA[Turma:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="98" y="0" width="457" height="30" uuid="923ace54-c01f-4564-8e1c-f5c49e3cff86"/>
-					<textElement verticalAlignment="Middle">
+					<reportElement x="98" y="10" width="457" height="20" uuid="c197622c-b57c-4fdc-9348-12caf69d0a40"/>
+					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$P{turmaDescricao}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

@@ -84,11 +84,11 @@ WHERE a.matricula = $P{alunoId}]]>
 					<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="250" y="0" width="305" height="30" uuid="a28200c2-507d-4d0c-afe1-77c25bb4f3c9"/>
-					<textElement verticalAlignment="Middle">
+					<reportElement x="250" y="10" width="305" height="20" uuid="06e7be43-39de-46a2-a1fa-7c317fbf55da"/>
+					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$P{nomeAluno}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

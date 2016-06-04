@@ -43,7 +43,7 @@ public class RelatorioController {
 		Map<String, Object> map = new HashMap<>();
 		map.put("turmaId", turma);
 		
-		return geraRelatorio(map, null);
+		return geraRelatorio(map, "Aluno-por-turma.jrxml");
 	}
 	
 	
@@ -54,7 +54,7 @@ public class RelatorioController {
 		Map<String, Object> map = new HashMap<>();
 		map.put("alunoId", aluno);
 		
-		return geraRelatorio(map, null);
+		return geraRelatorio(map, "\\Ocorrencias-por-aluno.jrxml");
 	}
 	
 	@ResponseBody
@@ -63,15 +63,7 @@ public class RelatorioController {
 		Map<String, Object> map = new HashMap<>();
 		map.put("turmaId", turma);
 		
-		return geraRelatorio(map, null);
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="/aluno/{aluno}", method=RequestMethod.GET)
-	public byte[] getAlunoOcorrencia(@PathVariable final Long aluno) {
-		Map<String, Object> map = new HashMap<>();
-		map.put("alunoId", aluno);
-		return geraRelatorio(map, null);
+		return geraRelatorio(map, "\\Ocorrencias-por-turma.jrxml");
 	}
 	
 	
@@ -83,11 +75,11 @@ public class RelatorioController {
 		map.put("alunoId", aluno);
 		switch (turma.intValue()) {
 		case 1:
-			return geraRelatorio(map, null);
+			return geraRelatorio(map, "Avaliacoes-por-aluno-maternal.jrxml");
 		case 2:
-			return geraRelatorio(map, null);
+			return geraRelatorio(map, "Avaliacoes-por-aluno-pre1.jrxml");
 		case 3:
-			return geraRelatorio(map, null);
+			return geraRelatorio(map, "Avaliacoes-por-aluno-pre2.jrxml");
 		default:
 			return null;
 			
@@ -101,11 +93,11 @@ public class RelatorioController {
 		map.put("turmaId", turma);
 		switch (turma.intValue()) {
 		case 1:
-			return geraRelatorio(map, null);
+			return geraRelatorio(map, "Avaliacoes-por-turma-maternal.jrxml");
 		case 2:
-			return geraRelatorio(map, null);
+			return geraRelatorio(map, "Avaliacoes-por-turma-pre1.jrxml");
 		case 3:
-			return geraRelatorio(map, null);
+			return geraRelatorio(map, "Avaliacoes-por-turma-pre2.jrxml");
 		default:
 			return null;
 			
@@ -123,8 +115,8 @@ public class RelatorioController {
 			String id = format.format(new Date());
 			JasperReport pathRxml = JasperCompileManager.compileReport(rb.getString("relOrigin")+relatorio);
 			JasperPrint printReport = JasperFillManager.fillReport(pathRxml, map, conn);
-			JasperExportManager.exportReportToPdfFile(printReport,rb.getString("relPath")+id+".pdf");
-			File file = new File(rb.getString("relPath")+id+".pdf");
+			JasperExportManager.exportReportToPdfFile(printReport,rb.getString("relDestiny")+id+".pdf");
+			File file = new File(rb.getString("relDestiny")+id+".pdf");
 			FileInputStream fis = new FileInputStream(file);  
 	        byte[] data = new byte[fis.available()];  
 	        fis.read(data);  

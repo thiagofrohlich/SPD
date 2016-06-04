@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91f5d6a-c39f-4aa1-b182-0af0bd7e62f4">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="249"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="turmaId" class="java.lang.Long">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -59,11 +59,11 @@ WHERE t.id = $P{turmaId}]]>
 					<text><![CDATA[Turma:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="110" y="0" width="445" height="30" uuid="5b3f83a3-38a9-467a-8623-745b12ae3f05"/>
-					<textElement verticalAlignment="Middle">
+					<reportElement positionType="Float" x="110" y="10" width="445" height="20" uuid="47fd8cfa-e292-46b4-bdc0-538d3eaa785f"/>
+					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$P{turmaDescricao}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
