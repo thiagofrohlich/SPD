@@ -1,5 +1,7 @@
 package br.com.spd.rest;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import br.com.spd.PageSize;
 import br.com.spd.domain.Usuario;
 import br.com.spd.domain.repository.UsuarioRepository;
+import br.com.spd.exception.NullParameterException;
 import br.com.spd.exception.TransformerException;
 import br.com.spd.transformer.impl.GenericTransformer;
 import br.com.spd.wrapper.UsuarioWrapper;
@@ -24,6 +27,8 @@ import br.com.spd.wrapper.UsuarioWrapper;
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
+	
+	private static final String SECURITY_TYPE = "MD5";
 	
 	private final UsuarioRepository usuarioRepository;
 	private final GenericTransformer transformer;
@@ -121,6 +126,29 @@ public class UsuarioController {
 		return usuarioRepository.findOne(id) == null;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/password/encode/{password}", method=RequestMethod.GET)
+	public String encodePassword(String password) throws NullParameterException {
+		assertParameterIsSupplied(password);
+		return getDigestedPassword(password);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/login/{login}/{password}", method=RequestMethod.GET)
+	public Boolean canLogin(@PathVariable final String login, @PathVariable final String password) throws NullParameterException {
+		if(isEmptyString(login) || isEmptyString(password)) {
+			return false;
+		}
+		
+		Usuario usuario = usuarioRepository.findByLogin(login);
+		if(usuario == null) {
+			return false;
+		}
+		
+		return encodePassword(password).equals(
+				usuario.getSenha());
+	}
+
 	private br.com.spd.model.Usuario saveOrUpdate(final br.com.spd.model.Usuario usuario)
 			throws TransformerException {
 		Usuario p = new Usuario();
@@ -131,4 +159,39 @@ public class UsuarioController {
 		return model;
 	}
 
+	private String getDigestedPassword(String password) {
+		MessageDigest md;
+		StringBuffer sb = new StringBuffer();
+		try {
+	        md = MessageDigest.getInstance(SECURITY_TYPE);
+	        md.reset();
+	        byte[] digested = md.digest(password.getBytes());
+	        for(int i = 0; i < digested.length; i++){
+	            sb.append(Integer.toHexString(0xff & digested[i]));
+	        }
+	    } catch (NoSuchAlgorithmException ex) {
+	    	throw new RuntimeException(ex);
+	    }
+		return sb.toString();
+	}
+	
+	public void assertParameterIsSupplied(Object parameter) throws NullParameterException {
+		if(parameter == null) {
+			throw new NullParameterException();
+		} else if(parameter instanceof String) {
+			assertStringIsNotEmpty((String) parameter);
+		}
+	}
+	
+	private void assertStringIsNotEmpty(String parameter)
+			throws NullParameterException {
+		if(parameter != null && parameter.trim().equals("")) {
+			throw new NullParameterException();				
+		}
+	}
+	
+	private boolean isEmptyString(String parameter) {
+		return parameter == null || parameter.trim().equals("");
+	}
+	
 }
