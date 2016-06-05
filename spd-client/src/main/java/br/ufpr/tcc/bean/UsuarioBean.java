@@ -43,11 +43,11 @@ public class UsuarioBean {
 	
 	public void resetarSenha(){
 		usuario.setResetarSenha(true);
-		FacesContext.getCurrentInstance().addMessage("messageAavaliacao", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAvaliacaoSuccess")));
+		FacesContext.getCurrentInstance().addMessage("messageAavaliacao", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("resetSenhaSuccess")));
 	}
 	
 	public void buscaUsuario(){
-		listUsuario = usuarioServiceHandler.findByLogin(nome).getList();
+		listUsuario = usuarioServiceHandler.getByLoginLike(nome).getList();
 	}
 	
 	public void selecionaUsuario(){
@@ -60,9 +60,9 @@ public class UsuarioBean {
 		try{
 			usuario.setResetarSenha(true);
 			usuarioServiceHandler.create(usuario);
-			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAvaliacaoSuccess")));
+			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaUsuarioSuccess")));
 		}catch(Exception e){
-			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAvaliacaoSuccess")));
+			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaUsuarioFailure")));
 		}
 	}
 	

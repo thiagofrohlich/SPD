@@ -3,7 +3,6 @@ package br.ufpr.tcc.security;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,13 +13,18 @@ import org.springframework.stereotype.Component;
 import br.com.spd.enums.Roles;
 import br.com.spd.model.Usuario;
 import br.ufpr.tcc.service.handler.UsuarioServiceHandler;
+import br.ufpr.tcc.service.handler.impl.UsuarioServiceHandlerImpl;
 
 
 @Component
 public class SpdAuthenticationProvider  implements AuthenticationProvider{
 	
-	@Autowired
 	private UsuarioServiceHandler usuarioService;
+	
+
+	public SpdAuthenticationProvider() {
+		usuarioService = new UsuarioServiceHandlerImpl();
+	}
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) {

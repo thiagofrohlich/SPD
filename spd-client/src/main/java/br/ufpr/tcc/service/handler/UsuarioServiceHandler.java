@@ -12,4 +12,6 @@ public interface UsuarioServiceHandler  extends ServiceHandler<Usuario, Integer>
 	String encodePassword(String password);
 
 	Boolean canLogin(String login, String password);
+
+	UsuarioWrapper getByLoginLike(String login);
 }
