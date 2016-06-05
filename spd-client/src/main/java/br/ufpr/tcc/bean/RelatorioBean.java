@@ -1,6 +1,7 @@
 package br.ufpr.tcc.bean;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,25 +11,45 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.spd.model.Aluno;
+import br.com.spd.model.Turma;
+import br.ufpr.tcc.service.handler.AlunoServiceHandler;
 import br.ufpr.tcc.service.handler.RelatorioServiceHandler;
+import br.ufpr.tcc.service.handler.TurmaServiceHandler;
+import br.ufpr.tcc.service.handler.impl.AlunoServiceHandlerImpl;
 import br.ufpr.tcc.service.handler.impl.RelatorioServiceHandlerImpl;
+import br.ufpr.tcc.service.handler.impl.TurmaServiceHandlerImpl;
 
 @ViewScoped
 @ManagedBean(name = "relatorioBean")
 public class RelatorioBean {
-
 	
+	private Aluno aluno;
+	private String nome;
+	private Long turmaId;
 	private Aluno alunoSelecionado;
 	private List<Aluno> lstAluno;
 	private RelatorioServiceHandler relatorioServiceHandler;
+	private List<Turma> listTurma;
+	private TurmaServiceHandler turmaServiceHandler;
+	private String relType;
+	private AlunoServiceHandler alunoServiceHandler;
+	
+	
+	
 	@PostConstruct
 	public void init(){
+		alunoServiceHandler = new AlunoServiceHandlerImpl();
 		relatorioServiceHandler = new RelatorioServiceHandlerImpl();
+		turmaServiceHandler = new TurmaServiceHandlerImpl();
+		listTurma = turmaServiceHandler.findAll().getList();
+		aluno = new Aluno();
+		alunoSelecionado = new Aluno();
+		lstAluno = new ArrayList<>();
 	}
 	
-	public void teste() throws IOException{
+	public void geraRelatorio() throws IOException{
 		byte[] bt = null;
-		bt = relatorioServiceHandler.getTeste();
+		bt = buscaRelatorios(bt);
 		FacesContext context = FacesContext.getCurrentInstance();  
 		HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();  
 		response.reset();  
@@ -40,4 +61,83 @@ public class RelatorioBean {
 		response.getOutputStream().close();  
 		context.responseComplete(); 
 	}
+
+	private byte[] buscaRelatorios(byte[] bt) {
+		switch (relType) {
+		case "alunoTurma":
+			bt = relatorioServiceHandler.getAlunoPorTurma(turmaId);
+			break;
+		
+		case "avaliacaoTurma":
+			bt = relatorioServiceHandler.getAvaliacaoTurma(turmaId);
+			break;
+			
+		case "avaliacaoAluno":
+			bt = relatorioServiceHandler.getavaliacaoAluno(alunoSelecionado.getTurma().getId(), alunoSelecionado.getMatricula());
+			break;
+			
+		default:
+			break;
+		}
+		return bt;
+	}
+
+	public void buscaAluno(){
+		lstAluno = alunoServiceHandler.findByNome(nome).getList();
+	}
+	
+	public void fillRelatorio(String type){
+		relType = type;
+	}
+	
+	
+	public Aluno getAlunoSelecionado() {
+		return alunoSelecionado;
+	}
+
+	public void setAlunoSelecionado(Aluno alunoSelecionado) {
+		this.alunoSelecionado = alunoSelecionado;
+	}
+
+	public List<Aluno> getLstAluno() {
+		return lstAluno;
+	}
+
+	public void setLstAluno(List<Aluno> lstAluno) {
+		this.lstAluno = lstAluno;
+	}
+
+	public List<Turma> getListTurma() {
+		return listTurma;
+	}
+
+	public void setListTurma(List<Turma> listTurma) {
+		this.listTurma = listTurma;
+	}
+
+	public Long getTurmaId() {
+		return turmaId;
+	}
+
+	public void setTurmaId(Long turmaId) {
+		this.turmaId = turmaId;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	 
 }

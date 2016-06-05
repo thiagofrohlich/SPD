@@ -92,7 +92,7 @@ public class UsuarioController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/login/{login}", method=RequestMethod.GET)
+	@RequestMapping(value="/loginlike/{login}", method=RequestMethod.GET)
 	public UsuarioWrapper getByLoginLike(@PathVariable String login) throws TransformerException {
 		List<Usuario> result = usuarioRepository.findByLoginLike("%"+login+"%");
 		UsuarioWrapper wrapper = new UsuarioWrapper();

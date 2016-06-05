@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91f5d6a-c39f-4aa1-b182-0af0bd7e62f4">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91f5d6a-c39f-4aa1-b182-0af0bd7e62f4">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="nomeAluno" class="java.lang.String">
+	<parameter name="alunoId" class="java.lang.Long">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -19,7 +19,7 @@ INNER JOIN professor
 ON (professor.id_turma=t.id)
 INNER JOIN pessoa p
 ON (p.codpessoa = professor.codpessoa)
-WHERE a.nome = $P{nomeAluno}]]>
+WHERE a.matricula = $P{alunoId}]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Long"/>
 	<field name="nome" class="java.lang.String"/>
@@ -84,11 +84,11 @@ WHERE a.nome = $P{nomeAluno}]]>
 					<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="250" y="0" width="305" height="30" uuid="a28200c2-507d-4d0c-afe1-77c25bb4f3c9"/>
-					<textElement verticalAlignment="Middle">
+					<reportElement x="250" y="10" width="305" height="20" uuid="06e7be43-39de-46a2-a1fa-7c317fbf55da"/>
+					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$P{nomeAluno}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

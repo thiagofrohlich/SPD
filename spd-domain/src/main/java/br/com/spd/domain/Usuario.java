@@ -15,7 +15,7 @@ public class Usuario implements Serializable, Domain {
 
 	@Id
 	@SequenceGenerator(name="pk_usuario",sequenceName="usuario_id_seq", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.AUTO,generator="pk_professor")
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="pk_usuario")
 	private Integer id;
 	private Boolean ativo;
 	private String login;

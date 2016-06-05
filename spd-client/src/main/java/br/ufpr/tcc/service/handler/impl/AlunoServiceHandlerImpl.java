@@ -13,7 +13,6 @@ public class AlunoServiceHandlerImpl extends AbstractServiceHandler<Aluno, Integ
 
 	@Override
 	public AlunoWrapper findByNome(String nome) {
-		
 		return (AlunoWrapper) getRestTemplate().getForObject(getPath()+"/nome/{nome}", AlunoWrapper.class, nome);
 	}
 	

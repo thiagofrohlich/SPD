@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="descricaoTurma" class="java.lang.String">
+	<parameter name="turmaId" class="java.lang.Long">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -19,7 +19,7 @@ INNER JOIN professor
 ON (professor.id_turma=t.id)
 INNER JOIN pessoa p
 ON (p.codpessoa = professor.codpessoa)
-WHERE t.descricao = $P{descricaoTurma}]]>
+WHERE t.id = $P{turmaId}]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Long"/>
 	<field name="nome" class="java.lang.String"/>
@@ -71,11 +71,11 @@ WHERE t.descricao = $P{descricaoTurma}]]>
 					<text><![CDATA[Turma:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="110" y="0" width="445" height="30" uuid="c1d79189-1161-4c21-8215-254537205730"/>
-					<textElement verticalAlignment="Middle">
+					<reportElement x="110" y="8" width="133" height="20" uuid="a11dbef0-4dbc-4692-90e4-06c907b70ec8"/>
+					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$P{descricaoTurma}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{tdescricao}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
