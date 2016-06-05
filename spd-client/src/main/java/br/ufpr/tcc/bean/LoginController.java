@@ -29,6 +29,8 @@ public class LoginController implements PhaseListener {
 	
 	private static final long serialVersionUID = 1L;
 	protected final Log logger = LogFactory.getLog(getClass());
+	private String login;
+	private String password;
     
     /**
      *
@@ -95,4 +97,20 @@ public class LoginController implements PhaseListener {
     public PhaseId getPhaseId() {
         return PhaseId.RENDER_RESPONSE;
     }
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }
