@@ -21,7 +21,7 @@
     <link href="resources/css/font-awesome.css" rel="stylesheet" type="text/css" />
 	</h:head>
 	
-	<h:body>
+	<h:body onload="#{loginBean.init()}">
 		<div id="wrapper">
 
         <!-- Navigation -->
@@ -46,11 +46,12 @@
             <div class="navbar-default sidebar" role="navigation">
                
                     <ul class="nav" id="side-menu">
-						<li><a href="cadastroAluno.xhtml"><i class="fa  fa-fw"></i> Cadastro de Alunos</a></li>
-						<li><a href="cadastroprofessor.xhtml"><i class="fa  fa-fw"></i> Cadastro de Professores</a></li>
-						<li><a href="ocorrencias.xhtml"><i class="fa  fa-fw"></i> Ocorrencias</a></li>
-						<li><a href="avaliacao.xhtml"><i class="fa  fa-fw"></i> Avaliações</a></li>
-						<li><a href="relatorios.xhtml"><i class="fa  fa-fw"></i> Relatórios</a></li>
+						<li style="display: #{loginBean.cadastroAluno? 'inline' : 'none'}"><a href="cadastroAluno.xhtml"><i class="fa  fa-fw"></i> Cadastro de Alunos</a></li>
+						<li style="display: #{loginBean.cadastroProfessor? 'inline' : 'none'}"><a href="cadastroprofessor.xhtml"><i class="fa  fa-fw"></i> Cadastro de Professores</a></li>
+						<li style="display: #{loginBean.ocorrencia? 'inline' : 'none'}"><a href="ocorrencias.xhtml"><i class="fa  fa-fw"></i> Ocorrencias</a></li>
+						<li style="display: #{loginBean.ocorrencia? 'inline' : 'none'}"><a href="avaliacao.xhtml"><i class="fa  fa-fw"></i> Avaliações</a></li>
+						<li style="display: #{loginBean.relatorio? 'inline' : 'none'}"><a href="relatorios.xhtml"><i class="fa  fa-fw"></i> Relatórios</a></li>
+						<li style="display: #{loginBean.cadastroUsuario? 'inline' : 'none'}"><a href="cadastroUsuario.xhtml"><i class="fa  fa-fw"></i> Cadastro de Usuários</a></li>
                     </ul>
                 
             </div>

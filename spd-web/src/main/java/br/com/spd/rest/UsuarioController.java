@@ -128,7 +128,7 @@ public class UsuarioController {
 	
 	@ResponseBody
 	@RequestMapping(value="/password/encode/{password}", method=RequestMethod.GET)
-	public String encodePassword(String password) throws NullParameterException {
+	public String encodePassword(@PathVariable String password) throws NullParameterException {
 		assertParameterIsSupplied(password);
 		return getDigestedPassword(password);
 	}

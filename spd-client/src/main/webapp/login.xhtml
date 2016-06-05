@@ -46,7 +46,7 @@
                                 	<p:password id="password" styleClass="form-control" value="#{loginController.password}" />
                                 </div>
                                
-                                <p:commandButton styleClass="btn btn-lg btn-success btn-block" value="#{msg.login}" 
+                                <p:commandButton styleClass="btn btn-lg btn-success btn-block" value="#{msg.login}" id="loginButton"
                                 					ajax="false" action="#{loginController.doLogin()}"/>
                             </fieldset>
                         </h:form>
@@ -67,8 +67,31 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="resources/js/sb-admin-2.js"></script>
-	</h:body>
+	    <script type="text/javascript">
+			$(document).ready(function() {
 
+				var msg = '';
+				
+				$('#loginButton').click(function() {
+					if($('#username').val() == ""){
+						$('#username').addClass('formError');
+						msg = msg + '#{msg.usernameError}'+'\n';
+					}
+					if($('#password').val() == ""){
+						$('#password').addClass('formError');
+						msg = msg + '#{msg.passwordError}'+'\n';
+					}
+					if(msg == ''){
+						return true;
+					}else{
+						alert(msg);
+						msg = '';
+						return false;
+					}
+				});
+			}); 
+		</script>
+	</h:body>
 
 
 </html>

@@ -10,6 +10,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import br.com.spd.enums.Roles;
 import br.com.spd.model.Usuario;
 import br.ufpr.tcc.service.handler.UsuarioServiceHandler;
@@ -56,11 +58,29 @@ public class UsuarioBean {
 		usuarioSelecionado = new Usuario();
 	}
 	
+	public void trocarSenha(){
+		if(senha.equals(confirmaSenha)){
+			try{
+				String user = (String)SecurityContextHolder.getContext().getAuthentication().getName();
+				usuario = usuarioServiceHandler.getByLogin(user);
+				usuario.setResetarSenha(false);
+				usuario.setSenha(usuarioServiceHandler.encodePassword(senha));
+				usuarioServiceHandler.update(usuario);
+				FacesContext.getCurrentInstance().addMessage("messageSenha", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaSenhaSuccess")));
+			}catch(Exception e){
+				FacesContext.getCurrentInstance().addMessage("messageSenha", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaSenhaFailure")));
+			}
+		}else{
+			FacesContext.getCurrentInstance().addMessage("messageSenha", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("senhaConfirmFailure")));
+		}
+	}
+	
 	public void salvaUsuario(){
 		try{
 			usuario.setResetarSenha(true);
 			usuarioServiceHandler.create(usuario);
 			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaUsuarioSuccess")));
+			usuario = new Usuario();
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaUsuarioFailure")));
 		}

@@ -23,7 +23,7 @@
                 		<p:panelGrid  styleClass="noborder centralize">
                 			<p:row>
 								<p:column styleClass="labelForm">
-									<h:outputText value="#{msg.Professor}" />
+									<h:outputText value="#{msg.professor}" />
 								</p:column>
 								<p:column>
 									<p:inputText value="#{professorBean.name}" id="nome"/>
@@ -46,7 +46,7 @@
                 					<h:outputText value="#{msg.cpf}"/>
                 				</p:column>
                 				<p:column>
-                					<p:inputText value="#{professorBean.professor.cpf}" />
+                					<p:inputMask mask="999.999.999-99" value="#{professorBean.professor.cpf}" />
                 				</p:column>
                 			</p:row>
 
@@ -116,6 +116,17 @@
 									</p:column>
 									<p:column>
 										<p:inputText value="#{professorBean.professor.email}" id="email"/>
+									</p:column>
+								</p:row>
+								
+								<p:row>
+									<p:column styleClass="labelForm">
+										<h:outputText value="#{msg.nivel}" />
+									</p:column>
+									<p:column>
+										<p:selectOneMenu  value="#{professorBean.professor.turma.id}">
+											<f:selectItems value="#{professorBean.lstTurma}" var="lstTurma" itemLabel="#{lstTurma.descricao}" itemValue="#{lstTurma.id}" />
+										</p:selectOneMenu>
 									</p:column>
 								</p:row>
 								

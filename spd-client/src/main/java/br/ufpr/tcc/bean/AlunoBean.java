@@ -108,6 +108,7 @@ public class AlunoBean implements Serializable{
 			responsavelServiceHandler.create(mae);
 			responsavelServiceHandler.create(pai);
 			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAlunoSuccess")));
+			aluno = new Aluno();
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAlunoFailure")));
 		}

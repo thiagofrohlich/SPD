@@ -11,9 +11,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.spd.model.Professor;
+import br.com.spd.model.Turma;
 import br.ufpr.tcc.service.CepHandler;
 import br.ufpr.tcc.service.handler.ProfessorServiceHandler;
+import br.ufpr.tcc.service.handler.TurmaServiceHandler;
 import br.ufpr.tcc.service.handler.impl.ProfessorServiceHandlerImpl;
+import br.ufpr.tcc.service.handler.impl.TurmaServiceHandlerImpl;
 
 
 @ViewScoped
@@ -23,6 +26,7 @@ public class ProfessorBean {
 	private String name;
 	private Professor professor;
 	private List<Professor> listProfessor;
+	private List<Turma> lstTurma;
 	private Professor professorSelecionado;
 	private CepHandler cepHandler;
 	private ProfessorServiceHandler professorServiceHandler;
@@ -31,7 +35,10 @@ public class ProfessorBean {
 	@PostConstruct
 	public void init(){
 		professor = new Professor();
+		professor.setTurma(new Turma());
 		listProfessor = new ArrayList<>();
+		TurmaServiceHandler turmaServiceHandler = new TurmaServiceHandlerImpl();
+		lstTurma = turmaServiceHandler.findAll().getList();
 		professorSelecionado = new Professor();
 		cepHandler = new CepHandler();
 		professorServiceHandler = new ProfessorServiceHandlerImpl();
@@ -59,6 +66,7 @@ public class ProfessorBean {
 		try{
 			professorServiceHandler.create(professor);
 			FacesContext.getCurrentInstance().addMessage("messageProfessor", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaProfessorSuccess")));
+			professor = new Professor();
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageProfessor", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaProfessorFailure")));
 		}
@@ -96,5 +104,13 @@ public class ProfessorBean {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Turma> getLstTurma() {
+		return lstTurma;
+	}
+
+	public void setLstTurma(List<Turma> lstTurma) {
+		this.lstTurma = lstTurma;
 	}
 }

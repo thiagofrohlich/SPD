@@ -91,6 +91,9 @@ public class AvaliacaoBean {
 						avaliacaoPreIIServiceHandler.create(pre2);
 					}
 			FacesContext.getCurrentInstance().addMessage("messageAvaliacao", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAvaliacaoSuccess")));
+			mat2 = new AvaliacaoMat2();
+			pre1 = new AvaliacaoPre1();
+			pre2 = new AvaliacaoPre2();
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageAvaliacao", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAvaliacaoFailure")));
 		}

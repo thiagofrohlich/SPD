@@ -51,7 +51,7 @@ public class SpdAuthenticationProvider  implements AuthenticationProvider{
 			Collection<GrantedAuthority> authorities = getAuthorities(usuario.getRole());
 			return new UsernamePasswordAuthenticationToken(login, password, authorities);
 		} else {
-			throw new BadCredentialsException("Usu√°rio n√£o encontrado.");
+			throw new BadCredentialsException("Usu·rio n„o encontrado.");
 		}
 	}
 	

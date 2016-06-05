@@ -55,6 +55,8 @@ public class OcorrenciaBean {
 			ocorrencia.setAluno(aluno);
 			ocorrenciaServiceHandler.create(ocorrencia);
 			FacesContext.getCurrentInstance().addMessage("messageOcorrencia", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaOcorrenciaSuccess")));
+			ocorrencia = new Ocorrencia();
+			aluno = new Aluno();
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageOcorrencia", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaOcorrenciaFailure")));
 		}

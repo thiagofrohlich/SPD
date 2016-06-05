@@ -1,6 +1,7 @@
 package br.ufpr.tcc.bean;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -20,6 +21,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 
 @ManagedBean(name="loginController")
 @RequestScoped
@@ -31,6 +34,7 @@ public class LoginController implements PhaseListener {
 	protected final Log logger = LogFactory.getLog(getClass());
 	private String login;
 	private String password;
+	private ResourceBundle rb = ResourceBundle.getBundle("msg");
     
     /**
      *
@@ -42,18 +46,26 @@ public class LoginController implements PhaseListener {
      * @throws IOException
      */
     public String doLogin() throws ServletException, IOException {
-        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-
-        RequestDispatcher dispatcher = ((ServletRequest) context.getRequest())
-                .getRequestDispatcher("/j_spring_security_check");
-
-        dispatcher.forward((ServletRequest) context.getRequest(),
-                (ServletResponse) context.getResponse());
-        
-
-        FacesContext.getCurrentInstance().responseComplete();
-        
-        return null;
+       try{
+    	   ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+    	   
+    	   RequestDispatcher dispatcher = ((ServletRequest) context.getRequest())
+    			   .getRequestDispatcher("/j_spring_security_check");
+    	   
+    	   dispatcher.forward((ServletRequest) context.getRequest(),
+    			   (ServletResponse) context.getResponse());
+    	   
+    	   
+    	   FacesContext.getCurrentInstance().responseComplete();
+    	   
+    	   return null;
+       }catch(HttpClientErrorException e){
+    	   return null;
+       }catch(HttpServerErrorException serverErrorException){
+    	   FacesContext.getCurrentInstance().addMessage("messageAvaliacao", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("loginInvalid")));
+    	   serverErrorException.printStackTrace();
+    	   return null;
+       }
     }
     
     public String doLogout() throws ServletException, IOException {
