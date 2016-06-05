@@ -17,12 +17,12 @@ public class UsuarioServiceHandlerImpl  extends AbstractServiceHandler<Usuario,I
 	
 	@Override
 	public Usuario getByLogin(String login) {
-		return (Usuario) getRestTemplate().getForObject(getPath()+"login/{login}", Usuario.class, login);
+		return (Usuario) getRestTemplate().getForObject(getPath()+"/login/{login}", Usuario.class, login);
 	}
 	
 	@Override
 	public UsuarioWrapper getByLoginLike(String login) {
-		return (UsuarioWrapper) getRestTemplate().getForObject(getPath()+"loginlike/{login}", UsuarioWrapper.class, login);
+		return (UsuarioWrapper) getRestTemplate().getForObject(getPath()+"/loginlike/{login}", UsuarioWrapper.class, login);
 	}
 	
 	@Override

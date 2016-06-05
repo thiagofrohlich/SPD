@@ -30,16 +30,31 @@ public class SpdAuthenticationProvider  implements AuthenticationProvider{
 	public Authentication authenticate(Authentication authentication) {
 		String login = (String) authentication.getName();
 		String password = (String) authentication.getCredentials();
+		Usuario usuario = usuarioService.getByLogin(login);
 		
+		if(usuario.getResetarSenha()) {
+			return passwordResetLogin(login, password);
+		} else {
+			return login(login, password, usuario);
+		}
+		
+	}
+
+	private Authentication passwordResetLogin(String login, String password) {
+		Collection<GrantedAuthority> authorities = new ArrayList<>();
+		authorities.add(new Role(Roles.PASSWORD_RESET.getDescricao()));
+		return new UsernamePasswordAuthenticationToken(login, password, authorities);
+	}
+
+	private Authentication login(String login, String password, Usuario usuario) {
 		if(usuarioService.canLogin(login, password)) {
-			Usuario usuario = usuarioService.getByLogin(login);
 			Collection<GrantedAuthority> authorities = getAuthorities(usuario.getRole());
 			return new UsernamePasswordAuthenticationToken(login, password, authorities);
 		} else {
 			throw new BadCredentialsException("Usuário não encontrado.");
 		}
 	}
-
+	
 	private Collection<GrantedAuthority> getAuthorities(Integer roleId) {
 		Roles role = Roles.valueOf(roleId);
 		Collection<GrantedAuthority> authorities = new ArrayList<>();

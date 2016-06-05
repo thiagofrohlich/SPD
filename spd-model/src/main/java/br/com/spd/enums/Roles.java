@@ -3,7 +3,8 @@ package br.com.spd.enums;
 public enum Roles {
 	ADMINISTRADOR(1, "ADMINISTRADOR"),
 	PEDAGOGO(2, "PEDAGOGO"),
-	PROFESSOR(3, "PROFESSOR");
+	PROFESSOR(3, "PROFESSOR"),
+	PASSWORD_RESET(999, "PASSWORD_RESET");
 
 	private Integer id;
 	private String descricao;
