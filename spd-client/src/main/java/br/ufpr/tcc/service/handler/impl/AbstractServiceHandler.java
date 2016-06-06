@@ -2,6 +2,7 @@ package br.ufpr.tcc.service.handler.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.ResourceBundle;
 
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -13,7 +14,7 @@ import br.ufpr.tcc.service.handler.ServiceHandler;
 public abstract class AbstractServiceHandler<M, ID extends Serializable> implements ServiceHandler<M, ID> {
 	
 	private RestTemplate restTemplate;
-	private final String absolutePath = "http://localhost:8080/spd-web";
+	private final String absolutePath = ResourceBundle.getBundle("config").getString("path");
 	
 	protected RestTemplate getRestTemplate() {
 		if(restTemplate == null) {
