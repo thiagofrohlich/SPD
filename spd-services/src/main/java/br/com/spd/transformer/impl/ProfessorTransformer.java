@@ -17,16 +17,24 @@ public class ProfessorTransformer extends GenericTransformer {
 		
 		super.transform(objectFrom, objectTo);
 		
-		if(isModel(objectFrom)) {
-			transformModelToDomain(objectFrom, objectTo);
-		}
+		if(isInstanceOfProfessor(objectFrom)) {
 		
-		if(isDomain(objectFrom)){
-			transformDomainToModel(objectFrom, objectTo);
+			if(isModel(objectFrom)) {
+				transformModelToDomain(objectFrom, objectTo);
+			}
+			
+			if(isDomain(objectFrom)){
+				transformDomainToModel(objectFrom, objectTo);
+			}
+			
 		}
 		
 	}
 	
+	private boolean isInstanceOfProfessor(Object objectFrom) {
+		return Professor.class.equals(objectFrom.getClass()) || br.com.spd.model.Professor.class.equals(objectFrom.getClass());
+	}
+
 	private void transformModelToDomain(Object objectFrom, Object objectTo)
 			throws TransformerException {
 		Professor  r = (Professor) objectTo;

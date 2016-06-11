@@ -11,6 +11,7 @@ import br.com.spd.domain.ProfessorDomainBuilder;
 import br.com.spd.exception.TransformerException;
 import br.com.spd.model.Professor;
 import br.com.spd.model.ProfessorModelBuilder;
+import br.com.spd.model.Turma;
 import br.com.spd.transformer.impl.ProfessorTransformer;
 
 public class ProfessorTransformerTest {
@@ -31,7 +32,10 @@ public class ProfessorTransformerTest {
 	@Test
 	public void shouldTransformModelToDomain() throws TransformerException {
 //		Given
-		Professor professor = professorModelBuilder.build();
+		Turma turma = new Turma();
+		turma.setId(1l);
+		turma.setDescricao("asasf");
+		Professor professor = professorModelBuilder.withTurma(turma).build();
 		br.com.spd.domain.Professor professorDomain = new br.com.spd.domain.Professor();
 		
 //		When
@@ -48,7 +52,6 @@ public class ProfessorTransformerTest {
 		assertEquals(professor.getProfissao(), professorDomain.getPessoa().getProfissao());
 		assertEquals(professor.getRg(), professorDomain.getPessoa().getRg());
 		assertEquals(professor.getTelefone(), professorDomain.getPessoa().getTelefone());
-		assertEquals(professor.getTurma(), professorDomain.getTurma());
 		assertEquals(professor.getCep(), professorDomain.getCep());
 		assertEquals(professor.getRua(), professorDomain.getRua());
 		assertEquals(professor.getNumero(), professorDomain.getNumero());
@@ -56,6 +59,8 @@ public class ProfessorTransformerTest {
 		assertEquals(professor.getCidade(), professorDomain.getCidade());
 		assertEquals(professor.getEstado(), professorDomain.getEstado());
 		assertEquals(professor.getEmail(), professorDomain.getEmail());
+		assertEquals(professor.getTurma().getId(), professorDomain.getTurma().getId());
+		assertEquals(professor.getTurma().getDescricao(), professorDomain.getTurma().getDescricao());
 	}
 	
 	@Test
