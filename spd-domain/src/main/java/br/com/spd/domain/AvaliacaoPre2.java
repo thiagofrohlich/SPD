@@ -59,6 +59,8 @@ public class AvaliacaoPre2 implements Serializable, Domain {
 
 
 	@Id
+	@SequenceGenerator(name="pk_avaliacao_pre2",sequenceName="avaliacao_pre2_id_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="pk_avaliacao_pre2")
 	public Long getCodavaliacao() {
 		return this.codavaliacao;
 	}

@@ -2,6 +2,7 @@ package br.ufpr.tcc.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -10,6 +11,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+
+import org.joda.time.DateTime;
 
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Responsavel;
@@ -42,7 +45,7 @@ public class AlunoBean implements Serializable{
 	private CepHandler cepHandler;
 	private String nome;
 	private AlunoServiceHandler alunoServiceHandler;
-	private Long mat = (long) 100000000;
+	private Long mat;
 	private ResponsavelServiceHandler responsavelServiceHandler;
 	private ResourceBundle rb;
 	private TurmaServiceHandler turmaServiceHandler;
@@ -100,8 +103,9 @@ public class AlunoBean implements Serializable{
 	
 	public void salva(){
 		try{
-			mat++;
-			aluno.setMatricula(mat);
+			if(aluno.getMatricula() == null){
+				aluno.setMatricula(geraMatricula());
+			}
 			alunoServiceHandler.create(aluno);
 			pai.setAluno(aluno);
 			mae.setAluno(aluno);
@@ -109,9 +113,17 @@ public class AlunoBean implements Serializable{
 			responsavelServiceHandler.create(pai);
 			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAlunoSuccess")));
 			aluno = new Aluno();
+			aluno.setTurma(new Turma());
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAlunoFailure")));
 		}
+	}
+
+	private Long geraMatricula() {
+		DateTime dt = new DateTime();
+		String mat;
+		mat = Integer.toString(dt.getYear()) + Integer.toString(dt.getMonthOfYear())+Integer.toString(dt.getDayOfMonth())+Integer.toString(dt.getSecondOfDay());
+		return Long.parseLong(mat);
 	}
 
 	public String getNome() {

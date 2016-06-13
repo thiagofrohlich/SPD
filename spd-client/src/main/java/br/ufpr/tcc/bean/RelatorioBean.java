@@ -10,6 +10,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.spd.enums.Trimestre;
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Turma;
 import br.ufpr.tcc.service.handler.AlunoServiceHandler;
@@ -33,6 +34,7 @@ public class RelatorioBean {
 	private TurmaServiceHandler turmaServiceHandler;
 	private String relType;
 	private AlunoServiceHandler alunoServiceHandler;
+	private String trimestre;
 	
 	
 	
@@ -90,6 +92,9 @@ public class RelatorioBean {
 		relType = type;
 	}
 	
+	public Trimestre[] getLstTrimestre(){
+		return Trimestre.values();
+	}
 	
 	public Aluno getAlunoSelecionado() {
 		return alunoSelecionado;
@@ -137,6 +142,10 @@ public class RelatorioBean {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public void setTrimestre(String trimestre) {
+		this.trimestre = trimestre;
 	}
 
 	 

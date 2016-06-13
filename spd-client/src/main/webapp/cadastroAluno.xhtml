@@ -15,7 +15,7 @@
                     <div class="col-lg-12">
 			<div class="centralize">
 			<div class="col-lg-12">
-                    <h3 class="page-header">#{msg.cadastro}</h3>
+                    <h3 class="page-header">#{msg.cadastroAluno}</h3>
                 </div>
                 <h:form id="cadastro">
                 	<div class="col-lg-12">
@@ -96,6 +96,7 @@
 									</p:column>
 									<p:column>
 										<p:selectOneMenu  value="#{alunoBean.aluno.turma.id}">
+											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
 											<f:selectItems value="#{alunoBean.lstTurma}" var="lstTurma" itemLabel="#{lstTurma.descricao}" itemValue="#{lstTurma.id}" />
 										</p:selectOneMenu>
 									</p:column>
@@ -203,7 +204,7 @@
 											</p:column>
 											
 											<p:column styleClass="col-lg-1">
-												<p:commandButton ajax="true" action="#{alunoBean.deletaResponsavel(lstResponsavel)}" value="delete" update="cadastro:formCadastro:Tcontato" />
+												<p:commandButton ajax="true" action="#{alunoBean.deletaResponsavel(lstResponsavel)}" value="#{msg.apagar}" update="cadastro:formCadastro:Tcontato" />
 											</p:column>
 										</p:dataTable>
 									</p:column>

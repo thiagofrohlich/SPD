@@ -48,6 +48,7 @@ public class OcorrenciaBean {
 	public void selecionaAluno(){
 		aluno = alunoSelecionado;
 		alunoSelecionado = new Aluno();
+		alunoFound = true;
 	}
 	
 	public void salva(){
@@ -57,6 +58,7 @@ public class OcorrenciaBean {
 			FacesContext.getCurrentInstance().addMessage("messageOcorrencia", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaOcorrenciaSuccess")));
 			ocorrencia = new Ocorrencia();
 			aluno = new Aluno();
+			alunoFound = false;
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageOcorrencia", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaOcorrenciaFailure")));
 		}

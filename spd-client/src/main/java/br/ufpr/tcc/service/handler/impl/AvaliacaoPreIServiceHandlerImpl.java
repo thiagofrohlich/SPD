@@ -7,7 +7,7 @@ public class AvaliacaoPreIServiceHandlerImpl extends AbstractServiceHandler<Aval
 
 	@Override
 	public String getRelativePath() {
-		return "/avaliacaPreI";
+		return "/avaliacaoPre1";
 	}
 
 }

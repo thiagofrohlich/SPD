@@ -59,7 +59,7 @@
 							<p:commandButton value="#{msg.ok}" action="#{relatorioBean.geraRelatorio()}" ajax="false" />	
 						</p:dialog>
 						
-						<p:dialog id="sala" closable="true" widgetVar="sala" width="500" height="500">
+						<p:dialog id="sala" closable="true" widgetVar="sala" width="500" height="300">
 							<p:panelGrid styleClass="centralize noborder">
 								<p:row>
 									<p:column>
@@ -67,7 +67,19 @@
 									</p:column>
 									<p:column>
 										<p:selectOneMenu value="#{relatorioBean.turmaId}" >
+											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
 											<f:selectItems value="#{relatorioBean.listTurma}" var="lst" itemLabel="#{lst.descricao}" itemValue="#{lst.id}"/>
+										</p:selectOneMenu>
+									</p:column>
+								</p:row>
+								<p:row>
+									<p:column>
+										<label class="control-label">#{msg.trimestre}</label>
+									</p:column>
+									<p:column>
+										<p:selectOneMenu value="#{relatorioBean.trimestre}" >
+											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+											<f:selectItems value="#{relatorioBean.lstTrimestre}" var="lst" itemLabel="#{lst.descricao}" itemValue="#{lst.id}"/>
 										</p:selectOneMenu>
 									</p:column>
 									<p:column>

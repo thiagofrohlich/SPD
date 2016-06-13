@@ -39,6 +39,7 @@ public class AvaliacaoBean {
 	private AvaliacaoPreIServiceHandler avaliacaoPreIServiceHandler;
 	private AvaliacaoPreIIServiceHandler avaliacaoPreIIServiceHandler;
 	private ResourceBundle rb;
+	private String trimestre;
 	
 	
 	@PostConstruct
@@ -58,19 +59,19 @@ public class AvaliacaoBean {
 	}
 	
 	public void selecionaAluno(){
-		if(alunoSelecionado.getSerie() == 1){
+		if(alunoSelecionado.getTurma().getId() == 1){
 			renderPre1 = false;
 			renderPre2 = false;
 			renderMat2 = true;
 			mat2.setAluno(alunoSelecionado);
 		}
-		if (alunoSelecionado.getSerie() == 2) {
+		if (alunoSelecionado.getTurma().getId() == 2) {
 			renderPre1 = true;
 			renderPre2 = false;
 			renderMat2 = false;
 			pre1.setAluno(alunoSelecionado);
 		}
-		if (alunoSelecionado.getSerie() == 3) {
+		if (alunoSelecionado.getTurma().getId() == 3) {
 			renderPre1 = false;
 			renderPre2 = true;
 			renderMat2 = false;
@@ -82,18 +83,22 @@ public class AvaliacaoBean {
 	public void salvaAluno(){
 		try{
 			if(renderMat2){
+				mat2.setTrimestre(trimestre);
 				avaliacaoMatIIServiceHandler.create(mat2);
 			}else 
 				if(renderPre1){
+					pre1.setTrimestre(trimestre);
 					avaliacaoPreIServiceHandler.create(pre1);
 				}else
 					if(renderPre2){
+						pre2.setTrimestre(trimestre);
 						avaliacaoPreIIServiceHandler.create(pre2);
 					}
 			FacesContext.getCurrentInstance().addMessage("messageAvaliacao", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAvaliacaoSuccess")));
 			mat2 = new AvaliacaoMat2();
 			pre1 = new AvaliacaoPre1();
 			pre2 = new AvaliacaoPre2();
+			alunoSelecionado = new Aluno();
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageAvaliacao", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAvaliacaoFailure")));
 		}
@@ -174,6 +179,14 @@ public class AvaliacaoBean {
 
 	public Notas[] getNotas() {
 		return Notas.values();
+	}
+
+	public String getTrimestre() {
+		return trimestre;
+	}
+
+	public void setTrimestre(String trimestre) {
+		this.trimestre = trimestre;
 	}
 
 	

@@ -15,7 +15,7 @@
                     <div class="col-lg-12">
 			<div class="centralize">
 			<div class="col-lg-12">
-            	<h3 class="page-header">#{msg.cadastro}</h3>
+            	<h3 class="page-header">#{msg.cadastroUsuario}</h3>
             </div>
                 <h:form id="cadastroUser">
                 	<div class="col-lg-12">
@@ -60,7 +60,7 @@
 									<h:outputText value="#{msg.cargo}" />
 								</p:column>
                 				<p:column>
-									<p:selectOneMenu value="#{usuarioBean.usuario.roles}" >
+									<p:selectOneMenu value="#{usuarioBean.usuario.role}" >
 										<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
 										<f:selectItems value="#{usuarioBean.roles}" var="roles" itemLabel="#{roles.descricao}" itemValue="#{roles.id}" />
 									</p:selectOneMenu>

@@ -10,6 +10,9 @@
 		<ui:define name="body">
 		<h:form id="avaliacao">
 			<div class="row">
+			<div class="col-lg-12">
+                    <h3 class="page-header">#{msg.avaliacao}</h3>
+                </div>
 	          <div class="col-lg-12">
 	          	<p:messages id="messageAvaliacao" autoUpdate="true" showDetail="true" closable="true" />
 				<p:panelGrid styleClass="centralize noborder">
@@ -39,7 +42,7 @@
 						</p:column>
 						
 						<p:column>
-							<h:outputText value="#{avaliacaoBean.alunoSelecionado.nivel}" />
+							<h:outputText value="#{avaliacaoBean.alunoSelecionado.turma.descricao}" />
 						</p:column>
 					</p:row>
 					
@@ -61,6 +64,20 @@
 						</p:column>
 					</p:row>
 					
+					<p:row>
+						<p:column styleClass="labelFixed">
+							<h:outputText value="#{msg.trimestre}" />
+						</p:column>
+						<p:column>
+							<p:selectOneMenu value="#{avaliacaoBean.trimestre}" >
+								<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+								<f:selectItem itemLabel="#{msg.primeiro}" itemValue="1"/>
+								<f:selectItem itemLabel="#{msg.segundo}" itemValue="2"/>
+								<f:selectItem itemLabel="#{msg.terceiro}" itemValue="3"/>
+								<f:selectItem itemLabel="#{msg.quarto}" itemValue="4"/>
+							</p:selectOneMenu>
+						</p:column>
+					</p:row>
 					
 				</p:panelGrid>
 					
@@ -69,7 +86,7 @@
 					<p:outputPanel rendered="#{avaliacaoBean.renderPre2}"><ui:include src="/WEB-INF/avaliacoes/preII.xhtml" /></p:outputPanel>
 	
 				</div>
-				<p:commandButton value="#{msg.salvar}" ajax="false" action="#{avaliacaoBean.salvaAluno()}" />
+				<p:commandButton value="#{msg.salvar}" ajax="false" action="#{avaliacaoBean.salvaAluno()}" rendered="#{avaliacaoBean.renderPre1 || avaliacaoBean.renderMat2 || avaliacaoBean.renderPre2}"/>
 			</div>
 			<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
 						
@@ -90,7 +107,7 @@
 							</p:column>
 							
 						</p:dataTable>						
-						<p:commandButton value="#{msg.ok}" rendered="#{avaliacaoBean.renderMat2 || avaliacaoBean.renderPre1 || avaliacaoBean.renderPre2}" 
+						<p:commandButton value="#{msg.ok}"  
 						action="#{avaliacaoBean.selecionaAluno()}" ajax="true" update="@form" style="display:inline;"/>
 						
 					</p:dialog>
