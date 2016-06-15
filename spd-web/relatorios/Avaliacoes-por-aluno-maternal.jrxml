@@ -2,8 +2,11 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91f5d6a-c39f-4aa1-b182-0af0bd7e62f4">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="1"/>
 	<parameter name="alunoId" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="trimestre" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -15,40 +18,40 @@
        av.art_corpo, av.art_cria, av.soc_relaciona, av.soc_expressa, av.soc_respeita,
        av.soc_interesse, av.soc_expressoes_corporais, av.soc_auxilio, av.soc_cuida
   FROM aluno a INNER JOIN avaliacao_mat2 av ON (a.matricula = av.matricula)
-WHERE a.matricula = $P{alunoId}]]>
+WHERE a.matricula = $P{alunoId} and av.trimestre = $P{trimestre}]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Long"/>
 	<field name="nome" class="java.lang.String"/>
-	<field name="ling_reconhece" class="java.sql.Array"/>
-	<field name="ling_vogais" class="java.sql.Array"/>
-	<field name="ling_expressa" class="java.sql.Array"/>
-	<field name="ling_ouve" class="java.sql.Array"/>
-	<field name="ling_narra" class="java.sql.Array"/>
-	<field name="ling_repete" class="java.sql.Array"/>
-	<field name="ling_diferencia" class="java.sql.Array"/>
-	<field name="ling_registra" class="java.sql.Array"/>
-	<field name="mat_formas_geometricas" class="java.sql.Array"/>
-	<field name="mat_elementos" class="java.sql.Array"/>
-	<field name="mat_compara" class="java.sql.Array"/>
-	<field name="mat_tempo" class="java.sql.Array"/>
-	<field name="mat_agrupa" class="java.sql.Array"/>
-	<field name="mat_contagem" class="java.sql.Array"/>
-	<field name="nat_especies" class="java.sql.Array"/>
-	<field name="nat_corpo" class="java.sql.Array"/>
-	<field name="nat_sentimento" class="java.sql.Array"/>
-	<field name="nat_familia" class="java.sql.Array"/>
-	<field name="nat_musicas" class="java.sql.Array"/>
-	<field name="nat_percepcao" class="java.sql.Array"/>
-	<field name="art_materiais" class="java.sql.Array"/>
-	<field name="art_corpo" class="java.sql.Array"/>
-	<field name="art_cria" class="java.sql.Array"/>
-	<field name="soc_relaciona" class="java.sql.Array"/>
-	<field name="soc_expressa" class="java.sql.Array"/>
-	<field name="soc_respeita" class="java.sql.Array"/>
-	<field name="soc_interesse" class="java.sql.Array"/>
-	<field name="soc_expressoes_corporais" class="java.sql.Array"/>
-	<field name="soc_auxilio" class="java.sql.Array"/>
-	<field name="soc_cuida" class="java.sql.Array"/>
+	<field name="ling_reconhece" class="java.lang.String"/>
+	<field name="ling_vogais" class="java.lang.String"/>
+	<field name="ling_expressa" class="java.lang.String"/>
+	<field name="ling_ouve" class="java.lang.String"/>
+	<field name="ling_narra" class="java.lang.String"/>
+	<field name="ling_repete" class="java.lang.String"/>
+	<field name="ling_diferencia" class="java.lang.String"/>
+	<field name="ling_registra" class="java.lang.String"/>
+	<field name="mat_formas_geometricas" class="java.lang.String"/>
+	<field name="mat_elementos" class="java.lang.String"/>
+	<field name="mat_compara" class="java.lang.String"/>
+	<field name="mat_tempo" class="java.lang.String"/>
+	<field name="mat_agrupa" class="java.lang.String"/>
+	<field name="mat_contagem" class="java.lang.String"/>
+	<field name="nat_especies" class="java.lang.String"/>
+	<field name="nat_corpo" class="java.lang.String"/>
+	<field name="nat_sentimento" class="java.lang.String"/>
+	<field name="nat_familia" class="java.lang.String"/>
+	<field name="nat_musicas" class="java.lang.String"/>
+	<field name="nat_percepcao" class="java.lang.String"/>
+	<field name="art_materiais" class="java.lang.String"/>
+	<field name="art_corpo" class="java.lang.String"/>
+	<field name="art_cria" class="java.lang.String"/>
+	<field name="soc_relaciona" class="java.lang.String"/>
+	<field name="soc_expressa" class="java.lang.String"/>
+	<field name="soc_respeita" class="java.lang.String"/>
+	<field name="soc_interesse" class="java.lang.String"/>
+	<field name="soc_expressoes_corporais" class="java.lang.String"/>
+	<field name="soc_auxilio" class="java.lang.String"/>
+	<field name="soc_cuida" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -56,13 +59,6 @@ WHERE a.matricula = $P{alunoId}]]>
 		<band height="79" splitType="Stretch">
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="575" height="79" backcolor="#DEDEDE" uuid="ff8103cf-3205-41b9-8b5c-99ab8067c101"/>
-				<staticText>
-					<reportElement mode="Transparent" x="10" y="10" width="216" height="59" forecolor="#000000" backcolor="#000000" uuid="cebb6c41-2305-45cb-871d-b0ebd51fce5d"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
-					</textElement>
-					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
-				</staticText>
 				<staticText>
 					<reportElement x="300" y="49" width="250" height="20" forecolor="#000000" backcolor="#000000" uuid="05b4f5c9-5ccd-48b7-8166-0133d40eb3cf"/>
 					<textElement textAlignment="Right">
@@ -77,6 +73,27 @@ WHERE a.matricula = $P{alunoId}]]>
 					</textElement>
 					<text><![CDATA[Relatório de]]></text>
 				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="10" y="10" width="216" height="39" forecolor="#000000" backcolor="#000000" uuid="530561c4-0483-488e-8617-9c0284dbac75"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="11" y="59" width="60" height="20" forecolor="#000000" backcolor="#000000" uuid="ab468966-b04a-47ea-98e5-cf48c9a77964"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Trimestre:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="71" y="59" width="100" height="20" uuid="333e29ff-7a28-4d7a-8e40-bf41af365b08"/>
+					<textElement>
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{trimestre}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</title>
@@ -369,12 +386,12 @@ WHERE a.matricula = $P{alunoId}]]>
 				</textElement>
 				<text><![CDATA[Nota]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="476" y="20" width="79" height="16" uuid="0b7c5ab7-5e1d-4e33-891c-af4db54b6dd3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[""+$F{ling_reconhece}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ling_reconhece}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="476" y="36" width="79" height="16" uuid="bd098973-7cf6-47f8-b1c5-93fbdd0e712a"/>

@@ -6,6 +6,9 @@
 	<parameter name="turmaId" class="java.lang.Long">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="trimestre" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT a.matricula, a.nome, t.descricao, p.nome as professor, av.ling_reconhece, av.ling_vogais,
        av.ling_expressa, av.ling_ouve, av.ling_narra, av.ling_repete, av.ling_diferencia,
@@ -19,42 +22,42 @@
   INNER JOIN turma t ON(a.id_turma = t.id)
   INNER JOIN professor ON(professor.id_turma = a.id_turma)
   INNER JOIN pessoa p ON (professor.codpessoa = p.codpessoa)
-WHERE t.id = $P{turmaId}]]>
+WHERE t.id = $P{turmaId} and av.trimestre = $P{trimestre}]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Long"/>
 	<field name="nome" class="java.lang.String"/>
 	<field name="descricao" class="java.lang.String"/>
 	<field name="professor" class="java.lang.String"/>
-	<field name="ling_reconhece" class="java.sql.Array"/>
-	<field name="ling_vogais" class="java.sql.Array"/>
-	<field name="ling_expressa" class="java.sql.Array"/>
-	<field name="ling_ouve" class="java.sql.Array"/>
-	<field name="ling_narra" class="java.sql.Array"/>
-	<field name="ling_repete" class="java.sql.Array"/>
-	<field name="ling_diferencia" class="java.sql.Array"/>
-	<field name="ling_registra" class="java.sql.Array"/>
-	<field name="mat_formas_geometricas" class="java.sql.Array"/>
-	<field name="mat_elementos" class="java.sql.Array"/>
-	<field name="mat_compara" class="java.sql.Array"/>
-	<field name="mat_tempo" class="java.sql.Array"/>
-	<field name="mat_agrupa" class="java.sql.Array"/>
-	<field name="mat_contagem" class="java.sql.Array"/>
-	<field name="nat_especies" class="java.sql.Array"/>
-	<field name="nat_corpo" class="java.sql.Array"/>
-	<field name="nat_sentimento" class="java.sql.Array"/>
-	<field name="nat_familia" class="java.sql.Array"/>
-	<field name="nat_musicas" class="java.sql.Array"/>
-	<field name="nat_percepcao" class="java.sql.Array"/>
-	<field name="art_materiais" class="java.sql.Array"/>
-	<field name="art_corpo" class="java.sql.Array"/>
-	<field name="art_cria" class="java.sql.Array"/>
-	<field name="soc_relaciona" class="java.sql.Array"/>
-	<field name="soc_expressa" class="java.sql.Array"/>
-	<field name="soc_respeita" class="java.sql.Array"/>
-	<field name="soc_interesse" class="java.sql.Array"/>
-	<field name="soc_expressoes_corporais" class="java.sql.Array"/>
-	<field name="soc_auxilio" class="java.sql.Array"/>
-	<field name="soc_cuida" class="java.sql.Array"/>
+	<field name="ling_reconhece" class="java.lang.String"/>
+	<field name="ling_vogais" class="java.lang.String"/>
+	<field name="ling_expressa" class="java.lang.String"/>
+	<field name="ling_ouve" class="java.lang.String"/>
+	<field name="ling_narra" class="java.lang.String"/>
+	<field name="ling_repete" class="java.lang.String"/>
+	<field name="ling_diferencia" class="java.lang.String"/>
+	<field name="ling_registra" class="java.lang.String"/>
+	<field name="mat_formas_geometricas" class="java.lang.String"/>
+	<field name="mat_elementos" class="java.lang.String"/>
+	<field name="mat_compara" class="java.lang.String"/>
+	<field name="mat_tempo" class="java.lang.String"/>
+	<field name="mat_agrupa" class="java.lang.String"/>
+	<field name="mat_contagem" class="java.lang.String"/>
+	<field name="nat_especies" class="java.lang.String"/>
+	<field name="nat_corpo" class="java.lang.String"/>
+	<field name="nat_sentimento" class="java.lang.String"/>
+	<field name="nat_familia" class="java.lang.String"/>
+	<field name="nat_musicas" class="java.lang.String"/>
+	<field name="nat_percepcao" class="java.lang.String"/>
+	<field name="art_materiais" class="java.lang.String"/>
+	<field name="art_corpo" class="java.lang.String"/>
+	<field name="art_cria" class="java.lang.String"/>
+	<field name="soc_relaciona" class="java.lang.String"/>
+	<field name="soc_expressa" class="java.lang.String"/>
+	<field name="soc_respeita" class="java.lang.String"/>
+	<field name="soc_interesse" class="java.lang.String"/>
+	<field name="soc_expressoes_corporais" class="java.lang.String"/>
+	<field name="soc_auxilio" class="java.lang.String"/>
+	<field name="soc_cuida" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -98,11 +101,25 @@ WHERE t.id = $P{turmaId}]]>
 					<text><![CDATA[Turma:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="99" y="10" width="456" height="20" uuid="f9573f58-92c7-41e1-a481-8e4e1d162065"/>
+					<reportElement x="99" y="10" width="157" height="20" uuid="f9573f58-92c7-41e1-a481-8e4e1d162065"/>
 					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="256" y="10" width="77" height="20" uuid="fa12ea59-1853-43b9-b054-57549ccf53e7"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Trimestre:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="333" y="10" width="100" height="20" uuid="06d8829e-6d76-40d7-a49b-76c39f5edd0b"/>
+					<textElement>
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{trimestre}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -485,7 +502,7 @@ WHERE t.id = $P{turmaId}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[""+$F{ling_repete}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ling_repete}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="476" y="572" width="79" height="16" uuid="be46852e-75dd-4b3f-8b38-1a3ab11157f9"/>
@@ -527,7 +544,7 @@ WHERE t.id = $P{turmaId}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[""+$F{ling_expressa}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ling_expressa}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="476" y="256" width="79" height="16" uuid="417b9a8e-627d-40d1-acb0-1b4902201ae6"/>
@@ -576,7 +593,7 @@ WHERE t.id = $P{turmaId}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[""+$F{ling_ouve}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ling_ouve}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="476" y="348" width="79" height="16" uuid="fa9d1844-4411-4121-8303-da989b1a4f94"/>
@@ -590,14 +607,14 @@ WHERE t.id = $P{turmaId}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[""+$F{ling_reconhece}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ling_reconhece}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="476" y="76" width="79" height="16" uuid="be157cce-b40d-42ba-b578-8d6de8688a38"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[""+$F{ling_vogais}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ling_vogais}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="476" y="524" width="79" height="16" uuid="8762d6fd-a6f1-47d1-a712-47c127597147"/>
@@ -611,7 +628,7 @@ WHERE t.id = $P{turmaId}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<textFieldExpression><![CDATA[""+$F{ling_narra}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ling_narra}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

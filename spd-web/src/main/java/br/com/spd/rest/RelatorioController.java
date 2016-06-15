@@ -69,10 +69,12 @@ public class RelatorioController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value="/avaliacaoAluno/{aluno}/turma/{turma}", method=RequestMethod.GET)
-	public byte[] getAvaliacaoAluno(@PathVariable final Long aluno,@PathVariable final Long turma) {
+	@RequestMapping(value="/avaliacaoAluno/{aluno}/turma/{turma}/trimestre/{trimestre}", method=RequestMethod.GET)
+	public byte[] getAvaliacaoAluno(@PathVariable final Long aluno,@PathVariable final Long turma,@PathVariable final String trimestre) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("alunoId", aluno);
+		map.put("trimestre", trimestre);
+		
 		switch (turma.intValue()) {
 		case 1:
 			return geraRelatorio(map, "Avaliacoes-por-aluno-maternal.jrxml");
@@ -87,10 +89,11 @@ public class RelatorioController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/avaliacaoTurma/{turma}", method=RequestMethod.GET)
-	public byte[] getAvaliacaoTurma(@PathVariable final Long turma) {
+	@RequestMapping(value="/avaliacaoTurma/{turma}/trimestre/{trimestre}", method=RequestMethod.GET)
+	public byte[] getAvaliacaoTurma(@PathVariable final Long turma,@PathVariable final String trimestre) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("turmaId", turma);
+		map.put("trimestre", trimestre);
 		switch (turma.intValue()) {
 		case 1:
 			return geraRelatorio(map, "Avaliacoes-por-turma-maternal.jrxml");

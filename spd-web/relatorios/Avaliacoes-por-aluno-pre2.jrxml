@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91f5d6a-c39f-4aa1-b182-0af0bd7e62f4">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="67"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="alunoId" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="trimestre" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -17,7 +20,7 @@
        av.soc_relaciona, av.soc_expressa, av.soc_raciocinio, av.soc_interesse, av.soc_frustracao,
        av.soc_orienta, av.soc_brinca, av.soc_iniciativa, av.soc_cuida
   FROM aluno a INNER JOIN avaliacao_pre2 av ON (a.matricula = av.matricula)
-WHERE a.matricula = $P{alunoId}]]>
+WHERE a.matricula = $P{alunoId} and av.trimestre = $P{trimestre}]]>
 	</queryString>
 	<field name="nome" class="java.lang.String"/>
 	<field name="matricula" class="java.lang.Long"/>
@@ -66,13 +69,6 @@ WHERE a.matricula = $P{alunoId}]]>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="575" height="79" backcolor="#DEDEDE" uuid="ff8103cf-3205-41b9-8b5c-99ab8067c101"/>
 				<staticText>
-					<reportElement mode="Transparent" x="10" y="10" width="216" height="59" forecolor="#000000" backcolor="#000000" uuid="cebb6c41-2305-45cb-871d-b0ebd51fce5d"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
-					</textElement>
-					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
-				</staticText>
-				<staticText>
 					<reportElement x="300" y="49" width="250" height="20" forecolor="#000000" backcolor="#000000" uuid="05b4f5c9-5ccd-48b7-8166-0133d40eb3cf"/>
 					<textElement textAlignment="Right">
 						<font fontName="Arial" size="14" isBold="true"/>
@@ -86,6 +82,24 @@ WHERE a.matricula = $P{alunoId}]]>
 					</textElement>
 					<text><![CDATA[Relatório de]]></text>
 				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="10" y="10" width="216" height="39" forecolor="#000000" backcolor="#000000" uuid="6f4233dd-f173-4942-a170-6a944ffa502d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="11" y="59" width="60" height="20" forecolor="#000000" backcolor="#000000" uuid="6290470c-06f0-460e-8afd-770c271a74fc"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Trimestre:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="71" y="59" width="100" height="20" uuid="6fe1df79-5883-4e9a-9470-1f3ef9b30c22"/>
+					<textFieldExpression><![CDATA[$P{trimestre}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</title>

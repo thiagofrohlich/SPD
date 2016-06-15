@@ -10,6 +10,8 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
+
 import br.com.spd.enums.Trimestre;
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Turma;
@@ -35,6 +37,9 @@ public class RelatorioBean {
 	private String relType;
 	private AlunoServiceHandler alunoServiceHandler;
 	private String trimestre;
+	private String trimestreAluno;
+	private boolean showTrimestre;
+	private String nomeOcorrencia;
 	
 	
 	
@@ -47,6 +52,7 @@ public class RelatorioBean {
 		aluno = new Aluno();
 		alunoSelecionado = new Aluno();
 		lstAluno = new ArrayList<>();
+		showTrimestre = false;
 	}
 	
 	public void geraRelatorio() throws IOException{
@@ -71,11 +77,11 @@ public class RelatorioBean {
 			break;
 		
 		case "avaliacaoTurma":
-			bt = relatorioServiceHandler.getAvaliacaoTurma(turmaId);
+			bt = relatorioServiceHandler.getAvaliacaoTurma(turmaId, trimestre);
 			break;
 			
 		case "avaliacaoAluno":
-			bt = relatorioServiceHandler.getavaliacaoAluno(alunoSelecionado.getTurma().getId(), alunoSelecionado.getMatricula());
+			bt = relatorioServiceHandler.getavaliacaoAluno(alunoSelecionado.getTurma().getId(), alunoSelecionado.getMatricula(), trimestreAluno);
 			break;
 			
 		default:
@@ -87,9 +93,20 @@ public class RelatorioBean {
 	public void buscaAluno(){
 		lstAluno = alunoServiceHandler.findByNome(nome).getList();
 	}
+
+	public void buscaAlunoOcorrencia(){
+		lstAluno = alunoServiceHandler.findByNome(nomeOcorrencia).getList();
+	}
+	
+	
 	
 	public void fillRelatorio(String type){
 		relType = type;
+		if(type.equals("avaliacaoAluno")){
+			showTrimestre = true;
+		}else{
+			showTrimestre = false;
+		}
 	}
 	
 	public Trimestre[] getLstTrimestre(){
@@ -146,6 +163,34 @@ public class RelatorioBean {
 
 	public void setTrimestre(String trimestre) {
 		this.trimestre = trimestre;
+	}
+
+	public String getTrimestre() {
+		return trimestre;
+	}
+
+	public boolean isShowTrimestre() {
+		return showTrimestre;
+	}
+
+	public void setShowTrimestre(boolean showTrimestre) {
+		this.showTrimestre = showTrimestre;
+	}
+
+	public String getNomeOcorrencia() {
+		return nomeOcorrencia;
+	}
+
+	public void setNomeOcorrencia(String nomeOcorrencia) {
+		this.nomeOcorrencia = nomeOcorrencia;
+	}
+
+	public String getTrimestreAluno() {
+		return trimestreAluno;
+	}
+
+	public void setTrimestreAluno(String trimestreAluno) {
+		this.trimestreAluno = trimestreAluno;
 	}
 
 	 
