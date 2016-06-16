@@ -64,64 +64,60 @@ WHERE t.id = $P{turmaId} and av.trimestre = $P{trimestre}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
-			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="575" height="79" backcolor="#DEDEDE" uuid="ff8103cf-3205-41b9-8b5c-99ab8067c101"/>
-				<staticText>
-					<reportElement mode="Transparent" x="10" y="10" width="216" height="59" forecolor="#000000" backcolor="#000000" uuid="cebb6c41-2305-45cb-871d-b0ebd51fce5d"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
-					</textElement>
-					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="300" y="49" width="250" height="20" forecolor="#000000" backcolor="#000000" uuid="05b4f5c9-5ccd-48b7-8166-0133d40eb3cf"/>
-					<textElement textAlignment="Right">
-						<font fontName="Arial" size="14" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Avaliação por Turma]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="350" y="29" width="200" height="20" uuid="c481fc25-41c8-4dd3-9613-bdd79e667f39"/>
-					<textElement textAlignment="Right">
-						<font fontName="Arial" size="14" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Relatório de]]></text>
-				</staticText>
-			</frame>
-		</band>
+		<band splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="30" splitType="Stretch">
+		<band height="100" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="575" height="30" backcolor="#DEDEDE" uuid="2de374f0-8982-4d89-b48d-9f22639ef87e"/>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="100" backcolor="#DEDEDE" uuid="d700ef5d-e0ae-4502-9501-a5cf72a6b3e8"/>
 				<staticText>
-					<reportElement x="10" y="0" width="88" height="30" uuid="d40a2499-1397-4234-ac1b-6f495663f316"/>
+					<reportElement x="10" y="70" width="89" height="30" uuid="26e3379a-8487-4cb1-9f7c-ad261f6379f4"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Turma:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="98" y="10" width="176" height="20" uuid="c197622c-b57c-4fdc-9348-12caf69d0a40"/>
+					<reportElement x="99" y="80" width="157" height="20" uuid="1a58d180-89ac-42ad-a22d-aa0563905d17"/>
 					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
 				</textField>
+				<staticText>
+					<reportElement x="256" y="80" width="77" height="20" uuid="3466ef72-a211-4175-8ca0-7730cdc445b1"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<text><![CDATA[Trimestre:]]></text>
+				</staticText>
 				<textField>
-					<reportElement x="350" y="10" width="100" height="20" uuid="8da7e41e-058a-4295-90e2-2dbcbd33f7cf"/>
+					<reportElement x="333" y="80" width="100" height="20" uuid="0214e162-c6cc-4d5b-b9e8-f387708d99d0"/>
 					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{trimestre}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="274" y="10" width="77" height="20" uuid="32226502-36c1-46c3-b353-3aa224bc305e"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial" size="12"/>
+					<reportElement x="350" y="29" width="200" height="20" uuid="cff2f816-89e7-4ece-a03e-69465ed2ad5e"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Trimestre:]]></text>
+					<text><![CDATA[Relatório de]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="300" y="49" width="250" height="20" forecolor="#000000" backcolor="#000000" uuid="0c9a3a1f-5057-41ff-830c-6df39869c4da"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Avaliação por Turma]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="10" y="10" width="216" height="59" forecolor="#000000" backcolor="#000000" uuid="88f054fa-e29d-402d-a3ef-469c3ea9b4fa"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
 				</staticText>
 			</frame>
 		</band>

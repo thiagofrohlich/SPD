@@ -29,6 +29,7 @@ public class RelatorioBean {
 	private Aluno aluno;
 	private String nome;
 	private Long turmaId;
+	private Long turmaIdAvaliacao;
 	private Aluno alunoSelecionado;
 	private List<Aluno> lstAluno;
 	private RelatorioServiceHandler relatorioServiceHandler;
@@ -77,11 +78,15 @@ public class RelatorioBean {
 			break;
 		
 		case "avaliacaoTurma":
-			bt = relatorioServiceHandler.getAvaliacaoTurma(turmaId, trimestre);
+			bt = relatorioServiceHandler.getAvaliacaoTurma(turmaIdAvaliacao, trimestre);
 			break;
 			
 		case "avaliacaoAluno":
 			bt = relatorioServiceHandler.getavaliacaoAluno(alunoSelecionado.getTurma().getId(), alunoSelecionado.getMatricula(), trimestreAluno);
+			break;
+			
+		case "ocorrenciaAluno":
+			bt = relatorioServiceHandler.getOcorrenciaAluno(aluno.getMatricula());
 			break;
 			
 		default:
@@ -191,6 +196,14 @@ public class RelatorioBean {
 
 	public void setTrimestreAluno(String trimestreAluno) {
 		this.trimestreAluno = trimestreAluno;
+	}
+
+	public Long getTurmaIdAvaliacao() {
+		return turmaIdAvaliacao;
+	}
+
+	public void setTurmaIdAvaliacao(Long turmaIdAvaliacao) {
+		this.turmaIdAvaliacao = turmaIdAvaliacao;
 	}
 
 	 
