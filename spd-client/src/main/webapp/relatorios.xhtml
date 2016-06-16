@@ -30,6 +30,9 @@
 						<div class="col-lg-2">
 							<p:commandButton value="#{msg.ocorrenciaAluno}" action="#{relatorioBean.fillRelatorio('ocorrenciaAluno')}"  onclick="PF('alunoOcorrencia').show();"/>
 						</div>
+						<div class="col-lg-2">
+							<p:commandButton value="#{msg.ocorrenciaAluno}" action="#{relatorioBean.fillRelatorio('alunoTipoOcorrencia')}"  onclick="PF('ocorrenciaTipo').show();"/>
+						</div>
 						
 						<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
 							<p:panelGrid styleClass="centralize noborder">
@@ -145,6 +148,26 @@
 										<p:selectOneMenu value="#{relatorioBean.trimestre}" >
 											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
 											<f:selectItems value="#{relatorioBean.lstTrimestre}" var="lst" itemLabel="#{lst.descricao}" itemValue="#{lst.id}"/>
+										</p:selectOneMenu>
+									</p:column>
+									<p:column>
+										<p:commandButton value="#{msg.gerar}" action="#{relatorioBean.geraRelatorio()}" ajax="false"  />
+									</p:column>
+								</p:row>
+							</p:panelGrid>
+							
+						</p:dialog>
+						
+						<p:dialog id="ocorrenciaTipo" closable="true" widgetVar="ocorrenciaTipo" width="500" height="300">
+							<p:panelGrid styleClass="centralize noborder">
+								<p:row>
+									<p:column>
+										<label class="control-label">#{msg.ocorrencia}</label>
+									</p:column>
+									<p:column>
+										<p:selectOneMenu value="#{relatorioBean.tipoOcorrencia}" >
+											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+											<f:selectItems value="#{relatorioBean.lstTipo}" var="lst" itemLabel="#{lst.descricao}" itemValue="#{lst.idTipoOcorrencia}"/>
 										</p:selectOneMenu>
 									</p:column>
 									<p:column>

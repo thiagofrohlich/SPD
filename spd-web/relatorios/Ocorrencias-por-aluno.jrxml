@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c91f5d6a-c39f-4aa1-b182-0af0bd7e62f4">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="alunoId" class="java.lang.Long">
@@ -31,65 +31,61 @@ WHERE a.matricula = $P{alunoId}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
-			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="575" height="79" backcolor="#DEDEDE" uuid="ff8103cf-3205-41b9-8b5c-99ab8067c101"/>
-				<staticText>
-					<reportElement mode="Transparent" x="10" y="10" width="216" height="59" forecolor="#000000" backcolor="#000000" uuid="cebb6c41-2305-45cb-871d-b0ebd51fce5d"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
-					</textElement>
-					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="300" y="49" width="250" height="20" forecolor="#000000" backcolor="#000000" uuid="05b4f5c9-5ccd-48b7-8166-0133d40eb3cf"/>
-					<textElement textAlignment="Right">
-						<font fontName="Arial" size="14" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Ocorrências por Aluno:]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="350" y="29" width="200" height="20" uuid="c481fc25-41c8-4dd3-9613-bdd79e667f39"/>
-					<textElement textAlignment="Right">
-						<font fontName="Arial" size="14" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Relatório de]]></text>
-				</staticText>
-			</frame>
-		</band>
+		<band splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="30" splitType="Stretch">
+		<band height="98" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="575" height="30" backcolor="#DEDEDE" uuid="2de374f0-8982-4d89-b48d-9f22639ef87e"/>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="98" backcolor="#DEDEDE" uuid="2de374f0-8982-4d89-b48d-9f22639ef87e"/>
 				<staticText>
-					<reportElement x="10" y="0" width="53" height="30" uuid="d40a2499-1397-4234-ac1b-6f495663f316"/>
+					<reportElement x="10" y="68" width="53" height="30" uuid="d40a2499-1397-4234-ac1b-6f495663f316"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Matrícula:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="210" y="0" width="37" height="30" uuid="5a541267-5752-4c90-820f-f8aa1b39ef6c"/>
+					<reportElement x="210" y="68" width="37" height="30" uuid="5a541267-5752-4c90-820f-f8aa1b39ef6c"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<text><![CDATA[Nome:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="63" y="0" width="147" height="30" uuid="f256f466-413e-4b1c-9abe-adff559b931a"/>
+					<reportElement x="63" y="68" width="147" height="30" uuid="f256f466-413e-4b1c-9abe-adff559b931a"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="250" y="10" width="305" height="20" uuid="06e7be43-39de-46a2-a1fa-7c317fbf55da"/>
+					<reportElement x="250" y="78" width="305" height="20" uuid="06e7be43-39de-46a2-a1fa-7c317fbf55da"/>
 					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 				</textField>
+				<staticText>
+					<reportElement x="300" y="49" width="250" height="20" forecolor="#000000" backcolor="#000000" uuid="6ccf4b24-c807-4f6f-a1c2-2dd3be0d4616"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ocorrências por Aluno:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="350" y="29" width="200" height="20" uuid="077d6406-fd10-4577-a437-fc248fa94935"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="10" y="10" width="216" height="59" forecolor="#000000" backcolor="#000000" uuid="fbb3ae08-fad0-4b74-87ff-93aa814b3e2d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Centro de Educação Infantil Padre Dehon]]></text>
+				</staticText>
 			</frame>
 		</band>
 	</pageHeader>

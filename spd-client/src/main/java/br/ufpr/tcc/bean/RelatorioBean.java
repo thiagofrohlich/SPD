@@ -14,12 +14,15 @@ import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 
 import br.com.spd.enums.Trimestre;
 import br.com.spd.model.Aluno;
+import br.com.spd.model.TipoOcorrencia;
 import br.com.spd.model.Turma;
 import br.ufpr.tcc.service.handler.AlunoServiceHandler;
 import br.ufpr.tcc.service.handler.RelatorioServiceHandler;
+import br.ufpr.tcc.service.handler.TipoOcorrenciaServiceHandler;
 import br.ufpr.tcc.service.handler.TurmaServiceHandler;
 import br.ufpr.tcc.service.handler.impl.AlunoServiceHandlerImpl;
 import br.ufpr.tcc.service.handler.impl.RelatorioServiceHandlerImpl;
+import br.ufpr.tcc.service.handler.impl.TipoOcorrenciaServiceHandlerImpl;
 import br.ufpr.tcc.service.handler.impl.TurmaServiceHandlerImpl;
 
 @ViewScoped
@@ -41,6 +44,9 @@ public class RelatorioBean {
 	private String trimestreAluno;
 	private boolean showTrimestre;
 	private String nomeOcorrencia;
+	private List<TipoOcorrencia> lstTipo;
+	private TipoOcorrenciaServiceHandler tipoOcorrenciaServiceHandler;
+	private Integer tipoOcorrencia;
 	
 	
 	
@@ -53,6 +59,8 @@ public class RelatorioBean {
 		aluno = new Aluno();
 		alunoSelecionado = new Aluno();
 		lstAluno = new ArrayList<>();
+		tipoOcorrenciaServiceHandler = new TipoOcorrenciaServiceHandlerImpl();
+		lstTipo = tipoOcorrenciaServiceHandler.getAll().getList();
 		showTrimestre = false;
 	}
 	
@@ -204,6 +212,22 @@ public class RelatorioBean {
 
 	public void setTurmaIdAvaliacao(Long turmaIdAvaliacao) {
 		this.turmaIdAvaliacao = turmaIdAvaliacao;
+	}
+
+	public List<TipoOcorrencia> getLstTipo() {
+		return lstTipo;
+	}
+
+	public void setLstTipo(List<TipoOcorrencia> lstTipo) {
+		this.lstTipo = lstTipo;
+	}
+
+	public Integer getTipoOcorrencia() {
+		return tipoOcorrencia;
+	}
+
+	public void setTipoOcorrencia(Integer tipoOcorrencia) {
+		this.tipoOcorrencia = tipoOcorrencia;
 	}
 
 	 
