@@ -1,5 +1,6 @@
 package br.com.spd.rest;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.spd.PageSize;
 import br.com.spd.domain.Aluno;
+import br.com.spd.domain.TurmaAluno;
+import br.com.spd.domain.TurmaAlunoPK;
 import br.com.spd.domain.repository.AlunoRepository;
+import br.com.spd.domain.repository.TurmaAlunoRepository;
 import br.com.spd.exception.TransformerException;
 import br.com.spd.transformer.impl.GenericTransformer;
 import br.com.spd.wrapper.AlunoWrapper;
@@ -26,11 +30,13 @@ import br.com.spd.wrapper.AlunoWrapper;
 public class AlunoController {
 	
 	private final AlunoRepository alunoRepository;
+	private final TurmaAlunoRepository turmaAlunoRepository;
 	private final GenericTransformer transformer;
 
 	@Autowired
-	public AlunoController(AlunoRepository alunoRepository) {
+	public AlunoController(AlunoRepository alunoRepository, TurmaAlunoRepository turmaAlunoRepository) {
 		this.alunoRepository = alunoRepository;
+		this.turmaAlunoRepository = turmaAlunoRepository;
 		this.transformer = new GenericTransformer();
 	}
 	
@@ -101,7 +107,22 @@ public class AlunoController {
 		p = alunoRepository.save(p);
 		br.com.spd.model.Aluno model = new br.com.spd.model.Aluno();
 		transformer.transform(p, model);
+		saveTurmaAluno(model);
 		return model;
+	}
+
+	private void saveTurmaAluno(br.com.spd.model.Aluno aluno) {
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY");
+		
+		TurmaAlunoPK pk = new TurmaAlunoPK();
+		pk.setAlunoId(aluno.getMatricula());
+		pk.setTurmaId(aluno.getTurma().getId());
+		pk.setAno(sdf.format(aluno.getAnoletivo()));
+		
+		TurmaAluno ta = new TurmaAluno();
+		ta.setId(pk);
+		
+		turmaAlunoRepository.save(ta);
 	}
 
 }

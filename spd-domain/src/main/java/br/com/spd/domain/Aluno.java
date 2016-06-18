@@ -2,12 +2,12 @@ package br.com.spd.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -47,10 +47,8 @@ public class Aluno implements Serializable, Domain {
 	private String tratamento;
 	private Double valor;
 
-	//bi-directional many-to-one association to Turma
-	@ManyToOne
-	@JoinColumn(name="id_turma")
-	private Turma turma;
+	@OneToMany(mappedBy="aluno")
+	private List<TurmaAluno> turmaAlunos;
 
 	public Aluno() {
 	}
@@ -263,4 +261,12 @@ public class Aluno implements Serializable, Domain {
 		this.valor = valor;
 	}
 
+	public List<TurmaAluno> getTurmaAlunos() {
+		return this.turmaAlunos;
+	}
+
+	public void setTurmaAlunos(List<TurmaAluno> turmaAlunos) {
+		this.turmaAlunos = turmaAlunos;
+	}
+	
 }
