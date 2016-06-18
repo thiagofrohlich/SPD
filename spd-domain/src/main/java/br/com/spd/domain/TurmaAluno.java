@@ -1,7 +1,14 @@
 package br.com.spd.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
@@ -19,11 +26,12 @@ public class TurmaAluno implements Serializable {
 
 	//bi-directional many-to-one association to Aluno
 	@ManyToOne
-	@JoinColumn(name="aluno_id")
+	@JoinColumn(name="aluno_id", insertable = false, updatable = false)
 	private Aluno aluno;
 
 	//bi-directional many-to-one association to Turma
 	@ManyToOne
+	@JoinColumn(name="turma_id", insertable = false, updatable = false)
 	private Turma turma;
 
 	public TurmaAluno() {
