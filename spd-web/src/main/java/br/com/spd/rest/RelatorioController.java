@@ -89,11 +89,12 @@ public class RelatorioController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/avaliacaoTurma/{turma}/trimestre/{trimestre}", method=RequestMethod.GET)
-	public byte[] getAvaliacaoTurma(@PathVariable final Long turma,@PathVariable final String trimestre) {
+	@RequestMapping(value="/avaliacaoTurma/{turma}/trimestre/{trimestre}/ano/{ano}", method=RequestMethod.GET)
+	public byte[] getAvaliacaoTurma(@PathVariable final Long turma,@PathVariable final String trimestre, @PathVariable final String ano) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("turmaId", turma);
 		map.put("trimestre", trimestre);
+		map.put("ano", ano);
 		switch (turma.intValue()) {
 		case 1:
 			return geraRelatorio(map, "Avaliacoes-por-turma-maternal.jrxml");

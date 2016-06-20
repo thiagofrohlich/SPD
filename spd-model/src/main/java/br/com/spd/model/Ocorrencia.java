@@ -11,7 +11,6 @@ public class Ocorrencia implements Serializable, Model {
 	private Long idocorrencia;
 	private Date data;
 	private String descricao;
-	private String tipo;
 	private Aluno aluno;
 
 	public Ocorrencia() {
@@ -42,15 +41,6 @@ public class Ocorrencia implements Serializable, Model {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-
-	public String getTipo() {
-		return this.tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
 	}
 
 	public Aluno getAluno() {

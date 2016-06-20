@@ -9,6 +9,9 @@
 	<parameter name="trimestre" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="ano" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT a.matricula, a.nome, t.descricao, p.nome as professor, av.ling_reconhece, av.ling_vogais,
        av.ling_expressa, av.ling_ouve, av.ling_narra, av.ling_repete, av.ling_diferencia,
@@ -19,10 +22,11 @@
        av.soc_interesse, av.soc_expressoes_corporais, av.soc_auxilio, av.soc_cuida
   FROM aluno a
   INNER JOIN avaliacao_mat2 av ON (a.matricula = av.matricula)
-  INNER JOIN turma t ON(a.id_turma = t.id)
-  INNER JOIN professor ON(professor.id_turma = a.id_turma)
+  INNER JOIN turma_aluno ta ON(a.matricula = ta.aluno_id)
+  INNER JOIN turma t ON (t.id = ta.turma_id)
+  INNER JOIN professor ON(professor.id_turma = ta.turma_id)
   INNER JOIN pessoa p ON (professor.codpessoa = p.codpessoa)
-WHERE t.id = $P{turmaId} and av.trimestre = $P{trimestre}]]>
+WHERE t.id = $P{turmaId} and av.trimestre = $P{trimestre} and ta.ano = $P{ano}]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Long"/>
 	<field name="nome" class="java.lang.String"/>

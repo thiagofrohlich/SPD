@@ -12,6 +12,9 @@
 	<parameter name="trimestre" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="ano" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT a.matricula, a.nome, t.descricao, p.nome as professor, av.ling_brinca, av.ling_organiza,
        av.ling_ouve, av.ling_tentativa_leitura, av.ling_relaciona_letras, av.ling_escreve,
@@ -24,52 +27,53 @@
        av.soc_orienta, av.soc_brinca, av.soc_iniciativa, av.soc_cuida
   FROM aluno a
   INNER JOIN avaliacao_pre2 av ON (a.matricula = av.matricula)
-  INNER JOIN turma t ON(a.id_turma = t.id)
-  INNER JOIN professor ON(professor.id_turma = a.id_turma)
+  INNER JOIN turma_aluno ta ON(a.matricula = ta.aluno_id)
+  INNER JOIN turma t ON (t.id = ta.turma_id)
+  INNER JOIN professor ON(professor.id_turma = ta.turma_id)
   INNER JOIN pessoa p ON (professor.codpessoa = p.codpessoa)
-WHERE t.id = $P{turmaId} and av.trimestre = $P{trimestre}]]>
+WHERE t.id = $P{turmaId} and av.trimestre = $P{trimestre} and ta.ano = $P{ano}]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Long"/>
 	<field name="nome" class="java.lang.String"/>
 	<field name="descricao" class="java.lang.String"/>
 	<field name="professor" class="java.lang.String"/>
-	<field name="ling_brinca" class="java.sql.Array"/>
-	<field name="ling_organiza" class="java.sql.Array"/>
-	<field name="ling_ouve" class="java.sql.Array"/>
-	<field name="ling_tentativa_leitura" class="java.sql.Array"/>
-	<field name="ling_relaciona_letras" class="java.sql.Array"/>
-	<field name="ling_escreve" class="java.sql.Array"/>
-	<field name="ling_espacamento" class="java.sql.Array"/>
-	<field name="ling_desenho" class="java.sql.Array"/>
-	<field name="ling_pre_silabico" class="java.sql.Array"/>
-	<field name="ling_silabico" class="java.sql.Array"/>
-	<field name="ling_alfabetico" class="java.sql.Array"/>
-	<field name="mat_contagem" class="java.sql.Array"/>
-	<field name="mat_quantidade" class="java.sql.Array"/>
-	<field name="mat_desenho" class="java.sql.Array"/>
-	<field name="mat_simbolo" class="java.sql.Array"/>
-	<field name="mat_tempo" class="java.sql.Array"/>
-	<field name="mat_decimais" class="java.sql.Array"/>
-	<field name="mat_realiza_contagem" class="java.sql.Array"/>
-	<field name="nat_ambientes" class="java.sql.Array"/>
-	<field name="nat_temperatura" class="java.sql.Array"/>
-	<field name="nat_influencia" class="java.sql.Array"/>
-	<field name="nat_recursos" class="java.sql.Array"/>
-	<field name="nat_hipoteses" class="java.sql.Array"/>
-	<field name="nat_musicas" class="java.sql.Array"/>
-	<field name="nat_comunicacao" class="java.sql.Array"/>
-	<field name="art_explora" class="java.sql.Array"/>
-	<field name="art_cria" class="java.sql.Array"/>
-	<field name="art_participa" class="java.sql.Array"/>
-	<field name="soc_relaciona" class="java.sql.Array"/>
-	<field name="soc_expressa" class="java.sql.Array"/>
-	<field name="soc_raciocinio" class="java.sql.Array"/>
-	<field name="soc_interesse" class="java.sql.Array"/>
-	<field name="soc_frustracao" class="java.sql.Array"/>
-	<field name="soc_orienta" class="java.sql.Array"/>
-	<field name="soc_brinca" class="java.sql.Array"/>
-	<field name="soc_iniciativa" class="java.sql.Array"/>
-	<field name="soc_cuida" class="java.sql.Array"/>
+	<field name="ling_brinca" class="java.lang.String"/>
+	<field name="ling_organiza" class="java.lang.String"/>
+	<field name="ling_ouve" class="java.lang.String"/>
+	<field name="ling_tentativa_leitura" class="java.lang.String"/>
+	<field name="ling_relaciona_letras" class="java.lang.String"/>
+	<field name="ling_escreve" class="java.lang.String"/>
+	<field name="ling_espacamento" class="java.lang.String"/>
+	<field name="ling_desenho" class="java.lang.String"/>
+	<field name="ling_pre_silabico" class="java.lang.String"/>
+	<field name="ling_silabico" class="java.lang.String"/>
+	<field name="ling_alfabetico" class="java.lang.String"/>
+	<field name="mat_contagem" class="java.lang.String"/>
+	<field name="mat_quantidade" class="java.lang.String"/>
+	<field name="mat_desenho" class="java.lang.String"/>
+	<field name="mat_simbolo" class="java.lang.String"/>
+	<field name="mat_tempo" class="java.lang.String"/>
+	<field name="mat_decimais" class="java.lang.String"/>
+	<field name="mat_realiza_contagem" class="java.lang.String"/>
+	<field name="nat_ambientes" class="java.lang.String"/>
+	<field name="nat_temperatura" class="java.lang.String"/>
+	<field name="nat_influencia" class="java.lang.String"/>
+	<field name="nat_recursos" class="java.lang.String"/>
+	<field name="nat_hipoteses" class="java.lang.String"/>
+	<field name="nat_musicas" class="java.lang.String"/>
+	<field name="nat_comunicacao" class="java.lang.String"/>
+	<field name="art_explora" class="java.lang.String"/>
+	<field name="art_cria" class="java.lang.String"/>
+	<field name="art_participa" class="java.lang.String"/>
+	<field name="soc_relaciona" class="java.lang.String"/>
+	<field name="soc_expressa" class="java.lang.String"/>
+	<field name="soc_raciocinio" class="java.lang.String"/>
+	<field name="soc_interesse" class="java.lang.String"/>
+	<field name="soc_frustracao" class="java.lang.String"/>
+	<field name="soc_orienta" class="java.lang.String"/>
+	<field name="soc_brinca" class="java.lang.String"/>
+	<field name="soc_iniciativa" class="java.lang.String"/>
+	<field name="soc_cuida" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>

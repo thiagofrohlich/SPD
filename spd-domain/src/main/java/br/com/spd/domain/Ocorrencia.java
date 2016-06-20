@@ -28,7 +28,6 @@ public class Ocorrencia implements Serializable, Domain {
 	private Long idocorrencia;
 	private Date data;
 	private String descricao;
-	private String tipo;
 
 	//bi-directional many-to-one association to Aluno
 	@ManyToOne
@@ -65,14 +64,6 @@ public class Ocorrencia implements Serializable, Domain {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public String getTipo() {
-		return this.tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
 	}
 
 	public Aluno getAluno() {

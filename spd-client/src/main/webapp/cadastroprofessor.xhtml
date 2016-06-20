@@ -56,7 +56,7 @@
 								</p:column>
                 				<p:column>
 									<p:inputMask mask="99.999-999" value="#{professorBean.professor.cep}" id="cep">
-										<p:ajax event="valueChange" listener="#{professorBean.buscaCEP()}"  process="@this" update=":cadastroProf:panelCadastro" />
+										<p:ajax event="valueChange" listener="#{professorBean.buscaCEP()}"  process=":cadastroProf:panelCadastro" update=":cadastroProf:panelCadastro" />
 									</p:inputMask>
 								</p:column>
                 				
@@ -125,6 +125,7 @@
 									</p:column>
 									<p:column>
 										<p:selectOneMenu  value="#{professorBean.professor.turma.id}">
+											<f:selectItem itemLabel="#{msg.selecione}" itemValue="" />
 											<f:selectItems value="#{professorBean.lstTurma}" var="lstTurma" itemLabel="#{lstTurma.descricao}" itemValue="#{lstTurma.id}" />
 										</p:selectOneMenu>
 									</p:column>

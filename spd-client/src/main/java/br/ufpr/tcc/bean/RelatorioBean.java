@@ -2,6 +2,7 @@ package br.ufpr.tcc.bean;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +11,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 
+import org.joda.time.DateTime;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 
 import br.com.spd.enums.Trimestre;
@@ -86,7 +88,7 @@ public class RelatorioBean {
 			break;
 		
 		case "avaliacaoTurma":
-			bt = relatorioServiceHandler.getAvaliacaoTurma(turmaIdAvaliacao, trimestre);
+			bt = relatorioServiceHandler.getAvaliacaoTurma(turmaIdAvaliacao, trimestre, Integer.toString(DateTime.now().getYear()));
 			break;
 			
 		case "avaliacaoAluno":

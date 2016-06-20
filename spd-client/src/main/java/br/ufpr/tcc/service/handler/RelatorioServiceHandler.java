@@ -10,7 +10,7 @@ public interface RelatorioServiceHandler extends ServiceHandler<Integer, Integer
 
 	byte[] getOcorrenciaTurma(Long turma);
 
-	byte[] getAvaliacaoTurma(Long turma, String trimestre);
+	byte[] getAvaliacaoTurma(Long turma, String trimestre, String ano);
 
 	byte[] getavaliacaoAluno(Long turma, Long aluno, String trimestre);
 }

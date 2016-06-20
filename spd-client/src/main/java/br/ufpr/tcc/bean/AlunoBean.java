@@ -45,7 +45,6 @@ public class AlunoBean implements Serializable{
 	private CepHandler cepHandler;
 	private String nome;
 	private AlunoServiceHandler alunoServiceHandler;
-	private Long mat;
 	private ResponsavelServiceHandler responsavelServiceHandler;
 	private ResourceBundle rb;
 	private TurmaServiceHandler turmaServiceHandler;

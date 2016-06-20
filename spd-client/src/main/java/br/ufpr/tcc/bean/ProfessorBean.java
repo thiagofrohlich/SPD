@@ -67,6 +67,7 @@ public class ProfessorBean {
 			professorServiceHandler.create(professor);
 			FacesContext.getCurrentInstance().addMessage("messageProfessor", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaProfessorSuccess")));
 			professor = new Professor();
+			professor.setTurma(new Turma());
 		}catch(Exception e){
 			FacesContext.getCurrentInstance().addMessage("messageProfessor", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaProfessorFailure")));
 		}
