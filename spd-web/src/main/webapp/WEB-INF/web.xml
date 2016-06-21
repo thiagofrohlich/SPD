@@ -26,6 +26,17 @@
 	  <param-name>reportDirectory</param-name>
 	  <param-value>D:/repo/dac/dac-crm/dac-crm-services/relatorios/</param-value>
 	</context-param> -->
+	
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Rest Application</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <!-- Needed for our application to respond to https requests -->
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
