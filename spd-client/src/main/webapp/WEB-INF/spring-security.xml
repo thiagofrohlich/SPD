@@ -30,7 +30,7 @@
         <form-login username-parameter="username"
 		password-parameter="password"
 		authentication-success-handler-ref="myAuthenticationSuccessHandler"
-		login-page="/login.xhtml" />
+		login-page="/login.xhtml" authentication-failure-url="/login.xhtml?error=true" default-target-url="/template.xhtml" />
     </http>
     
     <beans:bean id="myAuthenticationSuccessHandler"
