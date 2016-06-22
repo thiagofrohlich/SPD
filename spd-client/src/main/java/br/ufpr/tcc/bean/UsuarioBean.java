@@ -1,5 +1,6 @@
 package br.ufpr.tcc.bean;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -8,7 +9,12 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -54,8 +60,8 @@ public class UsuarioBean {
 	
 	public void selecionaUsuario(){
 		usuario = usuarioSelecionado;
-		resetarSenha = true;
 		usuarioSelecionado = new Usuario();
+		resetarSenha = !usuario.getResetarSenha();
 	}
 	
 	public void trocarSenha(){
@@ -66,7 +72,8 @@ public class UsuarioBean {
 				usuario.setResetarSenha(false);
 				usuario.setSenha(usuarioServiceHandler.encodePassword(senha));
 				usuarioServiceHandler.update(usuario);
-				FacesContext.getCurrentInstance().addMessage("messageSenha", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaSenhaSuccess")));
+				doLogout();
+				FacesContext.getCurrentInstance().addMessage("messageLogin", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaSenhaSuccess")));
 			}catch(Exception e){
 				FacesContext.getCurrentInstance().addMessage("messageSenha", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaSenhaFailure")));
 			}
@@ -77,7 +84,9 @@ public class UsuarioBean {
 	
 	public void salvaUsuario(){
 		try{
-			usuario.setResetarSenha(true);
+			if(usuario.getSenha() == null ||usuario.getSenha().equals("")){
+				usuario.setResetarSenha(true);
+			}
 			usuarioServiceHandler.create(usuario);
 			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaUsuarioSuccess")));
 			usuario = new Usuario();
@@ -85,6 +94,21 @@ public class UsuarioBean {
 			FacesContext.getCurrentInstance().addMessage("messageUsuario", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaUsuarioFailure")));
 		}
 	}
+	
+	
+	private String doLogout() throws ServletException, IOException {
+        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+        
+        RequestDispatcher dispatcher = ((ServletRequest) context.getRequest())
+                .getRequestDispatcher("/j_spring_security_logout");
+
+        dispatcher.forward((ServletRequest) context.getRequest(),
+                (ServletResponse) context.getResponse());
+
+        FacesContext.getCurrentInstance().responseComplete();
+
+        return null;
+    }
 	
 	public Roles[] getRoles(){
 		return Roles.values();

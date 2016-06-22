@@ -47,7 +47,7 @@ public class LoginBean {
 		if(usuario.getRole().equals(Roles.PEDAGOGO.getId())){
 			cadastroAluno = true;
 			avaliacao = true;
-			cadastroProfessor = false;
+			cadastroProfessor = true;
 			cadastroUsuario = false;
 			ocorrencia = true;
 			relatorio = true;
