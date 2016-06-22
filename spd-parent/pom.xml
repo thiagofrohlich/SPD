@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.spd</groupId>
 	<artifactId>spd-parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
 		<primefaces.version>5.2</primefaces.version>
 		<primefaces.theme>1.0.10</primefaces.theme>
 		<jsf.version>2.1.11</jsf.version>
-		<tcc-ufpr.version>0.0.1-SNAPSHOT</tcc-ufpr.version>
+		<tcc-ufpr.version>1.0.0</tcc-ufpr.version>
 		<jsf.version>2.1.11</jsf.version>
 		<servletapi.version>2.5</servletapi.version>
 		<servletjsp.version>2.1</servletjsp.version>
