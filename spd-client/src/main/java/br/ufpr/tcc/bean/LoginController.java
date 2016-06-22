@@ -59,11 +59,10 @@ public class LoginController implements PhaseListener {
     	   FacesContext.getCurrentInstance().responseComplete();
     	   
     	   return null;
-       }catch(HttpClientErrorException e){
-    	   return null;
-       }catch(HttpServerErrorException serverErrorException){
+       
+       }catch(Exception e){
     	   FacesContext.getCurrentInstance().addMessage("messageLogin", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("loginInvalid")));
-    	   serverErrorException.printStackTrace();
+    	   e.printStackTrace();
     	   return null;
        }
     }

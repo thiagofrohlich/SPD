@@ -9,8 +9,9 @@
 	<queryString>
 		<![CDATA[SELECT a.matricula, a.nome, t.descricao
 FROM aluno a
-INNER JOIN turma t
-ON (a.id_turma = t.id)
+INNER JOIN turma_aluno at on (a.matricula = at.aluno_id)
+INNER JOIN turma t ON (at.turma_id = t.id)
+
 WHERE t.id = $P{turmaId}]]>
 	</queryString>
 	<field name="matricula" class="java.lang.Long"/>

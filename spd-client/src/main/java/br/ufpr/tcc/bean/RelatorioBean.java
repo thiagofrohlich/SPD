@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -69,16 +71,20 @@ public class RelatorioBean {
 	public void geraRelatorio() throws IOException{
 		byte[] bt = null;
 		bt = buscaRelatorios(bt);
-		FacesContext context = FacesContext.getCurrentInstance();  
-		HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();  
-		response.reset();  
-		response.setContentType("application/pdf");  
-		response.setHeader("Content-Disposition", "attachment; filename=Relatorio.pdf");  
-		response.setHeader("Cache-Control", "no-cache");  
-		response.getOutputStream().write(bt);  
-		response.getOutputStream().flush();  
-		response.getOutputStream().close();  
-		context.responseComplete(); 
+		if(bt != null){
+			FacesContext context = FacesContext.getCurrentInstance();  
+			HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();  
+			response.reset();  
+			response.setContentType("application/pdf");  
+			response.setHeader("Content-Disposition", "attachment; filename=Relatorio.pdf");  
+			response.setHeader("Cache-Control", "no-cache");  
+			response.getOutputStream().write(bt);  
+			response.getOutputStream().flush();  
+			response.getOutputStream().close();  
+			context.responseComplete(); 
+		}else{
+			FacesContext.getCurrentInstance().addMessage("messageRelatorio", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ResourceBundle.getBundle("msg").getString("getRelatorioErro")));
+		}
 	}
 
 	private byte[] buscaRelatorios(byte[] bt) {
