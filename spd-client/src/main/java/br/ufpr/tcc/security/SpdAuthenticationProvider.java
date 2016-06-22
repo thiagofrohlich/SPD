@@ -2,6 +2,10 @@ package br.ufpr.tcc.security;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.ResourceBundle;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -51,6 +55,7 @@ public class SpdAuthenticationProvider  implements AuthenticationProvider{
 			Collection<GrantedAuthority> authorities = getAuthorities(usuario.getRole());
 			return new UsernamePasswordAuthenticationToken(login, password, authorities);
 		} else {
+			FacesContext.getCurrentInstance().addMessage("messageLogin", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", ResourceBundle.getBundle("msg").getString("loginInvalid")));
 			throw new BadCredentialsException("Usuário não encontrado.");
 		}
 	}

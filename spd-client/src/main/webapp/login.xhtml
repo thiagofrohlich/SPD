@@ -49,6 +49,7 @@
                                
                                 <p:commandButton styleClass="btn btn-lg btn-success btn-block" value="#{msg.login}" id="loginButton"
                                 					ajax="false" action="#{loginController.doLogin()}"/>
+                                <p:commandButton id="invalidLogin" action="#{loginController.invalidLogin()}" style="display:none" ajax="true"/>
                             </fieldset>
                     </div>
                 </h:form>
@@ -70,6 +71,21 @@
     <script src="resources/js/sb-admin-2.js"></script>
 	    <script type="text/javascript">
 			$(document).ready(function() {
+				
+				var getUrlParameter = function getUrlParameter(sParam) {
+				    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+				        sURLVariables = sPageURL.split('&amp;'),
+				        sParameterName,
+				        i;
+
+				    for (i = 0; i &lt; sURLVariables.length; i++) {
+				        sParameterName = sURLVariables[i].split('=');
+
+				        if (sParameterName[0] === sParam) {
+				            return sParameterName[1] === undefined ? true : sParameterName[1];
+				        }
+				    }
+				};
 
 				var msg = '';
 				
@@ -90,6 +106,12 @@
 						return false;
 					}
 				});
+				
+				var error = getUrlParameter('error');
+				if(error == 'true') {
+					$('#invalidLogin').click();
+				}
+				
 			}); 
 		</script>
 	</h:body>

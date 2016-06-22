@@ -119,6 +119,9 @@ public class RelatorioController {
 			String id = format.format(new Date());
 			JasperReport pathRxml = JasperCompileManager.compileReport(rb.getString("relOrigin")+relatorio);
 			JasperPrint printReport = JasperFillManager.fillReport(pathRxml, map, conn);
+			if(printReport.getPages().isEmpty()){
+				return null;
+			}
 			JasperExportManager.exportReportToPdfFile(printReport,rb.getString("relDestiny")+id+".pdf");
 			File file = new File(rb.getString("relDestiny")+id+".pdf");
 			FileInputStream fis = new FileInputStream(file);  
