@@ -15,18 +15,18 @@
 	
 	
 	<http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/cadastroAluno.xhtml" access="hasRole('ADMINISTRADOR') or hasRole('PEDADOGO')" />
+        <intercept-url pattern="/cadastroAluno.xhtml" access="hasRole('ADMINISTRADOR') or hasRole('PEDAGOGO')" />
         <intercept-url pattern="/avaliacao.xhtml" access="hasRole('PROFESSOR') or hasRole('ADMINISTRADOR') or hasRole('PEDAGOGO')" />
         <intercept-url pattern="/trocaSenha.xhtml" access="hasRole('PROFESSOR') or hasRole('ADMINISTRADOR') or hasRole('PEDAGOGO') or hasRole('PASSWORD_RESET')" />
         <intercept-url pattern="/ocorrencias.xhtml" access="hasRole('ADMINISTRADOR') or hasRole('PROFESSOR') or hasRole('PEDAGOGO')" />
         <intercept-url pattern="/relatorios.xhtml" access="hasRole('ADMINISTRADOR') or hasRole('PEDAGOGO')" />
         <intercept-url pattern="/cadastroUsuario.xhtml" access="hasRole('ADMINISTRADOR')" />
-        <intercept-url pattern="/cadastroProfessor.xhtml" access="hasRole('ADMINISTRADOR')" />
+        <intercept-url pattern="/cadastroprofessor.xhtml" access="hasRole('ADMINISTRADOR') or hasRole('PEDAGOGO')" />
              
         
         
        <!--  <logout logout-url="/logout" /> -->
-        <logout logout-success-url="/template.xhtml" delete-cookies="JSESSIONID"/>
+        <logout logout-success-url="/login.jsf" delete-cookies="JSESSIONID"/>
         <form-login username-parameter="username"
 		password-parameter="password"
 		authentication-success-handler-ref="myAuthenticationSuccessHandler"
