@@ -52,6 +52,10 @@ public class AlunoBean implements Serializable{
 	private ResourceBundle rb;
 	private TurmaServiceHandler turmaServiceHandler;
 	private CPFValidator validator;
+	private Integer modalidadeValue;
+	private Integer periodoValue;
+	
+	
 	@PostConstruct
 	public void init(){
 		listAluno = new ArrayList<>();
@@ -108,7 +112,7 @@ public class AlunoBean implements Serializable{
 		try {
 		    validator.assertValid(pai.getCpf());
 		} catch (InvalidStateException e) {
-			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("invalidCPF")));
+			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("invalidCPF")));
 		}
 	}
 	
@@ -116,7 +120,7 @@ public class AlunoBean implements Serializable{
 		try {
 		    validator.assertValid(mae.getCpf());
 		} catch (InvalidStateException e) {
-			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("invalidCPF")));
+			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("invalidCPF")));
 		}
 	}
 	
@@ -125,6 +129,8 @@ public class AlunoBean implements Serializable{
 			if(aluno.getMatricula() == null){
 				aluno.setMatricula(geraMatricula());
 			}
+			aluno.setModalidade(Modalidade.getName(modalidadeValue));
+			aluno.setPeriodo(Periodo.getName(periodoValue));
 			alunoServiceHandler.create(aluno);
 			pai.setAluno(aluno);
 			mae.setAluno(aluno);
@@ -225,6 +231,22 @@ public class AlunoBean implements Serializable{
 	
 	public Periodo[] getPeriodo(){
 		return Periodo.values();
+	}
+
+	public Integer getModalidadeValue() {
+		return modalidadeValue;
+	}
+
+	public void setModalidadeValue(Integer modalidadeValue) {
+		this.modalidadeValue = modalidadeValue;
+	}
+
+	public Integer getPeriodoValue() {
+		return periodoValue;
+	}
+
+	public void setPeriodoValue(Integer periodoValue) {
+		this.periodoValue = periodoValue;
 	}
 
 	
