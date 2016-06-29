@@ -22,6 +22,7 @@ import br.com.spd.domain.TurmaAlunoPK;
 import br.com.spd.domain.repository.AlunoRepository;
 import br.com.spd.domain.repository.TurmaAlunoRepository;
 import br.com.spd.exception.TransformerException;
+import br.com.spd.model.Turma;
 import br.com.spd.transformer.impl.GenericTransformer;
 import br.com.spd.wrapper.AlunoWrapper;
 
@@ -107,16 +108,16 @@ public class AlunoController {
 		p = alunoRepository.save(p);
 		br.com.spd.model.Aluno model = new br.com.spd.model.Aluno();
 		transformer.transform(p, model);
-		saveTurmaAluno(model);
+		saveTurmaAluno(model, aluno.getTurma());
 		return model;
 	}
 
-	private void saveTurmaAluno(br.com.spd.model.Aluno aluno) {
+	private void saveTurmaAluno(br.com.spd.model.Aluno aluno, Turma turma) {
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY");
 		
 		TurmaAlunoPK pk = new TurmaAlunoPK();
 		pk.setAlunoId(aluno.getMatricula());
-		pk.setTurmaId(aluno.getTurma().getId());
+		pk.setTurmaId(turma.getId());
 		pk.setAno(sdf.format(aluno.getAnoletivo()));
 		
 		TurmaAluno ta = new TurmaAluno();
