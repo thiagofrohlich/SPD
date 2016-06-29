@@ -2,7 +2,6 @@ package br.ufpr.tcc.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -14,6 +13,10 @@ import javax.faces.context.FacesContext;
 
 import org.joda.time.DateTime;
 
+import br.com.caelum.stella.validation.CPFValidator;
+import br.com.caelum.stella.validation.InvalidStateException;
+import br.com.spd.enums.Modalidade;
+import br.com.spd.enums.Periodo;
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Responsavel;
 import br.com.spd.model.Turma;
@@ -48,7 +51,7 @@ public class AlunoBean implements Serializable{
 	private ResponsavelServiceHandler responsavelServiceHandler;
 	private ResourceBundle rb;
 	private TurmaServiceHandler turmaServiceHandler;
-
+	private CPFValidator validator;
 	@PostConstruct
 	public void init(){
 		listAluno = new ArrayList<>();
@@ -65,6 +68,7 @@ public class AlunoBean implements Serializable{
 		turmaServiceHandler = new TurmaServiceHandlerImpl();
 		lstTurma = turmaServiceHandler.findAll().getList();
 		rb = ResourceBundle.getBundle("msg");
+		validator = new CPFValidator();
 	}
 	
 	public List<Responsavel> getListaResponsavel() {
@@ -98,6 +102,22 @@ public class AlunoBean implements Serializable{
 	
 	public void selecionaAluno(){
 		aluno = alunoSelecionado;
+	}
+	
+	public void verificaCpfPai(){
+		try {
+		    validator.assertValid(pai.getCpf());
+		} catch (InvalidStateException e) {
+			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("invalidCPF")));
+		}
+	}
+	
+	public void verificaCpfMae(){
+		try {
+		    validator.assertValid(mae.getCpf());
+		} catch (InvalidStateException e) {
+			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("invalidCPF")));
+		}
 	}
 	
 	public void salva(){
@@ -197,6 +217,14 @@ public class AlunoBean implements Serializable{
 	
 	public void setLstTurma(List<Turma> lstTurma) {
 		this.lstTurma = lstTurma;
+	}
+	
+	public Modalidade[] getModalidade(){
+		return Modalidade.values();
+	}
+	
+	public Periodo[] getPeriodo(){
+		return Periodo.values();
 	}
 
 	

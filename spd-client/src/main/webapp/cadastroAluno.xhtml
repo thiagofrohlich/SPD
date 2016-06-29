@@ -79,14 +79,20 @@
 										<h:outputText value="#{msg.modalidade}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.modalidade}" id="modalidade"/>
+										<p:selectOneMenu  value="#{alunoBean.aluno.modalidade}" id="modalidade">
+											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+											<f:selectItems value="#{alunoBean.modalidade}" var="modalidade" itemLabel="#{modalidade.descricao}" itemValue="#{modalidade.descricao}" />
+										</p:selectOneMenu>
 									</p:column>
 			
 									<p:column styleClass="labelForm">
 										<h:outputText value="#{msg.periodo}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.periodo}" id="periodo"/>
+										<p:selectOneMenu  value="#{alunoBean.aluno.periodo}" id="periodo">
+											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
+											<f:selectItems value="#{alunoBean.periodo}" var="periodo" itemLabel="#{periodo.descricao}" itemValue="#{periodo.descricao}" />
+										</p:selectOneMenu>
 									</p:column>
 								</p:row>
 								
@@ -236,7 +242,9 @@
 										<h:outputText value="#{msg.cpf}" />
 									</p:column>
 									<p:column>
-										<p:inputMask mask="999.999.999-99" value="#{alunoBean.pai.cpf}" id="cpfPai"/>
+										<p:inputMask mask="999.999.999-99" value="#{alunoBean.pai.cpf}" id="cpfPai" >
+											<p:ajax event="blur" listener="#{alunoBean.verificaCpfPai()}" process="@this" update=":cadastro:messageAluno" />
+										</p:inputMask>
 									</p:column>
 								
 									<p:column styleClass="labelForm">
@@ -304,7 +312,9 @@
 										<h:outputText value="#{msg.cpf}" />
 									</p:column>
 									<p:column>
-										<p:inputMask mask="999.999.999-99" value="#{alunoBean.mae.cpf}" id="cpfMae"/>
+										<p:inputMask mask="999.999.999-99" value="#{alunoBean.mae.cpf}" id="cpfMae">
+											<p:ajax event="blur" listener="#{alunoBean.verificaCpfPai()}" process="@this" update=":cadastro:messageAluno" />
+										</p:inputMask>
 									</p:column>
 							
 									<p:column styleClass="labelForm">
