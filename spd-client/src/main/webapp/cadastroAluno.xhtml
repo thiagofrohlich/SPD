@@ -79,9 +79,9 @@
 										<h:outputText value="#{msg.modalidade}" />
 									</p:column>
 									<p:column>
-										<p:selectOneMenu  value="#{alunoBean.aluno.modalidade}" id="modalidade">
+										<p:selectOneMenu  value="#{alunoBean.modalidadeValue}" id="modalidade">
 											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
-											<f:selectItems value="#{alunoBean.modalidade}" var="modalidade" itemLabel="#{modalidade.descricao}" itemValue="#{modalidade.descricao}" />
+											<f:selectItems value="#{alunoBean.modalidade}" var="moda" itemLabel="#{moda.descricao}" itemValue="#{moda.id}" />
 										</p:selectOneMenu>
 									</p:column>
 			
@@ -89,9 +89,9 @@
 										<h:outputText value="#{msg.periodo}" />
 									</p:column>
 									<p:column>
-										<p:selectOneMenu  value="#{alunoBean.aluno.periodo}" id="periodo">
+										<p:selectOneMenu  value="#{alunoBean.periodoValue}" id="periodo">
 											<f:selectItem itemLabel="#{msg.selecione}" itemValue=""/>
-											<f:selectItems value="#{alunoBean.periodo}" var="periodo" itemLabel="#{periodo.descricao}" itemValue="#{periodo.descricao}" />
+											<f:selectItems value="#{alunoBean.periodo}" var="periodo" itemLabel="#{periodo.descricao}" itemValue="#{periodo.id}" />
 										</p:selectOneMenu>
 									</p:column>
 								</p:row>
@@ -120,7 +120,7 @@
 										<h:outputText value="#{msg.valor}" />
 									</p:column>
 									<p:column>
-										<p:inputText value="#{alunoBean.aluno.valor}" id="valor"/>
+										<p:inputText value="#{alunoBean.aluno.valor}" id="valor" data-thousands="." data-decimal=","/>
 									</p:column>
 								</p:row>
 							</p:panelGrid>
@@ -487,6 +487,8 @@
 			<script type="text/javascript">
 			$(document).ready(function() {
 
+				$('#cadastro\\:formCadastro\\:valor').maskMoney({thousands:'.', decimal:',', allowZero:true}); 
+				
 				var msg = '';
 				
 				$('#cadastro\\:formCadastro\\:saveButton').click(function() {
@@ -510,27 +512,18 @@
 						msg = msg + '#{msg.datanascError}'+'\n';
 					} 
 					
-					if($('#cadastro\\:formCadastro\\:cidade').val() == ""){
-						$('#cadastro\\:formCadastro\\:cidade').addClass('formError');
-						msg = msg + '#{msg.cidadeError}'+'\n';
-					} 
 					
-					if($('#cadastro\\:formCadastro\\:estado').val() == ""){
-						$('#cadastro\\:formCadastro\\:estado').addClass('formError');
-						msg = msg + '#{msg.estadoError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:modalidade').val() == ""){
-						$('#cadastro\\:formCadastro\\:modalidade').addClass('formError');
+					if($('#cadastro\\:formCadastro\\:modalidade_input').val() == ""){
+						$('#cadastro\\:formCadastro\\:modalidade_input').addClass('formError');
 						msg = msg + '#{msg.modalidadeError}'+'\n';
 					} 
 					
-					if($('#cadastro\\:formCadastro\\:periodo').val() == ""){
-						$('#cadastro\\:formCadastro\\:periodo').addClass('formError');
+					if($('#cadastro\\:formCadastro\\:periodo_input').val() == ""){
+						$('#cadastro\\:formCadastro\\:periodo_input').addClass('formError');
 						msg = msg + '#{msg.periodoError}'+'\n';
 					} 
 					
-					if($('#cadastro\\:formCadastro\\:nivel').val() == ""){
+					if($('#cadastro\\:formCadastro\\:nivel_input').val() == ""){
 						$('#cadastro\\:formCadastro\\:nivel').addClass('formError');
 						msg = msg + '#{msg.nivelError}'+'\n';
 					} 
@@ -545,138 +538,10 @@
 						msg = msg + '#{msg.valorError}'+'\n';
 					} 
 					
-					if($('#cadastro\\:formCadastro\\:cirurgias').val() == ""){
-						$('#cadastro\\:formCadastro\\:cirurgias').addClass('formError');
-						msg = msg + '#{msg.cirurgiaError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:alergia').val() == ""){
-						$('#cadastro\\:formCadastro\\:alergia').addClass('formError');
-						msg = msg + '#{msg.alergiaError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:restAlimentar').val() == ""){
-						$('#cadastro\\:formCadastro\\:restAlimentar').addClass('formError');
-						msg = msg + '#{msg.restAlimentarError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:temperamento').val() == ""){
-						$('#cadastro\\:formCadastro\\:temperamento').addClass('formError');
-						msg = msg + '#{msg.temperamentoError}'+'\n';
-					} 
-					
-										
-					if($('#cadastro\\:formCadastro\\:sitPais').val() == ""){
-						$('#cadastro\\:formCadastro\\:sitPais').addClass('formError');
-						msg = msg + '#{msg.sitPaisError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:nomePai').val() == ""){
-						$('#cadastro\\:formCadastro\\:nomePai').addClass('formError');
-						msg = msg + '#{msg.nomePaiError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:rgPai').val() == ""){
-						$('#cadastro\\:formCadastro\\:rgPai').addClass('formError');
-						msg = msg + '#{msg.rgPaiError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:cpfPai').val() == ""){
-						$('#cadastro\\:formCadastro\\:cpfPai').addClass('formError');
-						msg = msg + '#{msg.cpfPaiError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:escolaridadePai').val() == ""){
-						$('#cadastro\\:formCadastro\\:escolaridadePai').addClass('formError');
-						msg = msg + '#{msg.escolaridadePaiError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:profPai').val() == ""){
-						$('#cadastro\\:formCadastro\\:profPai').addClass('formError');
-						msg = msg + '#{msg.profPaiError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:jobPai').val() == ""){
-						$('#cadastro\\:formCadastro\\:jobPai').addClass('formError');
-						msg = msg + '#{msg.jobPaiError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:comPai').val() == ""){
-						$('#cadastro\\:formCadastro\\:comPai').addClass('formError');
-						msg = msg + '#{msg.comPaiError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:nomeMae').val() == ""){
-						$('#cadastro\\:formCadastro\\:nomeMae').addClass('formError');
-						msg = msg + '#{msg.nomeMaeError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:rgMae').val() == ""){
-						$('#cadastro\\:formCadastro\\:rgMae').addClass('formError');
-						msg = msg + '#{msg.rgMaeError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:cpfMae').val() == ""){
-						$('#cadastro\\:formCadastro\\:cpfMae').addClass('formError');
-						msg = msg + '#{msg.cpfMaeError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:escolaridadeMae').val() == ""){
-						$('#cadastro\\:formCadastro\\:escolaridadeMae').addClass('formError');
-						msg = msg + '#{msg.escolaridadeMaeError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:profMae').val() == ""){
-						$('#cadastro\\:formCadastro\\:profMae').addClass('formError');
-						msg = msg + '#{msg.profMaeError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:jobMae').val() == ""){
-						$('#cadastro\\:formCadastro\\:jobMae').addClass('formError');
-						msg = msg + '#{msg.jobMaeError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:comMae').val() == ""){
-						$('#cadastro\\:formCadastro\\:comMae').addClass('formError');
-						msg = msg + '#{msg.comMaeError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:cep').val() == ""){
-						$('#cadastro\\:formCadastro\\:cep').addClass('formError');
-						msg = msg + '#{msg.cepError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:rua').val() == ""){
-						$('#cadastro\\:formCadastro\\:rua').addClass('formError');
-						msg = msg + '#{msg.ruaError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:numero').val() == ""){
-						$('#cadastro\\:formCadastro\\:numero').addClass('formError');
-						msg = msg + '#{msg.numeroError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:bairro').val() == ""){
-						$('#cadastro\\:formCadastro\\:bairro').addClass('formError');
-						msg = msg + '#{msg.bairroError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:tel').val() == ""){
-						$('#cadastro\\:formCadastro\\:tel').addClass('formError');
-						msg = msg + '#{msg.telError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:email').val() == ""){
-						$('#cadastro\\:formCadastro\\:email').addClass('formError');
-						msg = msg + '#{msg.emailError}'+'\n';
-					} 
-					
-					if($('#cadastro\\:formCadastro\\:religiao').val() == ""){
-						$('#cadastro\\:formCadastro\\:religiao').addClass('formError');
-						msg = msg + '#{msg.religiaoError}'+'\n';
-					} 
 					
 					if(msg == ''){
+						var teste = $('#cadastro\\:formCadastro\\:valor').maskMoney('unmasked')[0];
+						$('#cadastro\\:formCadastro\\:valor').val(teste);
 						return true;
 					}else{
 						alert(msg);
