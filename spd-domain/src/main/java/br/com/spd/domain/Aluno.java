@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
@@ -16,6 +18,7 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @NamedQuery(name="Aluno.findAll", query="SELECT a FROM Aluno a")
+@NamedEntityGraph(name = "Aluno.turmas", attributeNodes = @NamedAttributeNode("turmaAlunos"))
 public class Aluno implements Serializable, Domain {
 	private static final long serialVersionUID = 1L;
 	
