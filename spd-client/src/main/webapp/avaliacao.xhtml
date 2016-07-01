@@ -88,22 +88,29 @@
 				</div>
 				<p:commandButton value="#{msg.salvar}" ajax="false" action="#{avaliacaoBean.salvaAluno()}" rendered="#{avaliacaoBean.renderPre1 || avaliacaoBean.renderMat2 || avaliacaoBean.renderPre2}"/>
 			</div>
-			<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
+			<p:dialog id="aluno" closable="true" widgetVar="aluno" width="600" height="500">
 						
 						<p:dataTable value="#{alunoBean.listAluno}" id="alunoTable" var="lstALuno"  rowKey="#{lstALuno.matricula}" selection="#{avaliacaoBean.alunoSelecionado}" selectionMode="single"
 									 paginator="true" paginatorPosition="bottom" rows="10">
-							<p:column>
+							<p:column width="250">
 								<f:facet name="header">
 									<h:outputText value="#{msg.nome}" />
 								</f:facet>
 								<h:outputText value="#{lstALuno.nome}"/>
 							</p:column>
 							
-							<p:column>
+							<p:column width="100">
 								<f:facet name="header">
 									<h:outputText value="#{msg.matricula}" />
 								</f:facet>
 								<h:outputText value="#{lstALuno.matricula}"/>
+							</p:column>
+							
+							<p:column width="100">
+								<f:facet name="header">
+									<h:outputText value="#{msg.turma}" />
+								</f:facet>
+								<h:outputText value="#{lstALuno.turma.descricao}"/>
 							</p:column>
 							
 						</p:dataTable>						

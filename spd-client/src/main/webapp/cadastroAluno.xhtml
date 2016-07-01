@@ -456,22 +456,29 @@
                 	</p:tabView>
                 </div>
 					
-					<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
+					<p:dialog id="aluno" closable="true" widgetVar="aluno" width="600" height="500">
 						
 						<p:dataTable value="#{alunoBean.listAluno}" var="lstALuno" id="alunoTable" rowKey="#{lstALuno.matricula}" selection="#{alunoBean.alunoSelecionado}" selectionMode="single"
 									 paginator="true" paginatorPosition="bottom" rows="10">
-							<p:column>
+							<p:column width="250">
 								<f:facet name="header">
 									<h:outputText value="#{msg.nome}" />
 								</f:facet>
 								<h:outputText value="#{lstALuno.nome}"/>
 							</p:column>
 							
-							<p:column>
+							<p:column width="100">
 								<f:facet name="header">
 									<h:outputText value="#{msg.matricula}" />
 								</f:facet>
 								<h:outputText value="#{lstALuno.matricula}"/>
+							</p:column>
+							
+							<p:column width="100">
+								<f:facet name="header">
+									<h:outputText value="#{msg.turma}" />
+								</f:facet>
+								<h:outputText value="#{lstALuno.turma.descricao}"/>
 							</p:column>
 							
 						</p:dataTable>						

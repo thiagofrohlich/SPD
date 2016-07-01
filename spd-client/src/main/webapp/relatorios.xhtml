@@ -35,7 +35,7 @@
 							<p:commandButton value="#{msg.ocorrenciaAluno}" action="#{relatorioBean.fillRelatorio('alunoTipoOcorrencia')}"  onclick="PF('ocorrenciaTipo').show();"/>
 						</div>
 						
-						<p:dialog id="aluno" closable="true" widgetVar="aluno" width="500" height="500">
+						<p:dialog id="aluno" closable="true" widgetVar="aluno" width="600" height="500">
 							<p:panelGrid styleClass="centralize noborder">
 								<p:row >
 									<p:column>
@@ -60,24 +60,31 @@
 							</p:panelGrid>
 							<p:dataTable value="#{relatorioBean.lstAluno}" var="lstALuno" id="relAlunoTable" rowKey="#{lstALuno.matricula}" selection="#{relatorioBean.alunoSelecionado}"
 									 selectionMode="single"	 paginator="true" paginatorPosition="bottom" rows="10">
-								<p:column>
+								<p:column width="250">
 									<f:facet name="header">
 										<h:outputText value="#{msg.nome}" />
 									</f:facet>
 									<h:outputText value="#{lstALuno.nome}"/>
 								</p:column>
 								
-								<p:column>
+								<p:column width="100">
 									<f:facet name="header">
 										<h:outputText value="#{msg.matricula}" />
 									</f:facet>
 									<h:outputText value="#{lstALuno.matricula}"/>
 								</p:column>
+								
+								<p:column width="100">
+									<f:facet name="header">
+										<h:outputText value="#{msg.turma}" />
+									</f:facet>
+									<h:outputText value="#{lstALuno.turma.descricao}"/>
+								</p:column>
 							</p:dataTable>
 							<p:commandButton value="#{msg.ok}" action="#{relatorioBean.geraRelatorio()}" ajax="false" />	
 						</p:dialog>
 						
-						<p:dialog id="alunoOcorrencia" closable="true" widgetVar="alunoOcorrencia" width="500" height="500">
+						<p:dialog id="alunoOcorrencia" closable="true" widgetVar="alunoOcorrencia" width="600" height="500">
 							<p:panelGrid styleClass="centralize noborder">
 								<p:row>
 									<p:column>
@@ -91,18 +98,25 @@
 							</p:panelGrid>
 							<p:dataTable value="#{relatorioBean.lstAluno}" var="lstALuno" id="relAlunoTableOcorrencia" rowKey="#{lstALuno.matricula}" selection="#{relatorioBean.aluno}"
 									 selectionMode="single"	 paginator="true" paginatorPosition="bottom" rows="10">
-								<p:column>
+								<p:column width="250">
 									<f:facet name="header">
 										<h:outputText value="#{msg.nome}" />
 									</f:facet>
 									<h:outputText value="#{lstALuno.nome}"/>
 								</p:column>
 								
-								<p:column>
+								<p:column width="100">
 									<f:facet name="header">
 										<h:outputText value="#{msg.matricula}" />
 									</f:facet>
 									<h:outputText value="#{lstALuno.matricula}"/>
+								</p:column>
+								
+								<p:column width="100">
+									<f:facet name="header">
+										<h:outputText value="#{msg.turma}" />
+									</f:facet>
+									<h:outputText value="#{lstALuno.turma.descricao}"/>
 								</p:column>
 							</p:dataTable>
 							<p:commandButton value="#{msg.ok}" action="#{relatorioBean.geraRelatorio()}" ajax="false" />	
