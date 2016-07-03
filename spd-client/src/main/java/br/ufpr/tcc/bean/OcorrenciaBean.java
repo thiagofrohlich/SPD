@@ -48,6 +48,7 @@ public class OcorrenciaBean {
 		alunoServiceHandler = new AlunoServiceHandlerImpl();
 		lstTipo = tipoOcorrenciaService.getAll().getList();
 		rb = ResourceBundle.getBundle("msg");
+		ocorrencia.setTipoOcorrencia(new TipoOcorrencia());
 	}
 	
 	public void buscaAluno(){
@@ -65,6 +66,7 @@ public class OcorrenciaBean {
 			ocorrencia.setAluno(aluno);
 			ocorrenciaServiceHandler.create(ocorrencia);
 			ocorrencia = new Ocorrencia();
+			ocorrencia.setTipoOcorrencia(new TipoOcorrencia());
 			aluno = new Aluno();
 			alunoFound = false;
 			nome = "";

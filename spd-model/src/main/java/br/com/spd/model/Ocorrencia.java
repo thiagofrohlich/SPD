@@ -12,6 +12,7 @@ public class Ocorrencia implements Serializable, Model {
 	private Date data;
 	private String descricao;
 	private Aluno aluno;
+	private TipoOcorrencia tipoOcorrencia;
 
 	public Ocorrencia() {
 	}
@@ -49,6 +50,16 @@ public class Ocorrencia implements Serializable, Model {
 
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+
+
+	public TipoOcorrencia getTipoOcorrencia() {
+		return tipoOcorrencia;
+	}
+
+
+	public void setTipoOcorrencia(TipoOcorrencia tipoOcorrencia) {
+		this.tipoOcorrencia = tipoOcorrencia;
 	}
 
 }
