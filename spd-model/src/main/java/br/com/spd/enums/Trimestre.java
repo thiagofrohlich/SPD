@@ -2,7 +2,7 @@ package br.com.spd.enums;
 
 public enum Trimestre {
 
-PRIMEIRO("Primeiro", "1"), SEGUNDO("Segundo", "2"), TERCEIRO("Terceiro", "3"), QUARTO("Quarto", "4");
+PRIMEIRO("Primeiro", "1"), SEGUNDO("Segundo", "2"), TERCEIRO("Terceiro", "3");
 	
 	private String descricao;
 	private String id;
