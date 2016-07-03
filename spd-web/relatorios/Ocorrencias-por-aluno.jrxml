@@ -9,14 +9,14 @@
 	<queryString>
 		<![CDATA[SELECT a.matricula, a.nome, o.descricao as odescricao, o.data, tp.descricao as tpdescricao, p.nome as professor
 FROM aluno a
-INNER JOIN turma t
-ON (a.id_turma = t.id)
+INNER JOIN turma_aluno ta
+ON (ta.aluno_id = a.matricula)
 INNER JOIN ocorrencia o
 ON (o.matricula = a.matricula)
 INNER JOIN tipo_ocorrencia tp
 ON (o.tipo_ocorrencia_id = tp.id_tipo_ocorrencia)
 INNER JOIN professor
-ON (professor.id_turma=t.id)
+ON (professor.id_turma=ta.turma_id)
 INNER JOIN pessoa p
 ON (p.codpessoa = professor.codpessoa)
 WHERE a.matricula = $P{alunoId}]]>

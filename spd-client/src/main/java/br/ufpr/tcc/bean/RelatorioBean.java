@@ -105,6 +105,9 @@ public class RelatorioBean {
 			bt = relatorioServiceHandler.getOcorrenciaAluno(aluno.getMatricula());
 			break;
 			
+		case "alunoTipoOcorrencia":
+			bt = relatorioServiceHandler.getAlunoTipoOcorrencia(tipoOcorrencia);
+			break;
 		default:
 			break;
 		}

@@ -66,6 +66,15 @@ public class RelatorioController {
 		return geraRelatorio(map, "\\Ocorrencias-por-turma.jrxml");
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/AlunoTipoOcorrencia/{tipo}", method=RequestMethod.GET)
+	public byte[] getOcorrenciaTipo(@PathVariable final Integer tipo) {
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("idTipoOcorrencia", new Long(tipo));
+		
+		return geraRelatorio(map, "\\Aluno-por-tipo-de-ocorrencia.jrxml");
+	}
 	
 	
 	@ResponseBody
