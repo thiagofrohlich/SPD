@@ -20,6 +20,7 @@ import br.com.spd.enums.Periodo;
 import br.com.spd.model.Aluno;
 import br.com.spd.model.Responsavel;
 import br.com.spd.model.Turma;
+import br.com.spd.wrapper.ResponsavelWrapper;
 import br.ufpr.tcc.service.CepHandler;
 import br.ufpr.tcc.service.handler.AlunoServiceHandler;
 import br.ufpr.tcc.service.handler.ResponsavelServiceHandler;
@@ -60,8 +61,7 @@ public class AlunoBean implements Serializable{
 	public void init(){
 		listAluno = new ArrayList<>();
 		alunoSelecionado = new Aluno();
-		aluno = new Aluno();
-		aluno.setTurma(new Turma());
+		limpaDados();
 		pai = new Responsavel();
 		mae = new Responsavel();
 		responsavel = new Responsavel();
@@ -106,8 +106,21 @@ public class AlunoBean implements Serializable{
 	
 	public void selecionaAluno(){
 		aluno = alunoSelecionado;
+		preenchePaiMae();
 		modalidadeValue = Modalidade.valueOfDescricao(aluno.getModalidade());
 		periodoValue = Periodo.valueOfDescricao(aluno.getPeriodo());
+	}
+
+	private void preenchePaiMae() {
+		ResponsavelWrapper responsavelWrapper = responsavelServiceHandler.findByAluno(aluno.getMatricula());
+		for(Responsavel responsavel : responsavelWrapper.getList()) {
+			if("Pai".equals(responsavel.getParentesco())) {
+				pai = responsavel;
+			}
+			if("Mãe".equals(responsavel.getParentesco())) {
+				mae = responsavel;
+			}
+		}
 	}
 	
 	public void verificaCpfPai(){
@@ -135,16 +148,26 @@ public class AlunoBean implements Serializable{
 			aluno.setPeriodo(Periodo.getName(periodoValue));
 			alunoServiceHandler.create(aluno);
 			pai.setAluno(aluno);
+			pai.setParentesco("Pai");
 			mae.setAluno(aluno);
+			mae.setParentesco("Mãe");
 			responsavelServiceHandler.create(mae);
 			responsavelServiceHandler.create(pai);
 			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_INFO, "", rb.getString("salvaAlunoSuccess")));
-			aluno = new Aluno();
-			aluno.setTurma(new Turma());
+			limpaDados();
 		}catch(Exception e){
 			e.printStackTrace();
 			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAlunoFailure")));
 		}
+	}
+
+	private void limpaDados() {
+		aluno = new Aluno();
+		aluno.setTurma(new Turma());
+		pai = new Responsavel();
+		mae = new Responsavel();
+		modalidadeValue = null;
+		periodoValue = null;
 	}
 
 	private Long geraMatricula() {
