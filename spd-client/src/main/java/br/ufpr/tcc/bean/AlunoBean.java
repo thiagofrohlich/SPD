@@ -106,6 +106,8 @@ public class AlunoBean implements Serializable{
 	
 	public void selecionaAluno(){
 		aluno = alunoSelecionado;
+		modalidadeValue = Modalidade.valueOfDescricao(aluno.getModalidade());
+		periodoValue = Periodo.valueOfDescricao(aluno.getPeriodo());
 	}
 	
 	public void verificaCpfPai(){
@@ -140,6 +142,7 @@ public class AlunoBean implements Serializable{
 			aluno = new Aluno();
 			aluno.setTurma(new Turma());
 		}catch(Exception e){
+			e.printStackTrace();
 			FacesContext.getCurrentInstance().addMessage("messageAluno", new FacesMessage(FacesMessage.SEVERITY_ERROR, "", rb.getString("salvaAlunoFailure")));
 		}
 	}

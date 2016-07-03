@@ -17,7 +17,7 @@
 			<div class="col-lg-12">
                     <h3 class="page-header">#{msg.cadastroAluno}</h3>
                 </div>
-                <h:form id="cadastro">
+                <h:form id="cadastro" >
                 	<div class="col-lg-12">
                 	<p:messages id="messageAluno" autoUpdate="true" showDetail="true" closable="true"/>
                 		<p:panelGrid  styleClass="noborder centralize">
@@ -448,7 +448,7 @@
 									</p:column>
 									
 									<p:column>
-										<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" action="#{alunoBean.salva()}"/>
+										<p:commandButton value="#{msg.salvar}" id="saveButton" ajax="false" action="#{alunoBean.salva()}" onclick="removeMask()"/>
 									</p:column>
 								</p:row>
                 			</p:panelGrid>
@@ -482,7 +482,7 @@
 							</p:column>
 							
 						</p:dataTable>						
-						<p:commandButton value="#{msg.ok}" action="#{alunoBean.selecionaAluno()}" ajax="true" update="@form" />
+						<p:commandButton value="#{msg.ok}" action="#{alunoBean.selecionaAluno()}" ajax="true" update="@form" oncomplete="setMask()" />
 						
 					</p:dialog>
 				</h:form>
@@ -492,7 +492,16 @@
 		</ui:define>
 		<ui:define name="script">
 			<script type="text/javascript">
+			function setMask() {
+				$('#cadastro\\:formCadastro\\:valor').maskMoney({thousands:'.', decimal:',', allowZero:true}); 
+			}
+			
+			function removeMask() {
+				var teste = $('#cadastro\\:formCadastro\\:valor').maskMoney('unmasked')[0];
+				$('#cadastro\\:formCadastro\\:valor').val(teste);
+			}
 			$(document).ready(function() {
+				
 
 				$('#cadastro\\:formCadastro\\:valor').maskMoney({thousands:'.', decimal:',', allowZero:true}); 
 				
@@ -547,8 +556,6 @@
 					
 					
 					if(msg == ''){
-						var teste = $('#cadastro\\:formCadastro\\:valor').maskMoney('unmasked')[0];
-						$('#cadastro\\:formCadastro\\:valor').val(teste);
 						return true;
 					}else{
 						alert(msg);

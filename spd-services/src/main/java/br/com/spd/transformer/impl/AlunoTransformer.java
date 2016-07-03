@@ -35,9 +35,11 @@ public class AlunoTransformer extends GenericTransformer {
 		super.transform(objectFrom, objectTo);
 		Aluno alunoDomain = (Aluno) objectFrom;
 		Turma turma = new Turma();
-		super.transform(alunoDomain.getTurmaAlunos().get(0).getTurma(), turma);
-		br.com.spd.model.Aluno alunoModel = (br.com.spd.model.Aluno) objectTo;
-		alunoModel.setTurma(turma);
+		if(alunoDomain.getTurmaAlunos() != null) {
+			super.transform(alunoDomain.getTurmaAlunos().get(0).getTurma(), turma);
+			br.com.spd.model.Aluno alunoModel = (br.com.spd.model.Aluno) objectTo;
+			alunoModel.setTurma(turma);
+		}
 	}
 
 	private boolean isDomain(Object objectFrom) {

@@ -28,4 +28,14 @@ MEIO_PERIODO("Meio Período", 1), INTERMEDIARIO("Intermediario", 2), INTEGRAL("I
 		}
 		return null;
 	}
+	
+	public static Integer valueOfDescricao(String key) {
+		for(Periodo periodo : Periodo.values()) {
+			if(periodo.getDescricao().equals(key)) {
+				return periodo.getId();
+			}
+		}
+		return null;
+	}
+
 }

@@ -47,6 +47,22 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 		</param-value>
 	</context-param>
  
+	 <!--CharsetFilter start--> 
+
+	  <filter>
+	    <filter-name>CharsetFilter</filter-name>
+	    <filter-class>br.ufpr.tcc.service.CharacterEncodingFilter</filter-class>
+	      <init-param>
+	        <param-name>encoding</param-name>
+	        <param-value>UTF-8</param-value>
+	      </init-param>
+	  </filter>
+	
+	  <filter-mapping>
+	    <filter-name>CharsetFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	  </filter-mapping>
+	
 	<!-- Spring Security -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
@@ -65,4 +81,5 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 	    <param-name>primefaces.THEME</param-name>  
 	    <param-value>bootstrap</param-value>  
 	</context-param>
+	
 </web-app>

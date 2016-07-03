@@ -28,5 +28,13 @@ BERCARIO("Berçário" , 1), PRE("Pré-escola", 2);
 		return null;
 	}
 
+	public static Integer valueOfDescricao(String key) {
+		for(Modalidade modalidade : Modalidade.values()) {
+			if(modalidade.getDescricao().equals(key)) {
+				return modalidade.getId();
+			}
+		}
+		return null;
+	}
 
 }
