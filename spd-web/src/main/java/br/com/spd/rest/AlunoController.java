@@ -23,7 +23,7 @@ import br.com.spd.domain.repository.AlunoRepository;
 import br.com.spd.domain.repository.TurmaAlunoRepository;
 import br.com.spd.exception.TransformerException;
 import br.com.spd.model.Turma;
-import br.com.spd.transformer.impl.GenericTransformer;
+import br.com.spd.transformer.impl.AlunoTransformer;
 import br.com.spd.wrapper.AlunoWrapper;
 
 @Controller
@@ -32,13 +32,13 @@ public class AlunoController {
 	
 	private final AlunoRepository alunoRepository;
 	private final TurmaAlunoRepository turmaAlunoRepository;
-	private final GenericTransformer transformer;
+	private final AlunoTransformer transformer;
 
 	@Autowired
 	public AlunoController(AlunoRepository alunoRepository, TurmaAlunoRepository turmaAlunoRepository) {
 		this.alunoRepository = alunoRepository;
 		this.turmaAlunoRepository = turmaAlunoRepository;
-		this.transformer = new GenericTransformer();
+		this.transformer = new AlunoTransformer();
 	}
 	
 	@ResponseBody
