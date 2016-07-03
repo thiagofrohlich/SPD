@@ -35,7 +35,7 @@
 							<p:commandButton value="#{msg.ocorrenciaAluno}" action="#{relatorioBean.fillRelatorio('alunoTipoOcorrencia')}"  onclick="PF('ocorrenciaTipo').show();"/>
 						</div>
 						
-						<p:dialog id="aluno" closable="true" widgetVar="aluno" width="600" height="500">
+						<p:dialog id="aluno" closable="true" widgetVar="aluno" width="700" height="500">
 							<p:panelGrid styleClass="centralize noborder">
 								<p:row >
 									<p:column>
@@ -80,11 +80,20 @@
 									</f:facet>
 									<h:outputText value="#{lstALuno.turma.descricao}"/>
 								</p:column>
+								
+								<p:column width="100">
+									<f:facet name="header">
+										<h:outputText value="#{msg.ano_letivo}" />
+									</f:facet>
+									<h:outputText value="#{lstALuno.anoletivo}">
+										<f:convertDateTime pattern="yyyy"/>
+									</h:outputText>
+								</p:column>
 							</p:dataTable>
 							<p:commandButton value="#{msg.ok}" action="#{relatorioBean.geraRelatorio()}" ajax="false" />	
 						</p:dialog>
 						
-						<p:dialog id="alunoOcorrencia" closable="true" widgetVar="alunoOcorrencia" width="600" height="500">
+						<p:dialog id="alunoOcorrencia" closable="true" widgetVar="alunoOcorrencia" width="700" height="500">
 							<p:panelGrid styleClass="centralize noborder">
 								<p:row>
 									<p:column>
@@ -117,6 +126,15 @@
 										<h:outputText value="#{msg.turma}" />
 									</f:facet>
 									<h:outputText value="#{lstALuno.turma.descricao}"/>
+								</p:column>
+								
+								<p:column width="100">
+									<f:facet name="header">
+										<h:outputText value="#{msg.ano_letivo}" />
+									</f:facet>
+									<h:outputText value="#{lstALuno.anoletivo}">
+										<f:convertDateTime pattern="yyyy"/>
+									</h:outputText>
 								</p:column>
 							</p:dataTable>
 							<p:commandButton value="#{msg.ok}" action="#{relatorioBean.geraRelatorio()}" ajax="false" />	
