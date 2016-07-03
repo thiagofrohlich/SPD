@@ -192,7 +192,7 @@
 									</p:column>
 									<p:column>
 										<p:inputText value="#{alunoBean.responsavel.parentesco}" />
-										<p:commandButton ajax="true" action="#{alunoBean.incluiResponsavel()}" value="incluir" update="cadastro:formCadastro:contato cadastro:formCadastro:Tcontato" />
+										<p:commandButton ajax="true" action="#{alunoBean.incluiResponsavel()}" value="incluir" update="cadastro:formCadastro:contato cadastro:formCadastro:Tcontato" process="cadastro:formCadastro:contato cadastro:formCadastro:Tcontato" />
 									</p:column>
 									
 								</p:row>
