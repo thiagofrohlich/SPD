@@ -58,7 +58,7 @@ public class ProfessorController {
 	@ResponseBody
 	@RequestMapping(value="/nome/{nome}", method=RequestMethod.GET)
 	public ProfessorWrapper getByNome(@PathVariable String nome) throws TransformerException {
-		List<Professor> result = professorRepository.findByPessoaNomeLike("%"+nome+"%");
+		List<Professor> result = professorRepository.findByPessoaNomeLikeIgnoreCase("%"+nome+"%");
 		ProfessorWrapper wrapper = new ProfessorWrapper();
 		wrapper.setList(new ArrayList<br.com.spd.model.Professor>(PageSize.DEFAULT));
 		

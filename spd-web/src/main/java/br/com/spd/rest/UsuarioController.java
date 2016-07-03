@@ -94,7 +94,7 @@ public class UsuarioController {
 	@ResponseBody
 	@RequestMapping(value="/loginlike/{login}", method=RequestMethod.GET)
 	public UsuarioWrapper getByLoginLike(@PathVariable String login) throws TransformerException {
-		List<Usuario> result = usuarioRepository.findByLoginLike("%"+login+"%");
+		List<Usuario> result = usuarioRepository.findByLoginLikeIgnoreCase("%"+login+"%");
 		UsuarioWrapper wrapper = new UsuarioWrapper();
 		wrapper.setList(new ArrayList<br.com.spd.model.Usuario>(PageSize.DEFAULT));
 		

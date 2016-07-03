@@ -12,6 +12,6 @@ public interface ProfessorRepository extends PagingAndSortingRepository<Professo
 
 	Professor findByPessoaCpf(String cpf);
 	
-	List<Professor> findByPessoaNomeLike(String nome);
+	List<Professor> findByPessoaNomeLikeIgnoreCase(String nome);
 	
 }

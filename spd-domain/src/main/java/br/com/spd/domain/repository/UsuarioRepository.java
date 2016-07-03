@@ -16,6 +16,6 @@ public interface UsuarioRepository extends PagingAndSortingRepository<Usuario, L
 	
 	Usuario findByLogin(String login);
 	
-	List<Usuario> findByLoginLike(String descricao);
+	List<Usuario> findByLoginLikeIgnoreCase(String descricao);
 
 }
