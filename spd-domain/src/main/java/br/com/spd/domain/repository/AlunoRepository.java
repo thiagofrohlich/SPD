@@ -13,6 +13,6 @@ import br.com.spd.domain.Aluno;
 public interface AlunoRepository extends PagingAndSortingRepository<Aluno, Long> {
 
 	@EntityGraph(value = "Aluno.turmas", type = EntityGraphType.LOAD)
-	List<Aluno> findByNomeLikeOrderByTurmaAlunosIdAnoDesc(String nome);
+	List<Aluno> findByNomeLikeIgnoreCaseOrderByTurmaAlunosIdAnoDesc(String nome);
 
 }

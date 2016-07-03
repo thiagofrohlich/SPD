@@ -70,7 +70,7 @@ public class AlunoController {
 	@ResponseBody
 	@RequestMapping(value="/nome/{nome}", method=RequestMethod.GET)
 	public AlunoWrapper getByNome(@PathVariable String nome) throws TransformerException {
-		List<Aluno> result = alunoRepository.findByNomeLikeOrderByTurmaAlunosIdAnoDesc("%"+nome+"%");
+		List<Aluno> result = alunoRepository.findByNomeLikeIgnoreCaseOrderByTurmaAlunosIdAnoDesc("%"+nome+"%");
 		AlunoWrapper wrapper = new AlunoWrapper();
 		wrapper.setList(new ArrayList<br.com.spd.model.Aluno>(PageSize.DEFAULT));
 		
