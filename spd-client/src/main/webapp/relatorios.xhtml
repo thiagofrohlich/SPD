@@ -26,13 +26,10 @@
 							<p:commandButton value="#{msg.avaliacaoAluno}" action="#{relatorioBean.fillRelatorio('avaliacaoAluno')}" onclick="PF('aluno').show();" />
 						</div>
 						<div class="col-lg-2">
-							<p:commandButton value="#{msg.avaliacaoOcorrencia}" action="#{relatorioBean.fillRelatorio('ocorrenciaAvaliacao')}"  onclick="PF('alunoOcorrencia').show();"/>
-						</div>
-						<div class="col-lg-2">
 							<p:commandButton value="#{msg.ocorrenciaAluno}" action="#{relatorioBean.fillRelatorio('ocorrenciaAluno')}"  onclick="PF('alunoOcorrencia').show();"/>
 						</div>
-						<div class="col-lg-2">
-							<p:commandButton value="#{msg.ocorrenciaAluno}" action="#{relatorioBean.fillRelatorio('alunoTipoOcorrencia')}"  onclick="PF('ocorrenciaTipo').show();"/>
+						<div class="col-lg-3">
+							<p:commandButton value="#{msg.ocorrenciaTipo}" action="#{relatorioBean.fillRelatorio('alunoTipoOcorrencia')}"  onclick="PF('ocorrenciaTipo').show();"/>
 						</div>
 						
 						<p:dialog id="aluno" closable="true" widgetVar="aluno" width="700" height="500">
